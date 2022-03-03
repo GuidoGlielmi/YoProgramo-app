@@ -1,10 +1,20 @@
 # YoProgramoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.  
+
+To see a live app, follow the link: [YoProgramo app](https://yoprogramoapp.web.app)
+
+## Instalation
+
+To have this up and running, install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  
+
+Once npm instalation is done, set up necessary packages:  
+
+`npm install -g @angular/cli`
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
