@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.imgSmall {
+  width: 5vw;
+}
+.imgMedium {
+  width: 10vw;
+}
+.rowContainer {
+  display: flex;
+  align-items: center;
+}
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.marginSmall {
+  margin: 1vw;
+}
+.marginMedium {
+  margin: 2vw;
+}
+.marginLarge {
+  margin: 4vw;
+}
+.marginXLarge {
+  margin: 6vw;
+}
+
+@media (max-width: 450px) {
+  .marginSmall {
+    margin: 2.5vw;
+  }
+  .marginMedium {
+    margin: 4vw;
+  }
+  .marginLarge {
+    margin: 6vw;
+  }
+  .marginXLarge {
+    margin: 7vw;
+  }
+  .imgSmall {
+    width: 7vw;
+  }
+  .imgMedium {
+    width: 12vw;
+  }
+}
