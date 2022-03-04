@@ -13,6 +13,9 @@ body {
   /*   text-shadow: 0.2px 0.2px rgb(0, 0, 0);
  */
 }
+.altFontColor {
+  color: rgb(238, 238, 238);
+}
 .fontSmall {
   font-size: large;
 }
@@ -23,10 +26,10 @@ body {
   font-size: xx-large;
 }
 .imgSmall {
-  width: 3vw;
+  width: 6vw;
 }
 .imgMedium {
-  width: 7vw;
+  width: 10vw;
 }
 .rowContainer {
   display: flex;
@@ -57,24 +60,30 @@ body {
 .marginXLarge {
   margin: 6vw;
 }
+.paddingSmall {
+  padding: 1vw;
+}
+.paddingMedium {
+  padding: 2vw;
+}
+.paddingLarge {
+  padding: 4vw;
+}
+.paddingXLarge {
+  padding: 6vw;
+}
 
 @media (max-width: 450px) {
   .marginSmall {
-    margin: 2.5vw;
+    margin: 2vh;
   }
   .marginMedium {
-    margin: 4vw;
+    margin: 3.5vh;
   }
   .marginLarge {
-    margin: 6vw;
+    margin: 5vh;
   }
   .marginXLarge {
-    margin: 7vw;
-  }
-  .imgSmall {
-    width: 6vw;
-  }
-  .imgMedium {
-    width: 10vw;
+    margin: 6vh;
   }
 }
