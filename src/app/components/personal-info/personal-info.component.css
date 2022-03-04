@@ -1,0 +1,19 @@
+.personalInfoContainer {
+  /*   background-image: linear-gradient(rgb(5, 11, 19), 30%, rgba(19, 17, 26, 0));
+ */
+}
+.description {
+  font-weight: 500;
+}
+.personalInfo {
+  margin: 0 auto;
+  width: 60%;
+  padding: 8vw 0;
+}
+.profileImg {
+  width: 12vw;
+  border-radius: 50%;
+}
+.description {
+  text-align: center;
+}
