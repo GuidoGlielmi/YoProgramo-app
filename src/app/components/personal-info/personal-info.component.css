@@ -1,19 +1,40 @@
-.personalInfoContainer {
-  /*   background-image: linear-gradient(rgb(5, 11, 19), 30%, rgba(19, 17, 26, 0));
- */
-}
 .description {
   font-weight: 500;
 }
 .personalInfo {
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   width: 60%;
-  padding: 8vw 0;
+  padding: 8vw 0 4vw 0;
+  /*   border-bottom: 0.5px solid rgb(7, 0, 20);
+ */
 }
 .profileImg {
   width: 12vw;
+  margin-right: 3vw;
   border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px #08001e;
 }
 .description {
+  text-align: justify;
+  padding: 0.5vw;
+}
+.aboutMeTitle {
+  width: 100%;
   text-align: center;
+  border-bottom: 0.5px solid rgb(7, 0, 20);
+}
+@media (max-width: 450px) {
+  .personalInfo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 0;
+  }
+  .profileImg {
+    width: 12vh;
+    border-radius: 50%;
+  }
+  .aboutMe {
+    text-align: center;
+  }
 }
