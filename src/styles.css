@@ -1,8 +1,7 @@
-body {
-  /*   background-color: rgb(222, 222, 222);
- */
+/* body {
+  background-color: rgb(222, 222, 222);
   background-image: linear-gradient(rgb(222, 222, 222), 80%, rgb(13, 9, 27));
-}
+} */
 * {
   margin: 0;
   padding: 0;
@@ -49,41 +48,35 @@ body {
   justify-content: space-evenly;
 }
 .marginSmall {
-  margin: 1vw;
+  margin: max(1vw, 5px);
 }
 .marginMedium {
-  margin: 2vw;
+  margin: max(2vw, 10px);
 }
 .marginLarge {
-  margin: 4vw;
+  margin: max(4vw, 20px);
 }
 .marginXLarge {
-  margin: 6vw;
+  margin: max(6vw, 40px);
 }
 .paddingSmall {
-  padding: 1vw;
+  padding: max(1vw, 5px);
 }
 .paddingMedium {
-  padding: 2vw;
+  padding: max(2vw, 10px);
 }
 .paddingLarge {
-  padding: 4vw;
+  padding: max(4vw, 20px);
 }
 .paddingXLarge {
-  padding: 6vw;
+  padding: max(6vw, 40px);
 }
 
 @media (max-width: 450px) {
   .marginSmall {
-    margin: 2vh;
+    margin: max(2vh, 5px);
   }
   .marginMedium {
-    margin: 3.5vh;
-  }
-  .marginLarge {
-    margin: 5vh;
-  }
-  .marginXLarge {
-    margin: 6vh;
+    margin: max(3.5vh, 10px);
   }
 }
