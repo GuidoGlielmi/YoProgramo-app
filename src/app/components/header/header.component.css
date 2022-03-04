@@ -1,19 +1,15 @@
-.nav {
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  left: 0;
-  background: #12397e;
-  box-shadow: 0px -10px 20px 1px #363636;
+.header {
+  height: 70vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(0, 0, 0, 0)),
+    url("../../../assets/img/banner3.jpg");
+  background-size: 100% 100%;
+  align-items: flex-end;
+  text-shadow: 0.8px 0.8px rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px 1px #363636;
 }
-.social {
-  padding: 0 10px;
-}
-.APimg {
-  width: 15vw;
-}
-@media (max-width: 400px) {
-  .APimg {
-    width: 18vw;
-  }
+.bannerTitle {
+  font-size: xx-large;
+  color: rgb(218, 218, 218);
+  font-family: Comfortaa;
+  text-shadow: inherit;
 }
