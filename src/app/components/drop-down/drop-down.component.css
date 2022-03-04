@@ -1,0 +1,29 @@
+.dropDown {
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+.dropDownLeftSide {
+  position: absolute;
+  height: 5px;
+  width: 17px;
+  transform: rotate(45deg);
+  transform-origin: top left;
+  border-radius: 2px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0 0.8px rgb(0, 0, 0);
+}
+.dropDownRightSide {
+  position: absolute;
+  height: 5px;
+  width: 17px;
+  transform: rotate(-45deg);
+  transform-origin: top right;
+  border-radius: 2px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0 0.8px rgb(0, 0, 0);
+}

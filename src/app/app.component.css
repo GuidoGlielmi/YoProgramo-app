@@ -1,3 +1,18 @@
+.section {
+  padding: 10vh 0 0;
+  background-image: linear-gradient(
+    rgba(82, 82, 82, 0.3),
+    80%,
+    rgba(15, 3, 48, 0.8)
+  );
+  box-shadow: 0px 0px 8px 1px #363636;
+  border-radius: 0 0 40px 40px;
+}
+.personalInfo {
+  width: 60%;
+  padding-bottom: 20vh;
+}
+
 .navContainer {
   align-items: initial;
   position: sticky;
@@ -84,5 +99,13 @@
   }
   .socialIcon {
     width: 4vh;
+  }
+}
+@media (max-width: 1200px) {
+  .personalInfo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 0;
   }
 }

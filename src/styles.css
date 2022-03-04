@@ -47,6 +47,9 @@
 .spaceAround {
   justify-content: space-evenly;
 }
+.justifyCenter {
+  justify-content: center;
+}
 .marginSmall {
   margin: max(1vw, 5px);
 }
