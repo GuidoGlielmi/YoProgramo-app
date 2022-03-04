@@ -1,0 +1,26 @@
+.nav {
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #203e74;
+  box-shadow: 0px -10px 20px 1px #363636;
+}
+.social {
+  padding: 0 10px;
+}
+.APimg {
+  width: 8vw;
+}
+.yoProgramo {
+  color: rgb(238, 238, 238);
+  font-size: 1.6vw;
+}
+@media (max-width: 450px) {
+  .APimg {
+    width: 12vw;
+  }
+  .yoProgramo {
+    font-size: 2.5vw;
+  }
+}

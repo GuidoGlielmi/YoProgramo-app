@@ -1,14 +1,14 @@
 # YoProgramoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.  
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
 
 To see a live app, follow the link: [YoProgramo app](https://yoprogramoapp.web.app)
 
 ## Instalation
 
-To have this up and running, install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  
+To have this up and running, install [Node.js](https://nodejs.org/en/download/) to use [npm](https://docs.npmjs.com/getting-started)
 
-Once npm instalation is done, set up necessary packages:  
+Once Node.js instalation is done, set up necessary packages:
 
 `npm install -g @angular/cli`
 

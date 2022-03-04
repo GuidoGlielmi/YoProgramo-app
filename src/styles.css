@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  /*   background-color: rgb(222, 222, 222);
+ */
+  background-image: linear-gradient(rgb(222, 222, 222), 80%, rgb(13, 9, 27));
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  color: rgb(43, 43, 43);
+  text-decoration: none;
+  /*   text-shadow: 0.2px 0.2px rgb(0, 0, 0);
+ */
+}
+.fontSmall {
+  font-size: large;
+}
+.fontMedium {
+  font-size: x-large;
+}
+.fontLarge {
+  font-size: xx-large;
+}
+.imgSmall {
+  width: 3vw;
+}
+.imgMedium {
+  width: 7vw;
+}
+.rowContainer {
+  display: flex;
+  align-items: center;
+}
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flexStart {
+  justify-content: flex-start;
+  align-self: flex-start;
+  align-items: flex-start;
+}
+.spaceAround {
+  justify-content: space-evenly;
+}
+.marginSmall {
+  margin: 1vw;
+}
+.marginMedium {
+  margin: 2vw;
+}
+.marginLarge {
+  margin: 4vw;
+}
+.marginXLarge {
+  margin: 6vw;
+}
+
+@media (max-width: 450px) {
+  .marginSmall {
+    margin: 2.5vw;
+  }
+  .marginMedium {
+    margin: 4vw;
+  }
+  .marginLarge {
+    margin: 6vw;
+  }
+  .marginXLarge {
+    margin: 7vw;
+  }
+  .imgSmall {
+    width: 6vw;
+  }
+  .imgMedium {
+    width: 10vw;
+  }
+}
