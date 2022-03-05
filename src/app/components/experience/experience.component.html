@@ -1,1 +1,15 @@
-<div class="experienceBackground"></div>
+<div #exp class="experiences rowContainer" (wheel)="onWheel($event)">
+  <div
+    class="experience rowContainer justifyCenter marginMedium paddingSmall"
+    *ngFor="let e of experiences"
+  >
+    <div class="logoContainer rowContainer">
+      <img class="logo marginSmall" [src]="e.logoUrl" alt="logo" />
+    </div>
+    <div class="expDescr columnContainer marginSmall justifyCenter">
+      <p>{{ e.startDate }}</p>
+      <p>{{ e.endDate }}</p>
+      <p>{{ e.description }}</p>
+    </div>
+  </div>
+</div>

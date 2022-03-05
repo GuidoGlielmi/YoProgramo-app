@@ -1,0 +1,20 @@
+.pink {
+  padding: 10vh 0 0;
+  background-image: linear-gradient(
+    rgba(81, 59, 82, 0.3),
+    80%,
+    rgba(19, 12, 39, 0.8)
+  );
+  box-shadow: 0px 0px 8px 1px #363636;
+  border-radius: 0 0 40px 40px;
+}
+.blue {
+  padding: 10vh 0 0;
+  background-image: linear-gradient(
+    rgba(61, 60, 88, 0.3),
+    80%,
+    rgba(8, 8, 34, 0.8)
+  );
+  box-shadow: 0px 0px 8px 1px #363636;
+  border-radius: 0 0 40px 40px;
+}

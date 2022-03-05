@@ -8,6 +8,7 @@ import { PersonalInfoComponent } from './components/personal-info/personal-info.
 import { ExperienceComponent } from './components/experience/experience.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { SectionComponent } from './components/section/section.component';
+import { ExperienceItemComponent } from './components/experience-item/experience-item.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SectionComponent } from './components/section/section.component';
     ExperienceComponent,
     DropDownComponent,
     SectionComponent,
+    ExperienceItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

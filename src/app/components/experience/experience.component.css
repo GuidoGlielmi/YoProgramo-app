@@ -1,12 +1,25 @@
-.experienceBackground {
-  height: 400px;
+.experiences {
+  overflow: auto;
+  width: 100vw;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  overscroll-behavior-block: contain;
+}
+.experiences::-webkit-scrollbar {
+  display: none;
+}
+.experience {
+  flex-shrink: 0;
+  width: 35vw;
+  height: 35vw;
+  border: 1px black solid;
+}
+.expDescr {
+  text-align: center;
+}
+.logoContainer {
+  width: 50%;
+}
+.logo {
   width: 100%;
-  /*  background-image: linear-gradient(
-    rgba(82, 82, 82, 0.3),
-    80%,
-    rgb(13, 9, 27, 0.8)
-  );
- */
-  /*   border-top: 0.5px solid rgb(55, 52, 75);
- */
 }

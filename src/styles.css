@@ -2,6 +2,13 @@
   background-color: rgb(222, 222, 222);
   background-image: linear-gradient(rgb(222, 222, 222), 80%, rgb(13, 9, 27));
 } */
+html {
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
 * {
   margin: 0;
   padding: 0;
