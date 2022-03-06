@@ -1,3 +1,8 @@
+.personalInfo {
+  align-self: flex-start;
+  width: 60%;
+  padding-bottom: 3vh;
+}
 .description {
   font-weight: 500;
 }
@@ -14,6 +19,49 @@
   width: 100%;
   text-align: center;
   border-bottom: 0.5px solid rgb(7, 0, 20);
+}
+.techImagesTitleBox {
+  justify-content: space-between;
+}
+.techImagesTitle {
+  align-self: flex-end;
+  margin: 0 1vw;
+  max-width: 35vw;
+  line-height: 15vh;
+}
+.techLine {
+  width: 60vw;
+  margin-left: 2vw;
+  color: #363636;
+}
+/* .techImagesTitleBox {
+  position: relative;
+  justify-content: space-between;
+}
+.techImagesTitle {
+  margin: 0 2vw 1vw 0;
+  max-width: 35vw;
+  font-size: 2vw;
+}
+.techLine {
+  position: absolute;
+  top: -1.5vh;
+  width: 60vw;
+  margin-left: 2vw;
+  color: #363636;
+} */
+.techImages {
+  overflow: auto;
+  width: 100vw;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  overscroll-behavior-block: contain;
+}
+.techImage {
+  flex-shrink: 0;
+  width: 10vw;
+  border-radius: 50% 20% / 10% 40%;
+  box-shadow: 0px 0px 5px 0px #08001e;
 }
 @media (max-width: 1200px) {
   .profileImg {

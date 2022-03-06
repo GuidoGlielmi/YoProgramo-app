@@ -34,11 +34,10 @@ export class ExperienceComponent implements OnInit {
   @ViewChild('exp') experienceNode: any;
   private screenHeight: number = 0;
   private screenWidth: number = 0;
-  constructor() {
+
+  ngOnInit(): void {
     this.onResize();
   }
-
-  ngOnInit(): void {}
   @HostListener('window:resize', ['$event'])
   onResize(event?: any) {
     this.screenHeight = window.innerHeight;

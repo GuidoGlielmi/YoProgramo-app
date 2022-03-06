@@ -1,8 +1,12 @@
-<div #exp class="experiences rowContainer" (wheel)="onWheel($event)">
-  <div
-    class="experience rowContainer justifyCenter marginMedium paddingSmall"
-    *ngFor="let e of experiences"
-  >
+<div
+  [class]="
+    i % 2 === 0
+      ? 'experienceRightBottom paddingLarge'
+      : 'experienceLeftTop paddingLarge'
+  "
+  *ngFor="let e of experiences; let i = index"
+>
+  <div class="rowContainer">
     <div class="logoContainer rowContainer">
       <img class="logo marginSmall" [src]="e.logoUrl" alt="logo" />
     </div>
