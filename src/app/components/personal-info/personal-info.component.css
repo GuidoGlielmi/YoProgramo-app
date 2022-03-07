@@ -1,7 +1,7 @@
 .personalInfo {
   align-self: flex-start;
   width: 60%;
-  padding-bottom: 3vh;
+  padding: 0 0 20vh 5vw;
 }
 .description {
   font-weight: 500;
@@ -19,7 +19,7 @@
   text-align: center;
   border-bottom: 0.5px solid rgb(7, 0, 20);
 }
-.techImagesTitleBox {
+/* .techImagesTitleBox {
   justify-content: space-between;
 }
 .techImagesTitle {
@@ -32,8 +32,8 @@
   width: 60vw;
   margin-left: 2vw;
   color: #363636;
-}
-/* .techImagesTitleBox {
+} */
+.techImagesTitleBox {
   position: relative;
   justify-content: space-between;
 }
@@ -48,7 +48,7 @@
   width: 60vw;
   margin-left: 2vw;
   color: #363636;
-} */
+}
 .techImages {
   overflow: auto;
   width: 100vw;

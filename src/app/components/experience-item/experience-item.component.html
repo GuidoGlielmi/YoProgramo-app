@@ -1,1 +1,14 @@
-<p>experience-item works!</p>
+<div class="rowContainer">
+  <img class="logo marginSmall" [src]="experience.logoUrl" alt="logo" />
+</div>
+<div class="expDescr columnContainer marginSmall justifyCenter">
+  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
+    {{ experience.startDate }}
+  </p>
+  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
+    {{ experience.endDate }}
+  </p>
+  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
+    {{ experience.description }}
+  </p>
+</div>

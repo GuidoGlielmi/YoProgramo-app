@@ -13,3 +13,11 @@
   font-family: Comfortaa;
   text-shadow: inherit;
 }
+.profileImg {
+  position: absolute;
+  max-width: 20vw;
+  top: 60vh;
+  right: 10vw;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px #08001e;
+}

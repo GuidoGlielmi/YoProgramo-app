@@ -8,7 +8,9 @@
   "
   *ngFor="let e of experiences; let i = index"
 >
-  <div
+  <app-experience-item
+    [index]="i"
+    [experience]="e"
     [class]="
       i === 0
         ? 'firstExperienceRight rowContainer'
@@ -17,19 +19,5 @@
         : 'experienceLeft rowContainer'
     "
   >
-    <div class="logoContainer rowContainer">
-      <img class="logo marginSmall" [src]="e.logoUrl" alt="logo" />
-    </div>
-    <div class="expDescr columnContainer marginSmall justifyCenter">
-      <p class="p fontMedium" [class]="i % 2 === 0 ? 'darkFont' : 'lightFont'">
-        {{ e.startDate }}
-      </p>
-      <p class="p fontMedium" [class]="i % 2 === 0 ? 'darkFont' : 'lightFont'">
-        {{ e.endDate }}
-      </p>
-      <p class="p fontMedium" [class]="i % 2 === 0 ? 'darkFont' : 'lightFont'">
-        {{ e.description }}
-      </p>
-    </div>
-  </div>
+  </app-experience-item>
 </div>
