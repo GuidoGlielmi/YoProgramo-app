@@ -18,3 +18,11 @@
   box-shadow: 0px 0px 8px 1px #363636;
   border-radius: 0 0 40px 40px;
 }
+@media (max-width: 850px) {
+  .pink {
+    padding-top: 35vh;
+  }
+  .blue {
+    padding-top: 35vh;
+  }
+}

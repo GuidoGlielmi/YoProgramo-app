@@ -8,7 +8,7 @@
 .personalInfo {
   align-self: flex-start;
   width: 60%;
-  padding: 0 0 25vh 5vw;
+  padding: 0 0 20vh 5vw;
 }
 .description {
   font-weight: 500;
@@ -27,34 +27,21 @@
   width: 100%;
   text-align: center;
 }
-/* .techImagesTitleBox {
-  justify-content: space-between;
-}
-.techImagesTitle {
-  align-self: flex-end;
-  margin: 0 1vw;
-  max-width: 35vw;
-  line-height: 15vh;
-}
-.techLine {
-  width: 60vw;
-  margin-left: 2vw;
-  color: #363636;
-} */
+
 .techImagesTitleBox {
   position: relative;
-  justify-content: space-between;
+  align-self: flex-end;
+  margin: 0 25vw 2vh 0;
 }
 .techImagesTitle {
-  margin: 0 2vw 1vw 0;
+  margin: 2vh 25vw 0 0;
   max-width: 35vw;
-  font-size: 2vw;
 }
 .techLine {
   position: absolute;
-  top: -1.5vh;
+  top: 0;
+  left: 2vw;
   width: 60vw;
-  margin-left: 2vw;
   color: #363636;
 }
 .techImages {
@@ -79,3 +66,50 @@
     text-align: center;
   }
 }
+@media (max-width: 850px) {
+  .profileImg {
+    width: 25vw;
+  }
+  .techImagesTitleBox {
+    margin: 0 7vw 2vh 0;
+  }
+  .techImage {
+    width: 25%;
+  }
+}
+@media (max-width: 450px) {
+  .profileImg {
+    width: 12vh;
+    border-radius: 50%;
+  }
+  .personalInfo {
+    width: 100%;
+    padding: 0 5vw 20vh 5vw;
+  }
+  .personalInfoLine {
+    width: 60vw;
+  }
+  .aboutMe {
+    text-align: center;
+  }
+  .description {
+    font-size: small;
+  }
+  .techImage {
+    width: 60%;
+  }
+}
+/* .techImagesTitleBox {
+  justify-content: space-between;
+}
+.techImagesTitle {
+  align-self: flex-end;
+  margin: 0 1vw;
+  max-width: 35vw;
+  line-height: 15vh;
+}
+.techLine {
+  width: 60vw;
+  margin-left: 2vw;
+  color: #363636;
+} */

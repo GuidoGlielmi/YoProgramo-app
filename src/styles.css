@@ -91,4 +91,13 @@ body::-webkit-scrollbar {
   .marginMedium {
     margin: max(3.5vh, 10px);
   }
+  .fontSmall {
+    font-size: small;
+  }
+  .fontMedium {
+    font-size: large;
+  }
+  .fontLarge {
+    font-size: x-large;
+  }
 }

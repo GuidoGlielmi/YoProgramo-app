@@ -1,10 +1,10 @@
-body {
-  background-color: #dfdfdf;
-}
 .personalInfo {
   position: relative;
   width: 100vw;
 }
+/* .experiences {
+  padding-top: 4vw;
+} */
 .navContainer {
   align-items: initial;
   position: sticky;
@@ -98,7 +98,6 @@ body {
   .personalInfo {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     flex-basis: 0;
   }
 }

@@ -8,6 +8,12 @@
   "
   *ngFor="let e of experiences; let i = index"
 >
+  <div *ngIf="i === 0" class="projectsImagesTitleBox rowContainer">
+    <hr class="projectsLine" />
+    <p class="projectsImagesTitle darkFont fontMedium">
+      Projects i've been working on
+    </p>
+  </div>
   <app-experience-item
     [index]="i"
     [experience]="e"

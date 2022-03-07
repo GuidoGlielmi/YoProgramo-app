@@ -1,13 +1,33 @@
+.projectsImagesTitleBox {
+  position: relative;
+  align-self: end;
+  margin-bottom: 5vw;
+  width: 45vw;
+  right: 7vw;
+}
+.projectsImagesTitle {
+  margin: 2vh 12vw 1vw 0;
+  max-width: 35vw;
+}
+.projectsLine {
+  position: absolute;
+  top: 0;
+  width: 105%;
+  color: #363636;
+  left: 1vw;
+}
 .firstRight {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  height: 120vh;
-  padding-top: 10vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  height: 150vh;
+  padding-top: 15vh;
   background-image: linear-gradient(
     10deg,
-    rgba(19, 12, 39, 0.8) 50%,
-    rgba(228, 228, 228, 0.1) 50.2%
+    rgba(19, 12, 39, 0.8) 37%,
+    rgba(129, 129, 129, 0.1) 37.2%
   );
   text-shadow: 0px 0px 1px #131313;
 }
@@ -15,6 +35,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+  width: 100%;
   height: 75vh;
   background-image: linear-gradient(
     10deg,
@@ -28,6 +49,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
   height: 75vh;
   background-image: linear-gradient(
     -10deg,
