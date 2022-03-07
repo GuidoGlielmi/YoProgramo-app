@@ -1,19 +1,35 @@
 <div
   [class]="
-    i % 2 === 0
-      ? 'experienceRightBottom paddingLarge'
-      : 'experienceLeftTop paddingLarge'
+    i === 0
+      ? 'rowContainer firstRight'
+      : i % 2 === 0
+      ? 'right paddingLarge'
+      : 'left paddingLarge'
   "
   *ngFor="let e of experiences; let i = index"
 >
-  <div class="rowContainer">
+  <div
+    [class]="
+      i === 0
+        ? 'firstExperienceRight rowContainer'
+        : i % 2 === 0
+        ? 'experienceRight rowContainer'
+        : 'experienceLeft rowContainer'
+    "
+  >
     <div class="logoContainer rowContainer">
       <img class="logo marginSmall" [src]="e.logoUrl" alt="logo" />
     </div>
     <div class="expDescr columnContainer marginSmall justifyCenter">
-      <p>{{ e.startDate }}</p>
-      <p>{{ e.endDate }}</p>
-      <p>{{ e.description }}</p>
+      <p class="p fontMedium" [class]="i % 2 === 0 ? 'darkFont' : 'lightFont'">
+        {{ e.startDate }}
+      </p>
+      <p class="p fontMedium" [class]="i % 2 === 0 ? 'darkFont' : 'lightFont'">
+        {{ e.endDate }}
+      </p>
+      <p class="p fontMedium" [class]="i % 2 === 0 ? 'darkFont' : 'lightFont'">
+        {{ e.description }}
+      </p>
     </div>
   </div>
 </div>

@@ -14,12 +14,14 @@ body::-webkit-scrollbar {
   padding: 0;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
-  color: rgb(43, 43, 43);
-  text-decoration: none;
-  /*   text-shadow: 0.2px 0.2px rgb(0, 0, 0);
+  /*   color: rgb(43, 43, 43);
  */
+  text-decoration: none;
 }
-.altFontColor {
+.darkFont {
+  color: rgb(43, 43, 43);
+}
+.lightFont {
   color: rgb(238, 238, 238);
 }
 .fontSmall {
