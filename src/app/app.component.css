@@ -2,6 +2,7 @@ body {
   background-color: #dfdfdf;
 }
 .personalInfo {
+  position: relative;
   width: 100vw;
 }
 .navContainer {

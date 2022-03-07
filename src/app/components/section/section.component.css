@@ -1,5 +1,5 @@
 .pink {
-  padding: 10vh 0 0;
+  padding: 15vh 0 0;
   background-image: linear-gradient(
     rgba(81, 59, 82, 0.3),
     80%,
@@ -9,7 +9,7 @@
   border-radius: 0 0 40px 40px;
 }
 .blue {
-  padding: 10vh 0 0;
+  padding: 15vh 0 0;
   background-image: linear-gradient(
     rgba(61, 60, 88, 0.3),
     80%,

@@ -1,10 +1,18 @@
+.personalInfoLine {
+  position: absolute;
+  top: 0;
+  left: 4vw;
+  width: 36vw;
+  color: #363636;
+}
 .personalInfo {
   align-self: flex-start;
   width: 60%;
-  padding: 0 0 20vh 5vw;
+  padding: 0 0 25vh 5vw;
 }
 .description {
   font-weight: 500;
+  font-size: larger;
   text-align: center;
 }
 .profileImg {
@@ -15,9 +23,9 @@
 }
 
 .aboutMeTitle {
+  padding: 1vh 0 5vh;
   width: 100%;
   text-align: center;
-  border-bottom: 0.5px solid rgb(7, 0, 20);
 }
 /* .techImagesTitleBox {
   justify-content: space-between;
