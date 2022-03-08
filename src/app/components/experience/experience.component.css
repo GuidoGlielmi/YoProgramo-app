@@ -75,6 +75,10 @@
   top: -30vh;
 }
 @media (max-width: 850px) {
+  .projectsImagesTitle::before {
+    left: 1vw;
+    width: 95%;
+  }
   .firstRight {
     min-height: 100vh;
   }
@@ -89,5 +93,10 @@
   }
   .experienceLeft {
     top: -12vh;
+  }
+}
+@media (max-width: 450px) {
+  .projectsImagesTitle {
+    width: 90%;
   }
 }
