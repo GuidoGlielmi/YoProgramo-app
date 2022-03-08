@@ -6,14 +6,16 @@
   right: 7vw;
 }
 .projectsImagesTitle {
+  align-self: flex-start;
   position: relative;
   margin-bottom: 1vw;
   width: 60vw;
+  text-align: end;
 }
 .projectsImagesTitle::before {
   content: "";
   position: absolute;
-  left: 1vw;
+  left: -1vw;
   width: 100%;
   border-top: 3px solid #363636;
   top: -2vh;
