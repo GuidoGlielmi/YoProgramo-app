@@ -1,0 +1,26 @@
+<div
+  [class]="
+    i === 0
+      ? 'rowContainer firstRight paddingLarge'
+      : i % 2 === 0
+      ? 'right paddingLarge'
+      : 'left paddingLarge'
+  "
+  *ngFor="let e of experiences; let i = index"
+>
+  <p *ngIf="i === 0" class="projectsImagesTitle darkFont fontLarge">
+    Projects i've been working on
+  </p>
+  <app-experience-item
+    [index]="i"
+    [experience]="e"
+    [class]="
+      i === 0
+        ? 'firstExperienceRight rowContainer'
+        : i % 2 === 0
+        ? 'experienceRight rowContainer'
+        : 'experienceLeft rowContainer'
+    "
+  >
+  </app-experience-item>
+</div>

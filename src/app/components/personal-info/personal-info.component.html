@@ -1,19 +1,24 @@
-<div class="personalInfoBackground">
-  <div class="personalInfo rowContainer spaceAround">
-    <img class="profileImg" src="../../../assets/img/profile-img.jpg" alt="" />
-    <div class="aboutMe columnContainer">
-      <p class="aboutMeTitle fontMedium paddingMedium">I'm a web developer</p>
-      <p class="description paddingSmall">
-        I discovered -not so long ago-, the programming world through
-        microntrollers using the legendary C language, which from I developed a
-        passion for automating and problem solving.
-      </p>
-      <p class="description paddingSmall">
-        I now use technologies from React and Angular, through Node.js and
-        Spring Boot, to MongoDB and PostgreSQL. If you have a moment, invite you
-        to look at some of my projects displayed here, and i hope you find it
-        interesting.
-      </p>
-    </div>
+<div class="personalInfo columnContainer">
+  <p class="aboutMeTitle darkFont fontLarge">I'm a web developer</p>
+  <p class="description darkFont paddingSmall fontMedium">
+    I discovered -not so long ago- the programming world through microntrollers
+    using the legendary C language, which from I developed a passion for
+    automating and problem solving.
+  </p>
+</div>
+<div class="columnContainer">
+  <p class="techImagesTitle darkFont fontLarge">
+    Some technologies I am familiar with
+  </p>
+  <div
+    #techImagesNode
+    class="techImages rowContainer paddingMedium"
+    (wheel)="onWheel($event)"
+  >
+    <img
+      *ngFor="let img of techImages"
+      [src]="img"
+      class="techImage paddingMedium marginSmall"
+    />
   </div>
 </div>

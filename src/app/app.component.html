@@ -12,7 +12,7 @@
           alt="argentina programa logo"
       /></a>
       <a
-        class="yoProgramo altFontColor"
+        class="yoProgramo lightFont"
         href="http://www.yoprogramo.org.ar/"
         target="_blank"
         rel="noreferrer"
@@ -61,12 +61,12 @@
           alt="linkedin logo"
       /></a>
     </div>
-    <div class="dropDown rowContainer">
-      <div class="dropDownLeftSide"></div>
-      <div class="dropDownRightSide"></div>
-    </div>
+    <app-drop-down></app-drop-down>
   </div>
 </div>
 <app-header></app-header>
-<app-personal-info></app-personal-info>
+<app-section color="pink">
+  <app-personal-info class="personalInfo columnContainer"></app-personal-info>
+</app-section>
+<app-experience class="experiences columnContainer"></app-experience>
 <router-outlet></router-outlet>

@@ -1,15 +1,49 @@
 .header {
+  display: flex;
+  flex-direction: column;
   height: 70vh;
   background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(0, 0, 0, 0)),
     url("../../../assets/img/banner3.jpg");
   background-size: 100% 100%;
-  align-items: flex-end;
+  justify-content: flex-end;
   text-shadow: 0.8px 0.8px rgb(0, 0, 0);
   box-shadow: 0px 0px 10px 1px #363636;
 }
 .bannerTitle {
+  text-align: center;
   font-size: xx-large;
   color: rgb(218, 218, 218);
   font-family: Comfortaa;
   text-shadow: inherit;
+}
+.imgAndTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.profileImg {
+  position: relative;
+  max-width: 20vw;
+  top: 23vh;
+  right: 10vw;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 0px #08001e;
+}
+@media (max-width: 850px) {
+  .header {
+    align-items: center;
+  }
+  .imgAndTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 15vh;
+  }
+  .profileImg {
+    max-width: 30vh;
+    right: 0;
+    top: 0;
+  }
 }

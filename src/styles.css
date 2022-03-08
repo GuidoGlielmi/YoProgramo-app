@@ -1,18 +1,26 @@
-/* body {
-  background-color: rgb(222, 222, 222);
-  background-image: linear-gradient(rgb(222, 222, 222), 80%, rgb(13, 9, 27));
-} */
+html {
+  scrollbar-width: none;
+}
+body {
+  background: rgba(204, 204, 204, 0.3);
+}
+body::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
-  color: rgb(43, 43, 43);
-  text-decoration: none;
-  /*   text-shadow: 0.2px 0.2px rgb(0, 0, 0);
+  /*   color: rgb(43, 43, 43);
  */
+  text-decoration: none;
 }
-.altFontColor {
+.darkFont {
+  color: rgb(43, 43, 43);
+}
+.lightFont {
   color: rgb(238, 238, 238);
 }
 .fontSmall {
@@ -47,6 +55,9 @@
 .spaceAround {
   justify-content: space-evenly;
 }
+.justifyCenter {
+  justify-content: center;
+}
 .marginSmall {
   margin: max(1vw, 5px);
 }
@@ -78,5 +89,14 @@
   }
   .marginMedium {
     margin: max(3.5vh, 10px);
+  }
+  .fontSmall {
+    font-size: small;
+  }
+  .fontMedium {
+    font-size: large;
+  }
+  .fontLarge {
+    font-size: x-large;
   }
 }

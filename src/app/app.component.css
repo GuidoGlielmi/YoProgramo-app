@@ -1,8 +1,16 @@
+.personalInfo {
+  position: relative;
+  width: 100vw;
+}
+/* .experiences {
+  padding-top: 4vw;
+} */
 .navContainer {
   align-items: initial;
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 1;
   background: #203e74;
   box-shadow: 0px -10px 30px 1px #363636;
 }
@@ -84,5 +92,12 @@
   }
   .socialIcon {
     width: 4vh;
+  }
+}
+@media (max-width: 1200px) {
+  .personalInfo {
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 0;
   }
 }
