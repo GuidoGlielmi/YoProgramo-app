@@ -6,15 +6,17 @@
   right: 7vw;
 }
 .projectsImagesTitle {
-  margin: 2vh 12vw 1vw 0;
-  max-width: 35vw;
+  position: relative;
+  margin-bottom: 1vw;
+  width: 60vw;
 }
-.projectsLine {
+.projectsImagesTitle::before {
+  content: "";
   position: absolute;
-  top: 0;
-  width: 115%;
-  color: #363636;
   left: 1vw;
+  width: 100%;
+  border-top: 3px solid #363636;
+  top: -2vh;
 }
 .firstRight {
   display: flex;

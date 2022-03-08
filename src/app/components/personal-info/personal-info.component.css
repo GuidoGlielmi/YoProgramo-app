@@ -3,24 +3,32 @@
   width: 100%;
 }
 .aboutMeTitle {
-  margin: 2vh 0 5vh;
+  margin: 2vh 0 4vh;
   width: 100%;
   text-align: center;
 }
-.aboutMeLine {
+.aboutMeTitle::before {
+  content: "";
+  position: absolute;
+  left: 0vw;
+  width: 62%;
+  border-top: 3px solid #363636;
+  top: 0vh;
+}
+/* .aboutMeLine {
   position: absolute;
   left: -2vw;
   width: 66%;
   color: #363636;
-}
+} */
 .personalInfo {
   align-self: flex-start;
+  position: relative;
   width: 60%;
-  padding: 0 0 20vh 5vw;
+  margin: 0 0 20vh 5vw;
 }
 .description {
   font-weight: 500;
-  font-size: larger;
   text-align: center;
 }
 .profileImg {
@@ -33,7 +41,8 @@
 .techImagesTitleBox {
   position: relative;
   align-self: flex-end;
-  margin: 0 11vw 2vh 0;
+  margin-bottom: 2vh;
+  width: 70%;
 }
 .techImagesTitle {
   margin: 2vh 25vw 0 0;
@@ -45,6 +54,14 @@
   left: 2vw;
   width: 60vw;
   color: #363636;
+}
+.techImagesTitle::before {
+  content: "";
+  position: absolute;
+  left: 1vw;
+  width: 91%;
+  border-top: 3px solid #363636;
+  top: 0vh;
 }
 .techImages {
   overflow: auto;
@@ -59,32 +76,28 @@
   border-radius: 150% 100% / 10% 40%;
   box-shadow: 0px 0px 5px 0px #08001e;
 }
-@media (max-width: 1200px) {
-  .profileImg {
-    width: 12vh;
-    border-radius: 50%;
-  }
-  .aboutMe {
-    text-align: center;
-  }
-}
+
 @media (max-width: 850px) {
   .personalInfo {
-    padding: 0 5vw 10vh 5vw;
-  }
-  .aboutMeLine {
-    width: 74%;
-    right: 0;
+    align-self: flex-end;
+    margin: 0 13vw 15vh 5vw;
   }
   .aboutMeTitle {
-    margin: 1vh 0 3vh;
+    margin-top: 1vh;
+  }
+  .aboutMeTitle::before {
+    width: 66%;
+    left: 3vw;
   }
   .description {
-    text-align: left;
+    text-align: right;
   }
   .techImagesTitle {
     margin-top: 1vh;
     max-width: 35vw;
+  }
+  .techImagesTitle::before {
+    width: 100%;
   }
   .profileImg {
     width: 25vw;
@@ -103,9 +116,6 @@
   }
   .personalInfo {
     width: 100%;
-  }
-  .personalInfoLine {
-    width: 60vw;
   }
   .aboutMe {
     text-align: center;
