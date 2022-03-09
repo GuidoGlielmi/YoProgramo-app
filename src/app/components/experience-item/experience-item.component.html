@@ -1,5 +1,10 @@
 <div class="rowContainer">
-  <img class="logo marginSmall" [src]="experience.logoUrl" alt="logo" />
+  <img
+    class="logo marginSmall"
+    [class]="experience.title === 'Taller Corazón de Manzana' ? 'rounded' : ''"
+    [src]="experience.logoUrl"
+    alt="logo"
+  />
 </div>
 <div class="expDescr columnContainer marginSmall justifyCenter">
   <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">

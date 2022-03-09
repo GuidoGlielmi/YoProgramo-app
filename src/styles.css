@@ -82,13 +82,41 @@ body::-webkit-scrollbar {
 .paddingXLarge {
   padding: max(6vw, 40px);
 }
-
+.alignRight {
+  align-self: flex-end;
+}
+.alignLeft {
+  align-self: flex-start;
+}
+.rounded {
+  border-radius: 50%;
+}
+@media (max-width: 850px) {
+  .marginSmall {
+    margin: max(3vh, 5px);
+  }
+  .marginMedium {
+    margin: max(5vh, 10px);
+  }
+  .paddingSmall {
+    padding: max(3vh, 10px);
+  }
+  .paddingMedium {
+    padding: max(5vh, 10px);
+  }
+}
 @media (max-width: 450px) {
   .marginSmall {
     margin: max(2vh, 5px);
   }
   .marginMedium {
-    margin: max(3.5vh, 10px);
+    margin: max(4vh, 10px);
+  }
+  .paddingSmall {
+    padding: max(2vh, 10px);
+  }
+  .paddingMedium {
+    padding: max(4vh, 10px);
   }
   .fontSmall {
     font-size: small;

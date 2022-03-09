@@ -1,0 +1,27 @@
+.logoBox {
+  position: relative;
+}
+.logo {
+  position: relative;
+  width: 20vw;
+}
+.p {
+  text-align: center;
+}
+@media (max-width: 850px) {
+}
+@media (max-width: 450px) {
+  .logo {
+    width: 80%;
+  }
+}
+
+/*
+.logoBox::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 10vh;
+  border-right: 2px solid #363636;
+  top: 16.5%;
+} */

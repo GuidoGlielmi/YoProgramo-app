@@ -10,49 +10,22 @@ export class ExperienceComponent implements OnInit {
       logoUrl: '../../assets/logos/RRLogo.png',
       startDate: '09/2021',
       endDate: '01/2022',
+      title: 'Tuvieja',
       description: 'Tremendos negreros',
     },
     {
       logoUrl: '../../assets/logos/APLogo.png',
+      title: 'Tuvieja',
       startDate: '11/2021',
       endDate: '05/2022',
       description: 'Aguante Cristina',
     },
     {
-      logoUrl: '../../assets/logos/RRLogo.png',
+      logoUrl: '../../assets/logos/TCDM-logo.jpg',
+      title: 'Taller Corazón de Manzana',
       startDate: '09/2021',
       endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
+      description: 'Casitas',
     },
   ];
   @ViewChild('exp') experienceNode: any;
@@ -74,9 +47,10 @@ export class ExperienceComponent implements OnInit {
       this.experienceNode.nativeElement.scrollLeft -= this.screenWidth * 0.39;
   }
 }
-interface experience {
+export interface experience {
   logoUrl: string;
   startDate: string;
   endDate: string;
+  title: string;
   description: string;
 }

@@ -1,0 +1,15 @@
+<p class="title darkFont fontLarge">My education</p>
+<div class="columnContainer educations">
+  <app-education-item
+    *ngFor="let e of education; let i = index"
+    [index]="i"
+    [educationItem]="e"
+    class="marginMedium paddingMedium educationItem"
+    [class]="
+      i % 2 === 0
+        ? 'educationItemLeft alignLeft'
+        : 'educationItemRight alignRight'
+    "
+  >
+  </app-education-item>
+</div>
