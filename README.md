@@ -11,6 +11,7 @@ To have this up and running, install [Node.js](https://nodejs.org/en/download/) 
 Once Node.js instalation is done, set up necessary packages:
 
 `npm install -g @angular/cli`
+`npm install -g @angular/cli@latest`
 
 ## Development server
 

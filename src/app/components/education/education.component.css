@@ -1,0 +1,12 @@
+.title {
+  margin-bottom: 7vh;
+}
+.educations {
+  width: 100%;
+}
+.educationItem {
+  margin: 5vw;
+  padding: 5vh;
+  box-shadow: 0px 0px 10px 0px #08001e;
+  background-color: rgba(19, 12, 39, 0.8);
+}

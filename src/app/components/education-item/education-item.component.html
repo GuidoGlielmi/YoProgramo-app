@@ -1,1 +1,12 @@
-<p>education-item works!</p>
+<img class="logo marginSmall" [src]="educationItem.logoUrl" alt="logo" />
+<div class="expDescr columnContainer marginSmall justifyCenter">
+  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
+    {{ educationItem.title }}
+  </p>
+  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
+    {{ educationItem.startDate }}
+  </p>
+  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
+    {{ educationItem.endDate }}
+  </p>
+</div>

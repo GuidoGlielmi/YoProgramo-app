@@ -82,7 +82,12 @@ body::-webkit-scrollbar {
 .paddingXLarge {
   padding: max(6vw, 40px);
 }
-
+.alignRight {
+  align-self: flex-end;
+}
+.alignLeft {
+  align-self: flex-start;
+}
 @media (max-width: 450px) {
   .marginSmall {
     margin: max(2vh, 5px);

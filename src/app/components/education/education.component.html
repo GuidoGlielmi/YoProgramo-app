@@ -1,1 +1,11 @@
-<p>education works!</p>
+<p class="title darkFont fontLarge">Education</p>
+<div class="columnContainer educations">
+  <app-education-item
+    *ngFor="let e of education; let i = index"
+    [index]="i"
+    [educationItem]="e"
+    class="educationItem rowContainer"
+    [class]="i % 2 === 0 ? 'alignLeft' : 'alignRight'"
+  >
+  </app-education-item>
+</div>

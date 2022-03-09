@@ -24,36 +24,6 @@ export class ExperienceComponent implements OnInit {
       endDate: '01/2022',
       description: 'Tremendos negreros',
     },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Tremendos negreros',
-    },
   ];
   @ViewChild('exp') experienceNode: any;
   private screenHeight: number = 0;
@@ -74,7 +44,7 @@ export class ExperienceComponent implements OnInit {
       this.experienceNode.nativeElement.scrollLeft -= this.screenWidth * 0.39;
   }
 }
-interface experience {
+export interface experience {
   logoUrl: string;
   startDate: string;
   endDate: string;

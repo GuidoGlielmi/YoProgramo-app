@@ -5,13 +5,16 @@
 /* .experiences {
   padding-top: 4vw;
 } */
+.education {
+  width: 100%;
+}
 .navContainer {
   align-items: initial;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 1;
-  background: #203e74;
+  background: rgb(77, 24, 130);
   box-shadow: 0px -10px 30px 1px #363636;
 }
 .nav {
