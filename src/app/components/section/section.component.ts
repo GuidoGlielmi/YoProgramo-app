@@ -6,10 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./section.component.css'],
 })
 export class SectionComponent implements OnInit {
-  @Input() color: string = '';
+  @Input() color = '';
+  @Input() boxShadow = 'shadowSmall';
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.color);
-  }
+  ngOnInit(): void {}
 }

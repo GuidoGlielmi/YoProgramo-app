@@ -8,22 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class EducationComponent implements OnInit {
   public education: education[] = [
     {
-      logoUrl: '../../assets/logos/TCDM-logo.jpg',
-      title: 'Tremendos negreros',
-      startDate: '09/2021',
-      endDate: '01/2022',
-    },
-    {
       logoUrl: '../../assets/logos/fhya-logo.png',
-      title: 'Tremendos negreros',
-      startDate: '09/2021',
-      endDate: '01/2022',
+      school: 'Escuela de Música - Facultad de Humanidades y Artes',
+      title: 'Sound and Recording Technician',
+      startDate: '09/2016',
+      endDate: '11/2019',
     },
     {
       logoUrl: '../../assets/logos/IPS-UNR-logo.png',
-      title: 'Tremendos negreros',
-      startDate: '09/2021',
-      endDate: '01/2022',
+      school: 'Instituto Politécnico Superior',
+      title: 'Techinician in Electronic Systems',
+      startDate: '04/2021',
+      endDate: 'Current',
     },
   ];
   constructor() {}
@@ -32,6 +28,7 @@ export class EducationComponent implements OnInit {
 }
 export interface education {
   logoUrl: string;
+  school: string;
   title: string;
   startDate: string;
   endDate: string;

@@ -1,12 +1,15 @@
 .personalInfo {
   position: relative;
   width: 100vw;
+  padding-top: 26vh;
 }
+
 /* .experiences {
   padding-top: 4vw;
 } */
 .education {
   width: 100%;
+  padding: 10vh 0 10vh 0;
 }
 .navContainer {
   align-items: initial;
@@ -14,7 +17,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  background: rgb(77, 24, 130);
+  background: rgb(93, 56, 130);
   box-shadow: 0px -10px 30px 1px #363636;
 }
 .nav {
