@@ -1,5 +1,7 @@
-<img class="logo marginSmall" [src]="educationItem.logoUrl" alt="logo" />
-<div class="expDescr columnContainer marginSmall justifyCenter">
+<div class="logoBox">
+  <img class="logo marginSmall" [src]="educationItem.logoUrl" alt="logo" />
+</div>
+<div class="educationItemDescr columnContainer marginSmall justifyCenter">
   <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
     {{ educationItem.title }}
   </p>

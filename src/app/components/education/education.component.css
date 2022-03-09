@@ -1,12 +1,41 @@
 .title {
+  position: relative;
   margin-bottom: 7vh;
+  align-self: flex-end;
+  width: 60%;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  left: 1vw;
+  width: 91%;
+  border-top: 3px solid #363636;
+  top: -1.5vh;
 }
 .educations {
   width: 100%;
 }
-.educationItem {
-  margin: 5vw;
-  padding: 5vh;
-  box-shadow: 0px 0px 10px 0px #08001e;
-  background-color: rgba(19, 12, 39, 0.8);
+.educationItemLeft,
+.educationItemRight {
+  position: relative;
+  padding: 8vh;
+  margin: 5vh;
+}
+.educationItemLeft::before {
+  content: "";
+  position: absolute;
+  left: 7vw;
+  width: 121%;
+  border-bottom: 2px solid #363636;
+  bottom: 0;
+  border-image: linear-gradient(to right, #363636, rgba(0, 0, 0, 0)) 0 0 1%;
+}
+.educationItemRight::before {
+  content: "";
+  position: absolute;
+  right: 7vw;
+  width: 121%;
+  border-bottom: 2px solid #363636;
+  bottom: 0;
+  border-image: linear-gradient(to left, #363636, rgba(0, 0, 0, 0)) 0 0 1%;
 }

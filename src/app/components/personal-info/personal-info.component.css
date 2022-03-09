@@ -18,12 +18,12 @@
 .personalInfo {
   align-self: flex-start;
   position: relative;
-  width: 60%;
+  width: 50%;
   margin: 0 0 20vh 5vw;
 }
 .description {
   font-weight: 500;
-  text-align: center;
+  text-align: left;
 }
 .profileImg {
   width: 12vw;

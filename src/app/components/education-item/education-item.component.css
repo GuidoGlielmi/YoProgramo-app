@@ -1,3 +1,16 @@
-.logo {
-  width: 20vw;
+.logoBox {
+  position: relative;
 }
+.logo {
+  position: relative;
+  width: 15vw;
+}
+/*
+.logoBox::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 10vh;
+  border-right: 2px solid #363636;
+  top: 16.5%;
+} */
