@@ -1,0 +1,28 @@
+<input
+  [(ngModel)]="percentage"
+  (ngModelChange)="onChange()"
+  type="number"
+  step="5"
+  min="0"
+  max="100"
+  type="number"
+  name="setPercentage"
+  id="setPercentage"
+/>
+<svg
+  class="progress-ring"
+  [attr.width]="diameter + 'vw'"
+  [attr.height]="diameter + 'vw'"
+>
+  <circle
+    class="circle"
+    [attr.stroke]="color"
+    [attr.stroke-width]="strokeWidth + 'vw'"
+    fill="transparent"
+    [attr.r]="radius + 'vw'"
+    [attr.cx]="cxy + 'vw'"
+    [attr.cy]="cxy + 'vw'"
+    [attr.stroke-dasharray]="circumference + 'px'"
+    [attr.stroke-dashoffset]="offset + 'px'"
+  />
+</svg>

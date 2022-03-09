@@ -1,0 +1,6 @@
+.progress-ring {
+  transform: rotate(-90deg) scale(1, -1);
+}
+.circle {
+  transition: stroke-dashoffset 0.5s ease;
+}
