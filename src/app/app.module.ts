@@ -15,6 +15,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ProgressRingComponent } from './components/progress-ring/progress-ring.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectsComponent } from './components/projects/projects.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EducationItemComponent,
     SkillsComponent,
     ProgressRingComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
