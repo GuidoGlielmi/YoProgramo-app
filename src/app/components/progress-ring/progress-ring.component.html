@@ -1,0 +1,68 @@
+<input
+  class="marginSmall"
+  [(ngModel)]="percentage"
+  (ngModelChange)="onChange()"
+  type="number"
+  step="5"
+  min="0"
+  max="100"
+  type="number"
+  name="setPercentage"
+  id="setPercentage"
+/>
+<div *ngIf="screenWidth > 850" class="circleBox rowContainer">
+  <p class="percentage fontMedium">{{ percentage }}%</p>
+  <svg
+    class="circleContainer marginSmall"
+    [attr.width]="diameter + 'vw'"
+    [attr.height]="diameter + 'vw'"
+  >
+    <circle
+      class="circleBackground"
+      [attr.stroke-width]="strokeWidth + 'vw'"
+      fill="transparent"
+      [attr.r]="radius + 'vw'"
+      [attr.cx]="cxy + 'vw'"
+      [attr.cy]="cxy + 'vw'"
+    />
+    <circle
+      class="circle"
+      [attr.stroke]="color"
+      [attr.stroke-width]="strokeWidth + 'vw'"
+      fill="transparent"
+      [attr.r]="radius + 'vw'"
+      [attr.cx]="cxy + 'vw'"
+      [attr.cy]="cxy + 'vw'"
+      [attr.stroke-dasharray]="circumference + 'px'"
+      [attr.stroke-dashoffset]="offset + 'px'"
+    />
+  </svg>
+</div>
+<div *ngIf="screenWidth < 850" class="circleBox rowContainer">
+  <p class="percentage">{{ percentage }}%</p>
+  <svg
+    class="circleContainer marginSmall"
+    [attr.width]="diameter + 'vh'"
+    [attr.height]="diameter + 'vh'"
+  >
+    <circle
+      class="circleBackground"
+      [attr.stroke-width]="strokeWidth + 'vh'"
+      fill="transparent"
+      [attr.r]="radius + 'vh'"
+      [attr.cx]="cxy + 'vh'"
+      [attr.cy]="cxy + 'vh'"
+    />
+    <circle
+      class="circle"
+      [attr.stroke]="color"
+      [attr.stroke-width]="strokeWidth + 'vh'"
+      fill="transparent"
+      [attr.r]="radius + 'vh'"
+      [attr.cx]="cxy + 'vh'"
+      [attr.cy]="cxy + 'vh'"
+      [attr.stroke-dasharray]="circumference + 'px'"
+      [attr.stroke-dashoffset]="offset + 'px'"
+    />
+  </svg>
+</div>

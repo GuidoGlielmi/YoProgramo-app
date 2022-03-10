@@ -1,0 +1,44 @@
+.title {
+  align-self: flex-start;
+  position: relative;
+  margin-bottom: 1vw;
+  width: 60vw;
+  text-align: end;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  left: 4vw;
+  width: 91%;
+  border-top: 3px solid #363636;
+  top: -2vh;
+}
+.languages {
+  align-self: flex-end;
+  position: relative;
+  margin-bottom: 1vw;
+  width: 60vw;
+  text-align: start;
+}
+.languages::before {
+  content: "";
+  position: absolute;
+  right: 4vw;
+  width: 91%;
+  border-top: 3px solid #363636;
+  top: -2vh;
+}
+.skillsContainer {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.circleContainer {
+  transform: rotate(-90deg) scale(1, -1);
+}
+.circle {
+  transition: stroke-dashoffset 0.5s ease;
+}
+@media (max-width: 450px) {
+}
+@media (max-width: 1200px) {
+}

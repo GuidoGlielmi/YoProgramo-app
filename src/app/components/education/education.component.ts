@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./education.component.css'],
 })
 export class EducationComponent implements OnInit {
-  public education: education[] = [
+  education: education[] = [
     {
       logoUrl: '../../assets/logos/fhya-logo.png',
       school: 'Escuela de Música - Facultad de Humanidades y Artes',

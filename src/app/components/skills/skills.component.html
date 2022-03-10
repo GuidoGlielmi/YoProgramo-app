@@ -1,0 +1,22 @@
+<p class="title fontLarge">Soft skills</p>
+<div class="skillsContainer rowContainer">
+  <div *ngFor="let skill of skills" class="marginMedium columnContainer">
+    <p>{{ skill.title }}</p>
+    <app-progress-ring
+      class="columnContainer"
+      [radius]="size"
+      [percentage]="skill.ability"
+    ></app-progress-ring>
+  </div>
+</div>
+<p class="languages fontLarge">Languages</p>
+<div class="skillsContainer rowContainer">
+  <div *ngFor="let language of languages" class="marginMedium columnContainer">
+    <p>{{ language.title }}</p>
+    <app-progress-ring
+      class="columnContainer"
+      [radius]="size"
+      [percentage]="language.ability"
+    ></app-progress-ring>
+  </div>
+</div>
