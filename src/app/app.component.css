@@ -11,6 +11,11 @@
   width: 100%;
   padding: 10vh 0 10vh 0;
 }
+.skills {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10vh 0 10vh 0;
+}
 .navContainer {
   align-items: initial;
   position: sticky;

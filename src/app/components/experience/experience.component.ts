@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -28,24 +28,8 @@ export class ExperienceComponent implements OnInit {
       description: 'Casitas',
     },
   ];
-  @ViewChild('exp') experienceNode: any;
-  private screenHeight: number = 0;
-  private screenWidth: number = 0;
 
-  ngOnInit(): void {
-    this.onResize();
-  }
-  @HostListener('window:resize', ['$event'])
-  onResize(event?: any) {
-    this.screenHeight = window.innerHeight;
-    this.screenWidth = window.innerWidth;
-  }
-  onWheel(event: WheelEvent): void {
-    if (event.deltaY > 0)
-      this.experienceNode.nativeElement.scrollLeft += this.screenWidth * 0.39;
-    else
-      this.experienceNode.nativeElement.scrollLeft -= this.screenWidth * 0.39;
-  }
+  ngOnInit(): void {}
 }
 export interface experience {
   logoUrl: string;

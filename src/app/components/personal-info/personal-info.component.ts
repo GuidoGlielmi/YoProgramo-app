@@ -27,8 +27,8 @@ export class PersonalInfoComponent implements OnInit {
   constructor() {
     this.onResize();
   }
-  @HostListener('window:resize', ['$event'])
-  onResize(event?: any) {
+  @HostListener('window:resize')
+  onResize() {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
   }
