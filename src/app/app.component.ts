@@ -1,20 +1,34 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import {
+  trigger,
+  state,
+  transition,
+  animate,
+  style,
+} from '@angular/animations';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('rotateSocialArrow', [
+      state('notShown', style({ transform: 'rotate(0)' })),
+      state('shown', style({ transform: 'rotate(-180deg)' })),
+      transition('shown <=> notShown', animate('400ms ease-out')),
+    ]),
+    trigger('hideSocialIcons', [
+      state('notShown', style({ height: 0 })),
+      state('shown', style({ height: '5vh' })),
+      transition('shown <=> notShown', animate('400ms ease-out')),
+    ]),
+  ],
 })
 export class AppComponent {
   title = 'YoProgramo-app';
-  @ViewChild('socialOnCell') socialOnCell: any;
-
-  showSocialOnCell = false;
-  toggleSocialOnCell() {
-    if (this.showSocialOnCell) {
-      this.socialOnCell.nativeElement.style.height = '5vh';
-    } else this.socialOnCell.nativeElement.style.height = 0;
-    this.showSocialOnCell = !this.showSocialOnCell;
+  socialState = 'notShown';
+  showSocial() {
+    this.socialState = this.socialState === 'notShown' ? 'shown' : 'notShown';
   }
 }
 /*
