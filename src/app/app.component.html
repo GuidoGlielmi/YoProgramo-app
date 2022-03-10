@@ -41,11 +41,11 @@
     </div>
   </nav>
   <div class="dropDownBox columnContainer">
-    <div class="socialOnCell rowContainer">
+    <div #socialOnCell class="socialOnCell rowContainer">
       <a
         href="https://github.com/GuidoGlielmi"
         target="_blank"
-        class="marginSmall"
+        class="socialMediaLinkOnCell marginSmall"
         ><img
           class="socialIcon"
           src="../../../assets/logos/GitHub-Mark-Light-64px.png"
@@ -54,14 +54,14 @@
       <a
         href="https://www.linkedin.com/in/guido-glielmi/"
         target="_blank"
-        class="marginSmall"
+        class="socialMediaLinkOnCell marginSmall"
         ><img
           class="socialIcon"
           src="../../../assets/logos/icons8-linkedin-64.png"
           alt="linkedin logo"
       /></a>
     </div>
-    <app-drop-down></app-drop-down>
+    <app-drop-down (click)="toggleSocialOnCell()"></app-drop-down>
   </div>
 </div>
 <app-header></app-header>
