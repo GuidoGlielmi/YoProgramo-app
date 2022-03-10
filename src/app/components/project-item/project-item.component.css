@@ -3,10 +3,11 @@
 }
 .logo {
   position: relative;
-  width: 20vw;
+  width: 15vw;
 }
 .p {
   text-align: center;
+  text-shadow: 0px 0px 1px #131313;
 }
 @media (max-width: 650px) {
 }
@@ -15,13 +16,3 @@
     width: 80%;
   }
 }
-
-/*
-.logoBox::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  height: 10vh;
-  border-right: 2px solid #363636;
-  top: 16.5%;
-} */

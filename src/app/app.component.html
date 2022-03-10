@@ -41,7 +41,7 @@
     </div>
   </nav>
   <div class="dropDownBox columnContainer">
-    <div #socialOnCell class="socialOnCell rowContainer">
+    <div [@hideSocialIcons]="socialState" class="socialOnCell rowContainer">
       <a
         href="https://github.com/GuidoGlielmi"
         target="_blank"
@@ -61,7 +61,9 @@
           alt="linkedin logo"
       /></a>
     </div>
-    <app-drop-down (click)="toggleSocialOnCell()"></app-drop-down>
+    <div [@rotateSocialArrow]="socialState" (click)="showSocial()">
+      <app-drop-down></app-drop-down>
+    </div>
   </div>
 </div>
 <app-header></app-header>
@@ -72,5 +74,9 @@
 <app-section color="pink" boxShadow="shadowLarge">
   <app-education class="education columnContainer"></app-education>
 </app-section>
-<app-skills [size]="8" class="skills columnContainer"></app-skills>
+<div class="skillsAndProjects">
+  <app-skills [size]="8" class="skills columnContainer"></app-skills>
+  <app-projects class="education columnContainer"></app-projects>
+</div>
+
 <router-outlet></router-outlet>

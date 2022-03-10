@@ -1,0 +1,12 @@
+<img class="logo marginSmall" [src]="projectItem.logoUrl" alt="logo" />
+<div class="columnContainer marginSmall justifyCenter">
+  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
+    {{ projectItem.title }}
+  </p>
+  <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
+    {{ projectItem.startDate }}
+  </p>
+  <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
+    {{ projectItem.endDate }}
+  </p>
+</div>

@@ -1,0 +1,13 @@
+<p class="title darkFont fontLarge">Projects i've worked on</p>
+<div class="columnContainer projects">
+  <app-project-item
+    *ngFor="let p of projects; let i = index"
+    [index]="i"
+    [projectItem]="p"
+    class="marginMedium paddingMedium projectItem"
+    [class]="
+      i % 2 === 0 ? 'projectItemLeft alignLeft' : 'projectItemRight alignRight'
+    "
+  >
+  </app-project-item>
+</div>
