@@ -1,0 +1,73 @@
+.title {
+  position: relative;
+  margin-bottom: 7vh;
+  align-self: flex-end;
+  width: 60%;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  left: 1vw;
+  width: 91%;
+  border-top: 3px solid #363636;
+  top: -1.5vh;
+}
+.projects {
+  width: 100%;
+}
+.projectItem {
+  display: flex;
+}
+.projectItemLeft,
+.projectItemRight {
+  position: relative;
+}
+.projectItemLeft::before {
+  content: "";
+  position: absolute;
+  left: 7vw;
+  width: 121%;
+  border-bottom: 2px solid #363636;
+  bottom: 0;
+  border-image: linear-gradient(to right, #202020, rgba(0, 0, 0, 0)) 0 0 1%;
+}
+.projectItemRight::before {
+  content: "";
+  position: absolute;
+  right: 7vw;
+  width: 121%;
+  border-bottom: 2px solid #363636;
+  bottom: 0;
+  border-image: linear-gradient(to left, #202020, rgba(0, 0, 0, 0)) 0 0 1%;
+}
+@media (max-width: 850px) {
+  .projectItemRight::before {
+    right: 2vw;
+    width: 100%;
+  }
+  .projectItemLeft::before {
+    left: 2vw;
+    width: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .title {
+    width: 92%;
+  }
+  .title::before {
+    left: 4vw;
+    width: 88%;
+  }
+  .projectItem {
+    flex-direction: column;
+    align-items: center;
+  }
+  .projectItemRight::before {
+    right: 2vw;
+    width: 100%;
+  }
+  .projectItemLeft::before {
+    left: 2vw;
+    width: 100%;
+  }
+}

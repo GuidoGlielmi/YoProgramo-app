@@ -5,10 +5,11 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
   styleUrls: ['./progress-ring.component.css'],
 })
 export class ProgressRingComponent implements OnInit {
-  @Input() color = '#385c60';
+  @Input() color = 'rgb(123, 189, 174)';
   @Input() percentage = 100;
   @Input() radius = 7;
   @Input() strokeWidth = this.radius / 2;
+  vwh = '';
   cxy = 0;
   diameter = 0;
   circumference = 0;
@@ -22,22 +23,28 @@ export class ProgressRingComponent implements OnInit {
   onResize() {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
-    this.screenWidth > 850
-      ? (this.circumference =
-          this.screenWidth * (this.radius / 100) * 2 * Math.PI)
-      : (this.circumference =
-          this.screenHeight * (this.radius / 100) * 2 * Math.PI);
-    this.diameter = 2 * (this.radius + this.strokeWidth / 2);
+    if (this.screenWidth > 650) {
+      this.vwh = 'vw';
+      this.circumference = this.screenWidth * (this.radius / 100) * 2 * Math.PI;
+    } else {
+      this.vwh = 'vh';
+      this.circumference =
+        this.screenHeight * (this.radius / 100) * 2 * Math.PI;
+    }
+    this.diameter = 2 * this.radius + this.strokeWidth;
     this.cxy = this.radius + this.strokeWidth / 2;
     this.offset = (this.circumference * (100 - this.percentage)) / 100;
   }
   ngOnInit(): void {
-    this.screenWidth > 850
-      ? (this.circumference =
-          this.screenWidth * (this.radius / 100) * 2 * Math.PI)
-      : (this.circumference =
-          this.screenHeight * (this.radius / 100) * 2 * Math.PI);
-    this.diameter = 2 * (this.radius + this.strokeWidth / 2);
+    if (this.screenWidth > 650) {
+      this.vwh = 'vw';
+      this.circumference = this.screenWidth * (this.radius / 100) * 2 * Math.PI;
+    } else {
+      this.vwh = 'vh';
+      this.circumference =
+        this.screenHeight * (this.radius / 100) * 2 * Math.PI;
+    }
+    this.diameter = 2 * this.radius + this.strokeWidth;
     this.cxy = this.radius + this.strokeWidth / 2;
     this.offset = (this.circumference * (100 - this.percentage)) / 100;
   }

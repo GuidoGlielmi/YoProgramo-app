@@ -16,7 +16,7 @@
 .languages {
   align-self: flex-end;
   position: relative;
-  margin-bottom: 1vw;
+  margin: 4vw 0 1vw 0;
   width: 60vw;
   text-align: start;
 }
@@ -39,6 +39,14 @@
   transition: stroke-dashoffset 0.5s ease;
 }
 @media (max-width: 450px) {
-}
-@media (max-width: 1200px) {
+  .title {
+    width: 70vw;
+  }
+  .title::before {
+    width: 85%;
+  }
+  .languages::before {
+    right: 8vw;
+    width: 80%;
+  }
 }

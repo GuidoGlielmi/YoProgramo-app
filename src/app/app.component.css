@@ -14,6 +14,13 @@
   width: 100%;
   padding: 10vh 0 10vh 0;
 }
+.skillsAndProjects {
+  background-image: linear-gradient(
+    rgba(81, 59, 82, 0),
+    80%,
+    rgba(19, 12, 39, 0.8)
+  );
+}
 .skills {
   justify-content: center;
   flex-wrap: wrap;
@@ -109,7 +116,7 @@
     height: 100%;
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 650px) {
   .personalInfo {
     flex-direction: column;
     justify-content: center;
