@@ -80,7 +80,7 @@
     left: 2vw;
   }
   .techImage {
-    width: 25%;
+    width: 40%;
   }
 }
 @media (max-width: 450px) {
@@ -101,8 +101,5 @@
   }
   .techImagesTitle::before {
     width: 89%;
-  }
-  .techImage {
-    width: 50%;
   }
 }

@@ -41,6 +41,10 @@
   border-image: linear-gradient(to left, #202020, rgba(0, 0, 0, 0)) 0 0 1%;
 }
 @media (max-width: 850px) {
+  .projectItem {
+    flex-direction: column;
+    align-items: center;
+  }
   .projectItemRight::before {
     right: 2vw;
     width: 100%;
@@ -58,10 +62,7 @@
     left: 4vw;
     width: 88%;
   }
-  .projectItem {
-    flex-direction: column;
-    align-items: center;
-  }
+
   .projectItemRight::before {
     right: 2vw;
     width: 100%;

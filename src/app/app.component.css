@@ -71,6 +71,27 @@
 .dropDownBox {
   display: none;
 }
+@media (max-width: 850px) {
+  .APimg {
+    width: 15vh;
+  }
+  .socialIcon {
+    width: 5vh;
+  }
+  .yoProgramo {
+    font-size: 2vh;
+  }
+}
+@media (max-width: 650px) {
+  .goDownLink {
+    display: none;
+  }
+  .personalInfo {
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 0;
+  }
+}
 
 @media (max-width: 450px) {
   nav {
@@ -132,21 +153,5 @@
   .socialIcon {
     width: 100% !important;
     height: 100%;
-  }
-}
-@media (max-width: 650px) {
-  .goDownLink {
-    display: none;
-  }
-  .personalInfo {
-    flex-direction: column;
-    justify-content: center;
-    flex-basis: 0;
-  }
-  .APimg {
-    width: 15vw;
-  }
-  .socialIcon {
-    width: 6vw;
   }
 }

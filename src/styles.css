@@ -95,10 +95,10 @@ body::-webkit-scrollbar {
 }
 @media (max-width: 650px) {
   .marginSmall {
-    margin: max(3vh, 5px);
+    margin: max(1vh, 5px);
   }
   .marginMedium {
-    margin: max(5vh, 10px);
+    margin: max(3vh, 10px);
   }
   .paddingSmall {
     padding: max(1vh, 10px);
@@ -109,10 +109,10 @@ body::-webkit-scrollbar {
 }
 @media (max-width: 450px) {
   .marginSmall {
-    margin: max(2vh, 5px);
+    margin: max(1vh, 5px);
   }
   .marginMedium {
-    margin: max(4vh, 10px);
+    margin: max(3vh, 10px);
   }
   .fontSmall {
     font-size: small;
