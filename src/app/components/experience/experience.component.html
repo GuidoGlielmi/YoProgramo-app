@@ -1,11 +1,7 @@
 <div
-  [class]="
-    i === 0
-      ? 'rowContainer firstRight paddingLarge'
-      : i % 2 === 0
-      ? 'right paddingLarge'
-      : 'left paddingLarge'
-  "
+  class="paddingLarge"
+  [style.min-height]="i === 0 ? 90 + vwh : 50 + vwh"
+  [class]="i === 0 ? 'rowContainer firstRight' : i % 2 === 0 ? 'right' : 'left'"
   *ngFor="let e of experiences; let i = index"
 >
   <p *ngIf="i === 0" class="projectsImagesTitle darkFont fontLarge">
@@ -14,12 +10,14 @@
   <app-experience-item
     [index]="i"
     [experience]="e"
+    class="rowContainer"
+    [style.top]="i % 2 === 0 ? -40 + vwh : -12 + vwh"
     [class]="
       i === 0
-        ? 'firstExperienceRight rowContainer'
+        ? 'firstExperienceRight'
         : i % 2 === 0
-        ? 'experienceRight rowContainer'
-        : 'experienceLeft rowContainer'
+        ? 'experienceRight'
+        : 'experienceLeft'
     "
   >
   </app-experience-item>

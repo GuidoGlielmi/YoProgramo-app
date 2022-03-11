@@ -17,6 +17,7 @@
 }
 .educationItem {
   display: flex;
+  align-items: center;
 }
 .educationItemLeft,
 .educationItemRight {
@@ -51,7 +52,7 @@
     width: 100%;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   .title {
     width: 80%;
   }

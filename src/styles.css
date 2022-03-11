@@ -1,5 +1,6 @@
 html {
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 body {
   background: rgba(204, 204, 204, 0.3);
@@ -16,6 +17,7 @@ body::-webkit-scrollbar {
   /*   color: rgb(43, 43, 43);
  */
   text-decoration: none;
+  list-style: none;
 }
 .darkFont {
   color: rgb(43, 43, 43);
@@ -93,30 +95,24 @@ body::-webkit-scrollbar {
 }
 @media (max-width: 650px) {
   .marginSmall {
-    margin: max(3vh, 5px);
+    margin: max(1vh, 5px);
   }
   .marginMedium {
-    margin: max(5vh, 10px);
+    margin: max(3vh, 10px);
   }
   .paddingSmall {
-    padding: max(3vh, 10px);
+    padding: max(1vh, 10px);
   }
   .paddingMedium {
-    padding: max(5vh, 10px);
+    padding: max(2vh, 10px);
   }
 }
 @media (max-width: 450px) {
   .marginSmall {
-    margin: max(2vh, 5px);
+    margin: max(1vh, 5px);
   }
   .marginMedium {
-    margin: max(4vh, 10px);
-  }
-  .paddingSmall {
-    padding: max(2vh, 10px);
-  }
-  .paddingMedium {
-    padding: max(4vh, 10px);
+    margin: max(3vh, 10px);
   }
   .fontSmall {
     font-size: small;

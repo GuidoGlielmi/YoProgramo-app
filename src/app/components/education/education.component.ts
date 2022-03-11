@@ -17,7 +17,7 @@ export class EducationComponent implements OnInit {
     {
       logoUrl: '../../assets/logos/IPS-UNR-logo.png',
       school: 'Instituto Politécnico Superior',
-      title: 'Techinician in Electronic Systems',
+      title: 'Technician in Electronic Systems',
       startDate: '04/2021',
       endDate: 'Current',
     },

@@ -16,7 +16,7 @@
 .languages {
   align-self: flex-end;
   position: relative;
-  margin: 4vw 0 1vw 0;
+  margin-bottom: 1vw;
   width: 60vw;
   text-align: start;
 }
@@ -31,6 +31,7 @@
 .skillsContainer {
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 50px;
 }
 .circleContainer {
   transform: rotate(-90deg) scale(1, -1);

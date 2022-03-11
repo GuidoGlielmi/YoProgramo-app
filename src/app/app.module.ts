@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { ProjectItemComponent } from './components/project-item/project-item.com
     ProgressRingComponent,
     ProjectsComponent,
     ProjectItemComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
