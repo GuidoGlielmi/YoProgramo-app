@@ -32,13 +32,20 @@ import { Component, HostListener } from '@angular/core';
       state('bottom', style({ opacity: 0 })),
       transition('notBottom <=> bottom', animate('500ms ease-out')),
     ]),
+    trigger('showLogin', [
+      state('notShown', style({ opacity: 0 })),
+      state('shown', style({ opacity: 1 })),
+      transition('notShown <=> shown', animate('400ms ease-out')),
+    ]),
   ],
 })
 export class AppComponent {
   title = 'YoProgramo-app';
   socialState = 'notShown';
   goDownState = 'unpressed';
+  loginButtonState = 'unpressed';
   goDownFadeOutState = 'notBottom';
+  loginState = 'notShown';
   @HostListener('window:scroll')
   onWindowScroll() {
     if (
@@ -54,9 +61,16 @@ export class AppComponent {
     this.socialState = this.socialState === 'notShown' ? 'shown' : 'notShown';
   }
 
-  goDown(currentState: boolean) {
+  pressGoDownButton(currentState: boolean) {
     if (currentState) this.goDownState = 'unpressed';
     else this.goDownState = 'pressed';
+  }
+  toggleLogin() {
+    this.loginState = this.loginState === 'notShown' ? 'shown' : 'notShown';
+  }
+  pressLoginButton(currentState: boolean) {
+    if (currentState) this.loginButtonState = 'unpressed';
+    else this.loginButtonState = 'pressed';
   }
 }
 /*

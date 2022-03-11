@@ -1,9 +1,10 @@
-<a href="#down" class="goDownLink"
+<app-modal [@showLogin]="loginState" class="loginModal"></app-modal
+><a href="#down" class="goDownLink"
   ><button
     [@goDown]="goDownState"
     [@goDownFadeOut]="goDownFadeOutState"
-    (click)="goDown(false)"
-    (@goDown.done)="goDown(true)"
+    (click)="pressGoDownButton(false)"
+    (@goDown.done)="pressGoDownButton(true)"
     class="goDown"
   >
     Go down
@@ -31,25 +32,36 @@
         >#YoProgramo</a
       >
     </div>
-    <div class="social rowContainer">
-      <a
-        href="https://github.com/GuidoGlielmi"
-        target="_blank"
-        class="marginSmall"
-        ><img
-          class="socialIcon"
-          src="../../../assets/logos/GitHub-Mark-Light-64px.png"
-          alt="github logo"
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/guido-glielmi/"
-        target="_blank"
-        class="marginSmall"
-        ><img
-          class="socialIcon"
-          src="../../../assets/logos/icons8-linkedin-64.png"
-          alt="linkedin logo"
-      /></a>
+    <div class="rowContainer">
+      <div class="social rowContainer">
+        <a
+          href="https://github.com/GuidoGlielmi"
+          target="_blank"
+          class="marginSmall"
+          ><img
+            class="socialIcon"
+            src="../../../assets/logos/GitHub-Mark-Light-64px.png"
+            alt="github logo"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/guido-glielmi/"
+          target="_blank"
+          class="marginSmall"
+          ><img
+            class="socialIcon"
+            src="../../../assets/logos/icons8-linkedin-64.png"
+            alt="linkedin logo"
+        /></a>
+      </div>
+      <button
+        (click)="toggleLogin()"
+        (click)="pressLoginButton(false)"
+        [@goDown]="loginButtonState"
+        (@goDown.done)="pressLoginButton(true)"
+        class="loginButton marginSmall paddingSmall"
+      >
+        Login
+      </button>
     </div>
   </nav>
   <div class="dropDownBox columnContainer">
