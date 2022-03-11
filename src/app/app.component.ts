@@ -33,8 +33,8 @@ import { Component, HostListener } from '@angular/core';
       transition('notBottom <=> bottom', animate('500ms ease-out')),
     ]),
     trigger('showLogin', [
-      state('notShown', style({ opacity: 0 })),
-      state('shown', style({ opacity: 1 })),
+      state('notShown', style({ opacity: 0, 'z-index': -1 })),
+      state('shown', style({ opacity: 1, 'z-index': 1 })),
       transition('notShown <=> shown', animate('400ms ease-out')),
     ]),
   ],
@@ -65,8 +65,14 @@ export class AppComponent {
     if (currentState) this.goDownState = 'unpressed';
     else this.goDownState = 'pressed';
   }
-  toggleLogin() {
-    this.loginState = this.loginState === 'notShown' ? 'shown' : 'notShown';
+  toggleLogin(event: any) {
+    if (
+      this.loginState === 'notShown' ||
+      event.target.id === 'modalBackground' ||
+      event.target.id === 'modalButton'
+    ) {
+      this.loginState = this.loginState === 'notShown' ? 'shown' : 'notShown';
+    }
   }
   pressLoginButton(currentState: boolean) {
     if (currentState) this.loginButtonState = 'unpressed';
