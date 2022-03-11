@@ -1,4 +1,16 @@
-<div class="navContainer columnContainer">
+<a href="#down" class="goDownLink"
+  ><button
+    [@goDown]="goDownState"
+    [@goDownFadeOut]="goDownFadeOutState"
+    (click)="goDown(false)"
+    (@goDown.done)="goDown(true)"
+    class="goDown"
+  >
+    Go down
+  </button></a
+>
+
+<div #navBar class="navContainer columnContainer">
   <nav class="nav rowContainer">
     <div class="argPrograma rowContainer">
       <a
@@ -68,15 +80,21 @@
 </div>
 <app-header></app-header>
 <app-section color="pink">
-  <app-personal-info class="personalInfo columnContainer"></app-personal-info>
+  <app-personal-info
+    id="elf"
+    class="personalInfo columnContainer"
+  ></app-personal-info>
 </app-section>
-<app-experience class="experiences columnContainer"></app-experience>
-<app-section color="pink" boxShadow="shadowLarge">
+<app-experience
+  id="experiences"
+  class="experiences columnContainer"
+></app-experience>
+<app-section id="education" color="pink" boxShadow="shadowLarge">
   <app-education class="education columnContainer"></app-education>
 </app-section>
-<div class="skillsAndProjects">
+<div id="skills" class="skillsAndProjects">
   <app-skills [size]="8" class="skills columnContainer"></app-skills>
-  <app-projects class="education columnContainer"></app-projects>
+  <app-projects id="projects" class="education columnContainer"></app-projects>
 </div>
-
+<app-footer></app-footer>
 <router-outlet></router-outlet>

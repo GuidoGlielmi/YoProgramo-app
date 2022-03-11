@@ -5,7 +5,7 @@ import {
   animate,
   style,
 } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -22,13 +22,41 @@ import { Component } from '@angular/core';
       state('shown', style({ height: '5vh' })),
       transition('shown <=> notShown', animate('400ms ease-out')),
     ]),
+    trigger('goDown', [
+      state('unpressed', style({ width: '65px' })),
+      state('pressed', style({ width: '60px' })),
+      transition('unpressed <=> pressed', animate('40ms ease-out')),
+    ]),
+    trigger('goDownFadeOut', [
+      state('notBottom', style({ opacity: 1 })),
+      state('bottom', style({ opacity: 0 })),
+      transition('notBottom <=> bottom', animate('500ms ease-out')),
+    ]),
   ],
 })
 export class AppComponent {
   title = 'YoProgramo-app';
   socialState = 'notShown';
+  goDownState = 'unpressed';
+  goDownFadeOutState = 'notBottom';
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    if (
+      document.documentElement.scrollTop >
+      document.documentElement.scrollHeight -
+        document.documentElement.clientHeight -
+        200
+    ) {
+      this.goDownFadeOutState = 'bottom';
+    } else this.goDownFadeOutState = 'notBottom';
+  }
   showSocial() {
     this.socialState = this.socialState === 'notShown' ? 'shown' : 'notShown';
+  }
+
+  goDown(currentState: boolean) {
+    if (currentState) this.goDownState = 'unpressed';
+    else this.goDownState = 'pressed';
   }
 }
 /*

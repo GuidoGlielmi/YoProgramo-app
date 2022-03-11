@@ -1,1 +1,19 @@
-<p>footer works!</p>
+<footer id="down" class="columnContainer">
+  <ul class="links">
+    <li><a href="#myself">Who I am</a></li>
+    <li><a href="#tech">Techs</a></li>
+    <li><a href="#experiences">My experiences</a></li>
+    <li><a href="#skills">Soft & Hard skills</a></li>
+    <li><a href="#languages">My language skills</a></li>
+    <li><a href="#projects">My projects</a></li>
+  </ul>
+
+  <a
+    href="#"
+    class="goUpLink rowContainer"
+    [@goUp]="goUpState"
+    (click)="goUpPressed()"
+    (@goUp.done)="goUpPressed()"
+    ><button class="goUp">Go up</button>
+  </a>
+</footer>

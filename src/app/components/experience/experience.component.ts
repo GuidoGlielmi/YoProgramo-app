@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -28,7 +28,18 @@ export class ExperienceComponent implements OnInit {
       description: 'Casitas',
     },
   ];
-
+  vwh = 'vw';
+  constructor() {
+    this.onResize();
+  }
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerHeight > window.innerWidth) {
+      this.vwh = 'vh';
+    } else {
+      this.vwh = 'vw';
+    }
+  }
   ngOnInit(): void {}
 }
 export interface experience {
