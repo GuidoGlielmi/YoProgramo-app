@@ -5,7 +5,7 @@ import {
   animate,
   style,
 } from '@angular/animations';
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',

@@ -1,19 +1,28 @@
 <footer id="down" class="columnContainer">
-  <ul class="links">
-    <li><a href="#myself">Who I am</a></li>
-    <li><a href="#tech">Techs</a></li>
-    <li><a href="#experiences">My experiences</a></li>
-    <li><a href="#skills">Soft & Hard skills</a></li>
-    <li><a href="#languages">My language skills</a></li>
-    <li><a href="#projects">My projects</a></li>
+  <ul class="links rowContainer">
+    <li class="marginMedium"><a class="link" href="#myself">Who I am</a></li>
+    <li class="marginMedium"><a class="link" href="#tech">Techs</a></li>
+    <li class="marginMedium">
+      <a class="link" href="#experiences">My experiences</a>
+    </li>
+    <li class="marginMedium">
+      <a class="link" href="#skills">Soft & Hard skills</a>
+    </li>
+    <li class="marginMedium">
+      <a class="link" href="#languages">My language skills</a>
+    </li>
+    <li class="marginMedium">
+      <a class="link" href="#projects">My projects</a>
+    </li>
   </ul>
-
-  <a
-    href="#"
-    class="goUpLink rowContainer"
-    [@goUp]="goUpState"
-    (click)="goUpPressed()"
-    (@goUp.done)="goUpPressed()"
-    ><button class="goUp">Go up</button>
-  </a>
+  <div>
+    <a
+      href="#"
+      class="goUpLink rowContainer"
+      [@goUp]="goUpState"
+      (click)="goUpPressed()"
+      (@goUp.done)="goUpPressed()"
+      ><button class="goUp">Go up</button>
+    </a>
+  </div>
 </footer>

@@ -1,19 +1,22 @@
 footer {
-  padding: 5vw;
-  background-color: rgba(19, 12, 39, 0.8);
+  justify-content: center;
+  position: relative;
+  min-height: 400px;
+  margin: 50px;
 }
 .links {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 10vh;
 }
-li {
-  margin: 1vw;
-  transition: opacity 0.2s ease;
-}
-a,
-a:visited {
+.link,
+.link:visited {
+  transition: opacity height width 0.2s ease;
+  font-size: large;
   color: rgb(238, 238, 238);
   text-shadow: 0px 0px 1px #eeeeee;
 }
-li:hover {
+.link:hover {
   opacity: 0.6;
 }
 .goUp {
@@ -24,17 +27,25 @@ li:hover {
   background: transparent;
 }
 .goUpLink {
-  align-self: flex-end;
+  bottom: 0px;
+  right: 0px;
+  position: absolute;
   justify-content: center;
-  position: relative;
-  box-shadow: 2px 2px 5px 1px #202020;
-  border-radius: 50%;
   width: 65px;
   height: 65px;
+  box-shadow: 2px 2px 5px 1px #202020;
+  border-radius: 50%;
   cursor: pointer;
   background: rgb(90, 136, 126);
 }
 .goUp > a {
   color: rgb(233, 233, 233);
   text-shadow: 0px 0px 1.5px #ececec;
+}
+@media (max-width: 850px) {
+  .links {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
 }

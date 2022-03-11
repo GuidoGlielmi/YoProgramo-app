@@ -39,6 +39,11 @@
   flex-wrap: wrap;
   padding: 10vh 0 10vh 0;
 }
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(19, 12, 39, 0.8);
+}
 .navContainer {
   align-items: initial;
   position: sticky;
