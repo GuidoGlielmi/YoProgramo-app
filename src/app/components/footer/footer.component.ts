@@ -13,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css'],
   animations: [
     trigger('goUp', [
-      state('unpressed', style({ bottom: 0, right: 0 })),
-      state('pressed', style({ bottom: '-2px', right: '-2px' })),
+      state('unpressed', style({ transform: 'scale(1)' })),
+      state('pressed', style({ transform: 'scale(0.95)' })),
       transition('unpressed <=> pressed', animate('40ms ease-out')),
     ]),
   ],

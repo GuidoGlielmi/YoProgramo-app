@@ -23,8 +23,8 @@ import { Component, HostListener } from '@angular/core';
       transition('shown <=> notShown', animate('400ms ease-out')),
     ]),
     trigger('goDown', [
-      state('unpressed', style({ width: '65px' })),
-      state('pressed', style({ width: '60px' })),
+      state('unpressed', style({ transform: 'scale(1)' })),
+      state('pressed', style({ transform: 'scale(0.95)' })),
       transition('unpressed <=> pressed', animate('40ms ease-out')),
     ]),
     trigger('goDownFadeOut', [

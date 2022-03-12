@@ -42,7 +42,7 @@
         <a
           href="https://github.com/GuidoGlielmi"
           target="_blank"
-          class="marginSmall"
+          class="marginSmall rowContainer"
           ><img
             class="socialIcon"
             src="../../../assets/logos/GitHub-Mark-Light-64px.png"
@@ -51,7 +51,7 @@
         <a
           href="https://www.linkedin.com/in/guido-glielmi/"
           target="_blank"
-          class="marginSmall"
+          class="marginSmall rowContainer"
           ><img
             class="socialIcon"
             src="../../../assets/logos/icons8-linkedin-64.png"
@@ -60,11 +60,11 @@
       </div>
       <button
         id="modalButton"
+        class="loginButton"
         (click)="toggleLogin($event)"
         (click)="pressLoginButton(false)"
         [@goDown]="loginButtonState"
         (@goDown.done)="pressLoginButton(true)"
-        class="loginButton marginSmall"
       >
         Login
       </button>
