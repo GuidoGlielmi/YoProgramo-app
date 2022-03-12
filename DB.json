@@ -1,0 +1,31 @@
+{
+  "user": {
+    "firstname": "Guido",
+    "lastname": "Glielmi",
+    "linkedinurl": "https://github.com/GuidoGlielmi",
+    "githuburl": "https://github.com/GuidoGlielmi",
+    "email": "guidoglielmi@gmail.com",
+    "aboutme": "I live in Argentina, in the city of Rosario. I discovered -not so long ago- the programming world through microntrollers using the legendary C language, which from I developed a passion for automating and problem solving."
+  },
+  "experiences": {
+    "title": "Radium Rocket",
+    "startdate": "09/2021",
+    "enddate": "01/2022",
+    "description": "MERN stack Bootcamp"
+  },
+  "education": {
+    "school": "Insituto Politécnico Superior",
+    "startdate": "04/2019",
+    "enddate": "Current",
+    "degree": "Technician in Electronic Systems"
+  },
+  "skills": {
+    "title": "Proactive",
+    "abilitypercentage": 80
+  },
+  "projects": {
+    "title": "Radium Rocket",
+    "url": "https://yoprogramoapp.web.app/",
+    "description": "Portfolio development using Angular and Spring Boot"
+  }
+}
