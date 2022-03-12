@@ -7,25 +7,243 @@
     "email": "guidoglielmi@gmail.com",
     "aboutme": "I live in Argentina, in the city of Rosario. I discovered -not so long ago- the programming world through microntrollers using the legendary C language, which from I developed a passion for automating and problem solving."
   },
-  "experiences": {
-    "title": "Radium Rocket",
-    "startdate": "09/2021",
-    "enddate": "01/2022",
-    "description": "MERN stack Bootcamp"
-  },
-  "education": {
-    "school": "Insituto Politécnico Superior",
-    "startdate": "04/2019",
-    "enddate": "Current",
-    "degree": "Technician in Electronic Systems"
-  },
-  "skills": {
-    "title": "Proactive",
-    "abilitypercentage": 80
-  },
-  "projects": {
-    "title": "Radium Rocket",
-    "url": "https://yoprogramoapp.web.app/",
-    "description": "Portfolio development using Angular and Spring Boot"
-  }
+  "experiences": [
+    {
+      "title": "Radium Rocket",
+      "startdate": "09/2021",
+      "enddate": "01/2022",
+      "description": "MERN stack Bootcamp"
+    },
+    {
+      "title": "Radium Rocket",
+      "startdate": "09/2021",
+      "enddate": "01/2022",
+      "description": "MERN stack Bootcamp"
+    }
+  ],
+  "education": [
+    {
+      "school": "Insituto Politécnico Superior",
+      "startdate": "04/2019",
+      "enddate": "Current",
+      "degree": "Technician in Electronic Systems"
+    },
+    {
+      "school": "Insituto Politécnico Superior",
+      "startdate": "04/2019",
+      "enddate": "Current",
+      "degree": "Technician in Electronic Systems"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Proactive",
+      "abilitypercentage": 80,
+      "type": "skill"
+    },
+    {
+      "title": "Proactive",
+      "abilitypercentage": 80,
+      "type": "skill"
+    },
+    {
+      "title": "Proactive",
+      "abilitypercentage": 80,
+      "type": "skill"
+    },
+    {
+      "title": "Proactive",
+      "abilitypercentage": 80,
+      "type": "skill"
+    },
+    {
+      "title": "Proactive",
+      "abilitypercentage": 80,
+      "type": "language"
+    },
+    {
+      "title": "Proactive",
+      "abilitypercentage": 80,
+      "type": "language"
+    },
+    {
+      "title": "Proactive",
+      "abilitypercentage": 80,
+      "type": "language"
+    }
+  ],
+  "projects": [
+    {
+      "id": 0,
+      "title": "Radium Rocket",
+      "technologies": "",
+      "description": "Portfolio development using Angular and Spring Boot"
+    },
+    {
+      "id": 1,
+      "title": "Argentina Programa",
+      "description": "Portfolio development using Angular and Spring Boot"
+    },
+    {
+      "id": 2,
+      "title": "Aerolab Challenge",
+      "description": "Portfolio development using Angular and Spring Boot"
+    }
+  ],
+  "projecturls": [
+    {
+      "url": "https://github.com/GuidoGlielmi/German-MindSet-app",
+      "project": "0"
+    },
+    {
+      "url": "https://github.com/GuidoGlielmi/David-MindSet-server",
+      "project": "0"
+    },
+    {
+      "url": "https://github.com/GuidoGlielmi/German-Mindset-server",
+      "project": "0"
+    },
+    {
+      "url": "https://github.com/GuidoGlielmi/YoProgramo-app",
+      "project": "1"
+    },
+    {
+      "url": "https://github.com/GuidoGlielmi/YoProgramo-server",
+      "project": "1"
+    },
+    {
+      "url": "https://github.com/GuidoGlielmi/Aerolab-challenge",
+      "project": "2"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Angular",
+      "id": 0
+    },
+    {
+      "name": "CSS3",
+      "id": 1
+    },
+    {
+      "name": "Express.js",
+      "id": 2
+    },
+    {
+      "name": "HTML5",
+      "id": 3
+    },
+    {
+      "name": "Java",
+      "id": 4
+    },
+    {
+      "name": "Javascript",
+      "id": 5
+    },
+    {
+      "name": "MongoDB",
+      "id": 6
+    },
+    {
+      "name": "Node.js",
+      "id": 7
+    },
+    {
+      "name": "PostgreSQL",
+      "id": 8
+    },
+    {
+      "name": "Redux",
+      "id": 9
+    },
+    {
+      "name": "Spring",
+      "id": 10
+    },
+    {
+      "name": "Typescript",
+      "id": 11
+    },
+    {
+      "name": "Next.js",
+      "id": 12
+    }
+  ],
+  "projecttechnologies": [
+    {
+      "id_project": 0,
+      "id_technology": 1
+    },
+
+    {
+      "id_project": 0,
+      "id_technology": 2
+    },
+    {
+      "id_project": 0,
+      "id_technology": 3
+    },
+    {
+      "id_project": 0,
+      "id_technology": 5
+    },
+    {
+      "id_project": 0,
+      "id_technology": 6
+    },
+    {
+      "id_project": 0,
+      "id_technology": 7
+    },
+    {
+      "id_project": 0,
+      "id_technology": 9
+    },
+    {
+      "id_project": 1,
+      "id_technology": 0
+    },
+
+    {
+      "id_project": 1,
+      "id_technology": 2
+    },
+    {
+      "id_project": 1,
+      "id_technology": 3
+    },
+    {
+      "id_project": 1,
+      "id_technology": 4
+    },
+    {
+      "id_project": 1,
+      "id_technology": 8
+    },
+    {
+      "id_project": 1,
+      "id_technology": 10
+    },
+    {
+      "id_project": 1,
+      "id_technology": 11
+    },
+    {
+      "id_project": 2,
+      "id_technology": 1
+    },
+    {
+      "id_project": 2,
+      "id_technology": 3
+    },
+    {
+      "id_project": 2,
+      "id_technology": 5
+    },
+    {
+      "id_project": 2,
+      "id_technology": 12
+    }
+  ]
 }
