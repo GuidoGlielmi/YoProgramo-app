@@ -1,7 +1,7 @@
 <p class="title fontLarge">Soft & Hard skills</p>
 <div class="skillsContainer rowContainer">
   <div *ngFor="let skill of skills" class="marginMedium columnContainer">
-    <p>{{ skill.title }}</p>
+    <p class="skillTitle">{{ skill.title }}</p>
     <app-progress-ring
       class="columnContainer"
       [radius]="size"
@@ -12,7 +12,7 @@
 <p id="languages" class="languages fontLarge">Languages</p>
 <div class="skillsContainer rowContainer">
   <div *ngFor="let language of languages" class="marginMedium columnContainer">
-    <p>{{ language.title }}</p>
+    <p class="skillTitle">{{ language.title }}</p>
     <app-progress-ring
       class="columnContainer"
       [radius]="size"

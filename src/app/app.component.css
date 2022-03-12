@@ -1,13 +1,28 @@
-.goDown {
+.loginModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0, 0.6);
+}
+.goDownLink {
+  display: flex;
+  justify-content: flex-end;
   position: fixed;
   top: 30vh;
   right: 0;
+  width: min(10%, 65px);
+  height: 65px;
   z-index: 1;
+}
+.goDown {
+  width: 100%;
   box-shadow: 0 0 2px 0 #202020;
   border-radius: 50% 0 0 50%;
   border: none;
-  width: 65px;
-  height: 65px;
   cursor: pointer;
   background: rgb(90, 136, 126);
   color: rgb(233, 233, 233);
@@ -50,7 +65,10 @@
   top: 0;
   left: 0;
   z-index: 1;
-  background: rgb(93, 56, 130);
+  background: rgb(97, 67, 121);
+  /*   background: rgb(93, 56, 130);
+  rgb(97, 67, 121)
+ */
   box-shadow: 0px -10px 30px 1px #363636;
 }
 .nav {
@@ -60,7 +78,7 @@
   padding: 0 10px;
 }
 .socialIcon {
-  width: 4vw;
+  width: 3vw;
 }
 .APimg {
   width: 10vw;
@@ -71,7 +89,21 @@
 .dropDownBox {
   display: none;
 }
+.loginButton {
+  margin: max(1vw, 1vh);
+  padding: min(3vw, 15px, 3vh) min(3.5vw, 20px, 3.5vh);
+  font-size: large;
+  color: rgb(40, 40, 40);
+  text-shadow: 0px 0px 1.5px #686868;
+  box-shadow: 0.5px 0.5px 2px 1px #202020;
+  background: #f0f0f0;
+  border-radius: 10px;
+  cursor: pointer;
+}
 @media (max-width: 850px) {
+  .goDownLink {
+    display: none;
+  }
   .APimg {
     width: 15vh;
   }
@@ -81,24 +113,25 @@
   .yoProgramo {
     font-size: 2vh;
   }
+  .loginButton {
+    margin: max(1vw, 1vh);
+    padding: min(3vw, 9px, 3vh) min(3.5vw, 9px, 3.5vh);
+    font-size: small;
+  }
 }
 @media (max-width: 650px) {
-  .goDownLink {
-    display: none;
-  }
   .personalInfo {
     flex-direction: column;
     justify-content: center;
     flex-basis: 0;
   }
+  .loginButton {
+    font-size: x-small;
+  }
 }
 
 @media (max-width: 450px) {
-  nav {
-    width: 100%;
-  }
-  .argPrograma {
-    justify-content: space-evenly;
+  .nav {
     width: 100%;
   }
   .navContainer {

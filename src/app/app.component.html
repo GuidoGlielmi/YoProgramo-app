@@ -1,9 +1,15 @@
-<a href="#down" class="goDownLink"
+<app-modal
+  id="modalBackground"
+  [@showLogin]="loginState"
+  (click)="toggleLogin($event)"
+  class="loginModal"
+></app-modal
+><a href="#down" class="goDownLink"
   ><button
     [@goDown]="goDownState"
     [@goDownFadeOut]="goDownFadeOutState"
-    (click)="goDown(false)"
-    (@goDown.done)="goDown(true)"
+    (click)="pressGoDownButton(false)"
+    (@goDown.done)="pressGoDownButton(true)"
     class="goDown"
   >
     Go down
@@ -31,25 +37,37 @@
         >#YoProgramo</a
       >
     </div>
-    <div class="social rowContainer">
-      <a
-        href="https://github.com/GuidoGlielmi"
-        target="_blank"
-        class="marginSmall"
-        ><img
-          class="socialIcon"
-          src="../../../assets/logos/GitHub-Mark-Light-64px.png"
-          alt="github logo"
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/guido-glielmi/"
-        target="_blank"
-        class="marginSmall"
-        ><img
-          class="socialIcon"
-          src="../../../assets/logos/icons8-linkedin-64.png"
-          alt="linkedin logo"
-      /></a>
+    <div class="rowContainer">
+      <div class="social rowContainer">
+        <a
+          href="https://github.com/GuidoGlielmi"
+          target="_blank"
+          class="marginSmall rowContainer"
+          ><img
+            class="socialIcon"
+            src="../../../assets/logos/GitHub-Mark-Light-64px.png"
+            alt="github logo"
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/guido-glielmi/"
+          target="_blank"
+          class="marginSmall rowContainer"
+          ><img
+            class="socialIcon"
+            src="../../../assets/logos/icons8-linkedin-64.png"
+            alt="linkedin logo"
+        /></a>
+      </div>
+      <button
+        id="modalButton"
+        class="loginButton"
+        (click)="toggleLogin($event)"
+        (click)="pressLoginButton(false)"
+        [@goDown]="loginButtonState"
+        (@goDown.done)="pressLoginButton(true)"
+      >
+        Login
+      </button>
     </div>
   </nav>
   <div class="dropDownBox columnContainer">
@@ -93,7 +111,7 @@
   <app-education class="education columnContainer"></app-education>
 </app-section>
 <div id="skills" class="skillsAndProjects">
-  <app-skills [size]="8" class="skills columnContainer"></app-skills>
+  <app-skills [size]="6" class="skills columnContainer"></app-skills>
   <app-projects id="projects" class="education columnContainer"></app-projects>
 </div>
 <app-footer class="footer"></app-footer>

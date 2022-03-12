@@ -32,7 +32,7 @@
 }
 @media (max-width: 850px) {
   .header {
-    align-items: cener;
+    align-items: center;
   }
   .imgAndTitle {
     flex-direction: column;

@@ -13,6 +13,9 @@
   border-top: 3px solid #363636;
   top: -2vh;
 }
+.skillTitle {
+  font-size: x-large;
+}
 .languages {
   align-self: flex-end;
   position: relative;
@@ -45,6 +48,9 @@
   }
   .title::before {
     width: 85%;
+  }
+  .skillTitle {
+    font-size: medium;
   }
   .languages::before {
     right: 8vw;
