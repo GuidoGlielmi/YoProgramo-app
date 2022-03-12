@@ -9,9 +9,9 @@ export class SkillsComponent implements OnInit {
   @Input() size: number = 0;
   skills = [
     { title: 'Resilience', ability: 60 },
-    { title: 'Empathy', ability: 60 },
-    { title: 'Active listening', ability: 75 },
-    { title: 'Proactive', ability: 60 },
+    { title: 'Empathy', ability: 80 },
+    { title: 'Active listening', ability: 80 },
+    { title: 'Proactive', ability: 70 },
     { title: 'Creativity', ability: 80 },
   ];
   languages = [
