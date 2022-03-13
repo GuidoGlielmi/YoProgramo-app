@@ -8,7 +8,7 @@ export class ProgressRingComponent implements OnInit {
   @Input() color = 'rgb(90, 136, 126)';
   @Input() percentage = 100;
   @Input() radius = 7;
-  @Input() strokeWidth = this.radius / 2.5;
+  @Input() strokeWidth = this.radius / 3;
   vwh = '';
   cxy = 0;
   diameter = 0;

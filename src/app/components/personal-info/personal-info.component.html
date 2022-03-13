@@ -12,13 +12,21 @@
   </p>
   <div
     #techImagesNode
-    class="techImages rowContainer paddingMedium"
+    [style.scroll-behavior]="scrollBehavior"
+    class="techImages rowContainer marginMedium"
     (wheel)="onWheel($event)"
   >
     <img
-      *ngFor="let img of techImages"
+      *ngFor="let img of techImages; let i = index"
       [src]="img"
       class="techImage paddingMedium marginSmall"
+      [class]="i === techImages.length - 1 ? 'listEnd' : ''"
+    />
+    <img
+      *ngFor="let img of techImages; let i = index"
+      [src]="img"
+      class="techImage paddingMedium marginSmall"
+      [class]="i === techImages.length - 1 ? 'listEnd' : ''"
     />
   </div>
 </div>

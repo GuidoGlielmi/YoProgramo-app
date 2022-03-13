@@ -6,6 +6,7 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./personal-info.component.css'],
 })
 export class PersonalInfoComponent implements OnInit {
+  scrollBehavior = 'auto';
   techImages = [
     './assets/logos/angular.png',
     './assets/logos/css3.png',
@@ -33,9 +34,24 @@ export class PersonalInfoComponent implements OnInit {
     this.screenWidth = window.innerWidth;
   }
   onWheel(event: WheelEvent): void {
-    if (event.deltaY > 0)
-      this.techImageNode.nativeElement.scrollLeft += this.screenWidth * 0.12;
-    else this.techImageNode.nativeElement.scrollLeft -= this.screenWidth * 0.12;
+    let scrollUnit = this.techImageNode.nativeElement.clientHeight;
+    let currentValue = this.techImageNode.nativeElement.scrollLeft;
+    let maxValue = this.techImageNode.nativeElement.scrollLeftMax;
+    let totalWidth = this.techImageNode.nativeElement.scrollWidth;
+    // let visibleWidth = this.techImageNode.nativeElement.offsetWidth;
+    if (event.deltaY > 0) {
+      if (maxValue - currentValue < scrollUnit) {
+        this.techImageNode.nativeElement.scrollLeft =
+          currentValue - totalWidth / 2 + scrollUnit;
+      } else {
+        this.techImageNode.nativeElement.scrollLeft += this.screenWidth * 0.12;
+      }
+    } else if (currentValue - scrollUnit < scrollUnit) {
+      this.techImageNode.nativeElement.scrollLeft =
+        totalWidth / 2 + Math.abs(currentValue - scrollUnit);
+    } else {
+      this.techImageNode.nativeElement.scrollLeft -= this.screenWidth * 0.12;
+    }
   }
 
   ngOnInit(): void {}

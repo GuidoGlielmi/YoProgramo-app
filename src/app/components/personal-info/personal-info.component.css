@@ -42,10 +42,13 @@
 
 .techImages {
   overflow: auto;
-  width: 100vw;
+  width: 95vw;
   scrollbar-width: none;
-  scroll-behavior: smooth;
+  /*   scroll-behavior: smooth;
+ */
   overscroll-behavior-block: contain;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
 }
 .techImage {
   flex-shrink: 0;
@@ -53,6 +56,9 @@
   border-radius: 150% 100% / 10% 40%;
   box-shadow: 0px 0px 5px 0px #08001e;
 }
+/* .listEnd {
+  margin-right: 3vw;
+} */
 @media (max-width: 850px) {
   .aboutMeTitle::before {
     width: 88%;

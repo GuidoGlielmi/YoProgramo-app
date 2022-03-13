@@ -15,10 +15,16 @@
       "description": "MERN stack Bootcamp"
     },
     {
-      "title": "Radium Rocket",
-      "startdate": "09/2021",
-      "enddate": "01/2022",
-      "description": "MERN stack Bootcamp"
+      "title": "Argentina Programa",
+      "startdate": "11/2021",
+      "enddate": "05/2022",
+      "description": "Portfolio development"
+    },
+    {
+      "title": "Taller Corazón de Manzana",
+      "startdate": "03/2018",
+      "enddate": "01/2019",
+      "description": "Customer attention and inventory management"
     }
   ],
   "education": [
@@ -29,10 +35,10 @@
       "degree": "Technician in Electronic Systems"
     },
     {
-      "school": "Insituto Politécnico Superior",
-      "startdate": "04/2019",
-      "enddate": "Current",
-      "degree": "Technician in Electronic Systems"
+      "school": "Universidad Nacional de Rosario - Escuela de Música",
+      "startdate": "04/2016",
+      "enddate": "11/2019",
+      "degree": "Sound and Recording Technician"
     }
   ],
   "skills": [
@@ -42,33 +48,33 @@
       "type": "skill"
     },
     {
-      "title": "Proactive",
+      "title": "Resilience",
       "abilitypercentage": 80,
       "type": "skill"
     },
     {
-      "title": "Proactive",
+      "title": "Active listening",
       "abilitypercentage": 80,
       "type": "skill"
     },
     {
-      "title": "Proactive",
+      "title": "Empathy",
       "abilitypercentage": 80,
       "type": "skill"
     },
     {
-      "title": "Proactive",
+      "title": "Español",
+      "abilitypercentage": 100,
+      "type": "language"
+    },
+    {
+      "title": "English",
       "abilitypercentage": 80,
       "type": "language"
     },
     {
-      "title": "Proactive",
-      "abilitypercentage": 80,
-      "type": "language"
-    },
-    {
-      "title": "Proactive",
-      "abilitypercentage": 80,
+      "title": "日本語 / Japanese",
+      "abilitypercentage": 20,
       "type": "language"
     }
   ],
@@ -76,8 +82,7 @@
     {
       "id": 0,
       "title": "Radium Rocket",
-      "technologies": "",
-      "description": "Portfolio development using Angular and Spring Boot"
+      "description": "Development of a fictional enterprise that matches applicants with open jobs from client companies"
     },
     {
       "id": 1,
@@ -87,7 +92,7 @@
     {
       "id": 2,
       "title": "Aerolab Challenge",
-      "description": "Portfolio development using Angular and Spring Boot"
+      "description": "E-commerce landing page"
     }
   ],
   "projecturls": [
@@ -172,78 +177,78 @@
   ],
   "projecttechnologies": [
     {
-      "id_project": 0,
-      "id_technology": 1
+      "project": 0,
+      "technology": 1
     },
 
     {
-      "id_project": 0,
-      "id_technology": 2
+      "project": 0,
+      "technology": 2
     },
     {
-      "id_project": 0,
-      "id_technology": 3
+      "project": 0,
+      "technology": 3
     },
     {
-      "id_project": 0,
-      "id_technology": 5
+      "project": 0,
+      "technology": 5
     },
     {
-      "id_project": 0,
-      "id_technology": 6
+      "project": 0,
+      "technology": 6
     },
     {
-      "id_project": 0,
-      "id_technology": 7
+      "project": 0,
+      "technology": 7
     },
     {
-      "id_project": 0,
-      "id_technology": 9
+      "project": 0,
+      "technology": 9
     },
     {
-      "id_project": 1,
-      "id_technology": 0
+      "project": 1,
+      "technology": 0
     },
 
     {
-      "id_project": 1,
-      "id_technology": 2
+      "project": 1,
+      "technology": 2
     },
     {
-      "id_project": 1,
-      "id_technology": 3
+      "project": 1,
+      "technology": 3
     },
     {
-      "id_project": 1,
-      "id_technology": 4
+      "project": 1,
+      "technology": 4
     },
     {
-      "id_project": 1,
-      "id_technology": 8
+      "project": 1,
+      "technology": 8
     },
     {
-      "id_project": 1,
-      "id_technology": 10
+      "project": 1,
+      "technology": 10
     },
     {
-      "id_project": 1,
-      "id_technology": 11
+      "project": 1,
+      "technology": 11
     },
     {
-      "id_project": 2,
-      "id_technology": 1
+      "project": 2,
+      "technology": 1
     },
     {
-      "id_project": 2,
-      "id_technology": 3
+      "project": 2,
+      "technology": 3
     },
     {
-      "id_project": 2,
-      "id_technology": 5
+      "project": 2,
+      "technology": 5
     },
     {
-      "id_project": 2,
-      "id_technology": 12
+      "project": 2,
+      "technology": 12
     }
   ]
 }
