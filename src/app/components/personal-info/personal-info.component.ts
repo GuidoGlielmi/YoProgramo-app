@@ -46,13 +46,13 @@ export class PersonalInfoComponent implements OnInit {
         techImages.style['scroll-behavior'] = 'smooth';
         techImages.scrollLeft = currentValue - totalWidth / 2 + scrollUnit;
       } else {
-        techImages.scrollLeft += this.screenWidth * 0.12;
+        techImages.scrollLeft += scrollUnit;
       }
     } else if (currentValue - scrollUnit < scrollUnit) {
       techImages.scrollLeft =
         totalWidth / 2 + Math.abs(currentValue - scrollUnit);
     } else {
-      techImages.scrollLeft -= this.screenWidth * 0.12;
+      techImages.scrollLeft -= scrollUnit;
     }
   }
 

@@ -55,9 +55,9 @@
   border-radius: 150% 100% / 10% 40%;
   box-shadow: 0px 0px 5px 0px #08001e;
 }
-/* .listEnd {
-  margin-right: 3vw;
-} */
+.listEnd {
+  border-right: 3px solid black;
+}
 @media (max-width: 850px) {
   .aboutMeTitle::before {
     width: 88%;
