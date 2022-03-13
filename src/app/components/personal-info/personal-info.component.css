@@ -46,6 +46,7 @@
   scrollbar-width: none;
   scroll-behavior: smooth;
   overscroll-behavior-block: contain;
+  margin: auto;
   border-right: 2px solid black;
   border-left: 2px solid black;
 }

@@ -12,7 +12,7 @@
   </p>
   <div
     #techImagesNode
-    class="techImages rowContainer marginMedium"
+    class="techImages rowContainer"
     (wheel)="onWheel($event)"
   >
     <img
@@ -21,11 +21,13 @@
       class="techImage paddingMedium marginSmall"
       [class]="i === techImages.length - 1 ? 'listEnd' : ''"
     />
-    <img
-      *ngFor="let img of techImages; let i = index"
-      [src]="img"
-      class="techImage paddingMedium marginSmall"
-      [class]="i === techImages.length - 1 ? 'listEnd' : ''"
-    />
+    <div *ngIf="screenHeight > 850" class="rowContainer">
+      <img
+        *ngFor="let img of techImages; let i = index"
+        [src]="img"
+        class="techImage paddingMedium marginSmall"
+        [class]="i === techImages.length - 1 ? 'listEnd' : ''"
+      />
+    </div>
   </div>
 </div>

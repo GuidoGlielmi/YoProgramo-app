@@ -39,6 +39,7 @@ export class PersonalInfoComponent implements OnInit {
     let maxValue = techImages.scrollLeftMax;
     let totalWidth = techImages.scrollWidth;
     // let visibleWidth = techImages.offsetWidth;
+    console.log(techImages);
     if (event.deltaY > 0) {
       if (maxValue - currentValue < scrollUnit) {
         techImages.style['scroll-behavior'] = 'auto';
