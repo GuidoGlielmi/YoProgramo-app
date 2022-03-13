@@ -6,7 +6,6 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./personal-info.component.css'],
 })
 export class PersonalInfoComponent implements OnInit {
-  scrollBehavior = 'auto';
   techImages = [
     './assets/logos/angular.png',
     './assets/logos/css3.png',
@@ -34,23 +33,26 @@ export class PersonalInfoComponent implements OnInit {
     this.screenWidth = window.innerWidth;
   }
   onWheel(event: WheelEvent): void {
-    let scrollUnit = this.techImageNode.nativeElement.clientHeight;
-    let currentValue = this.techImageNode.nativeElement.scrollLeft;
-    let maxValue = this.techImageNode.nativeElement.scrollLeftMax;
-    let totalWidth = this.techImageNode.nativeElement.scrollWidth;
-    // let visibleWidth = this.techImageNode.nativeElement.offsetWidth;
+    let techImages = this.techImageNode.nativeElement;
+    let scrollUnit = techImages.clientHeight;
+    let currentValue = techImages.scrollLeft;
+    let maxValue = techImages.scrollLeftMax;
+    let totalWidth = techImages.scrollWidth;
+    // let visibleWidth = techImages.offsetWidth;
     if (event.deltaY > 0) {
       if (maxValue - currentValue < scrollUnit) {
-        this.techImageNode.nativeElement.scrollLeft =
-          currentValue - totalWidth / 2 + scrollUnit;
+        techImages.style['scroll-behavior'] = 'auto';
+        techImages.scrollLeft = currentValue - totalWidth / 2;
+        techImages.style['scroll-behavior'] = 'smooth';
+        techImages.scrollLeft = currentValue - totalWidth / 2 + scrollUnit;
       } else {
-        this.techImageNode.nativeElement.scrollLeft += this.screenWidth * 0.12;
+        techImages.scrollLeft += this.screenWidth * 0.12;
       }
     } else if (currentValue - scrollUnit < scrollUnit) {
-      this.techImageNode.nativeElement.scrollLeft =
+      techImages.scrollLeft =
         totalWidth / 2 + Math.abs(currentValue - scrollUnit);
     } else {
-      this.techImageNode.nativeElement.scrollLeft -= this.screenWidth * 0.12;
+      techImages.scrollLeft -= this.screenWidth * 0.12;
     }
   }
 

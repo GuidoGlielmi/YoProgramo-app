@@ -44,8 +44,7 @@
   overflow: auto;
   width: 95vw;
   scrollbar-width: none;
-  /*   scroll-behavior: smooth;
- */
+  scroll-behavior: smooth;
   overscroll-behavior-block: contain;
   border-right: 2px solid black;
   border-left: 2px solid black;
