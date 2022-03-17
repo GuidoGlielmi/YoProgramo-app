@@ -26,7 +26,7 @@
         rel="noreferrer"
         ><img
           class="APimg"
-          src="../../../assets/logos/APLogo.png"
+          src="/assets/logos/APLogo.png"
           alt="argentina programa logo"
       /></a>
       <a
@@ -54,7 +54,7 @@
           class="marginSmall rowContainer"
           ><img
             class="socialIcon"
-            src="../../../assets/logos/icons8-linkedin-64.png"
+            src="/assets/logos/linkedin.png"
             alt="linkedin logo"
         /></a>
       </div>
@@ -96,10 +96,11 @@
     </div>
   </div>
 </div>
-<app-header></app-header>
+<app-header [profileImgSrc]="user.profileImg"></app-header>
 <app-section color="pink">
   <app-personal-info
-    id="elf"
+    id="myself"
+    [aboutMe]="user.aboutMe"
     class="personalInfo columnContainer"
   ></app-personal-info>
 </app-section>

@@ -1,4 +1,10 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-personal-info',
@@ -6,6 +12,7 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./personal-info.component.css'],
 })
 export class PersonalInfoComponent implements OnInit {
+  @Input() aboutMe: String = '';
   techImages = [
     './assets/logos/angular.png',
     './assets/logos/css3.png',
