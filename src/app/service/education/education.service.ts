@@ -5,17 +5,16 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root',
 })
-export class ExperiencesService {
+export class EducationService {
   constructor(private http: HttpClient) {}
-  getTechs(): Observable<experience[]> {
-    return this.http.get<experience[]>('http://localhost:8080/experiences');
+  getTechs(): Observable<education[]> {
+    return this.http.get<education[]>('http://localhost:8080/education');
   }
 }
-export interface experience {
+export interface education {
   id: string;
-  experienceImg: string;
+  educationImg: string;
   startDate: string;
   endDate: string;
-  title: string;
-  description: string;
+  school: string;
 }

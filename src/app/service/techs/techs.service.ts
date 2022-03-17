@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class TechsService {
   constructor(private http: HttpClient) {}
-  getTechs(): Observable<any> {
+  getTechs(): Observable<tech[]> {
     return this.http.get<tech[]>('http://localhost:8080/techs');
   }
 }

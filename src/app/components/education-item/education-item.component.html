@@ -1,9 +1,9 @@
 <div class="logoBox">
-  <img class="logo marginSmall" [src]="educationItem.logoUrl" alt="logo" />
+  <img class="logo marginSmall" [src]="educationItem.educationImg" alt="logo" />
 </div>
 <div class="educationItemDescr columnContainer marginSmall justifyCenter">
   <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
-    {{ educationItem.title }}
+    {{ educationItem.school }}
   </p>
   <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
     {{ educationItem.startDate }}
