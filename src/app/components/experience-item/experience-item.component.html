@@ -1,8 +1,10 @@
 <div class="rowContainer">
   <img
-    class="logo marginSmall"
-    [class]="experience.title === 'Taller Corazón de Manzana' ? 'rounded' : ''"
-    [src]="experience.logoUrl"
+    class="logo rounded marginSmall"
+    [style.background]="
+      experience.title === 'Argentina Programa' ? '#1e1e1e' : ''
+    "
+    [src]="experience.experienceImg"
     alt="logo"
   />
 </div>

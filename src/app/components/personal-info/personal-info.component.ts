@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { TechsService } from 'src/app/service/techs/techs.service';
+import { tech, TechsService } from 'src/app/service/techs/techs.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -64,9 +64,4 @@ export class PersonalInfoComponent implements OnInit {
       techImages.scrollLeft -= scrollUnit;
     }
   }
-}
-export interface tech {
-  id: String;
-  name: String;
-  techImg: String;
 }

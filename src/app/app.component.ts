@@ -6,7 +6,7 @@ import {
   style,
 } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { UsersService } from './service/users/users.service';
+import { user, UsersService } from './service/users/users.service';
 
 @Component({
   selector: 'app-root',
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
   goDownFadeOutState = 'notBottom';
   loginState = 'notShown';
   user: user = {
+    id: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -103,15 +104,6 @@ export class AppComponent implements OnInit {
   }
 }
 
-export interface user {
-  firstName: string;
-  lastName: string;
-  email: string;
-  linkedInUrl: string;
-  githubUrl: string;
-  aboutMe: string;
-  profileImg: String;
-}
 /*
 Los templates de Angular son fragmentos de HTML dinámicos, y cuando Angular los renderiza, transforma el DOM de acuerdo con las instrucciones dadas por las directivas. Una directiva es una clase con un decorador @Directive() (del cual extiende el decorador @Component). Además de los componentes, existen otros dos tipos de directivas: estructural y atributo.
 @Component: Directivas con template propio.
