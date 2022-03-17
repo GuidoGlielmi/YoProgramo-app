@@ -19,6 +19,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { ModalComponent } from './components/modal/modal.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
