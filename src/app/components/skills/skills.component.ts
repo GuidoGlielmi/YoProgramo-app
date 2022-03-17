@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { skills, SkillsService } from 'src/app/service/skills/skills.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,17 +8,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
   @Input() size: number = 0;
-  skills = [
-    { title: 'Resilience', ability: 60 },
-    { title: 'Empathy', ability: 80 },
-    { title: 'Active listening', ability: 80 },
-    { title: 'Proactive', ability: 70 },
-    { title: 'Creativity', ability: 80 },
-  ];
-  languages = [
-    { title: 'Español', ability: 100 },
-    { title: 'English', ability: 80 },
-    { title: '日本語 / Japanese', ability: 20 },
-  ];
-  ngOnInit(): void {}
+  skills: skills[] = [];
+  languages: skills[] = [];
+  constructor(private skillService: SkillsService) {}
+
+  ngOnInit(): void {
+    try {
+      this.skillService.getSkills().subscribe((skills: skills[]) => {
+        console.log(skills);
+        for (let skill of skills) {
+          if (skill.type === 'language') this.languages.push(skill);
+          else this.skills.push(skill);
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }

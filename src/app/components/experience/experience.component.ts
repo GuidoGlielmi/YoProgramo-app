@@ -28,7 +28,7 @@ export class ExperienceComponent implements OnInit {
   ngOnInit(): void {
     try {
       this.experienceService
-        .getTechs()
+        .getExperiences()
         .subscribe((experiences: experience[]) => {
           console.log(experiences);
           this.experiences = experiences;

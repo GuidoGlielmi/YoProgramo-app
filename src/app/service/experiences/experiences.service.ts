@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ExperiencesService {
   constructor(private http: HttpClient) {}
-  getTechs(): Observable<experience[]> {
+  getExperiences(): Observable<experience[]> {
     return this.http.get<experience[]>('http://localhost:8080/experiences');
   }
 }
