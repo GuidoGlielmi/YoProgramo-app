@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { TechsService } from 'src/app/service/techs/techs.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -13,27 +14,25 @@ import {
 })
 export class PersonalInfoComponent implements OnInit {
   @Input() aboutMe: String = '';
-  techImages = [
-    './assets/logos/angular.png',
-    './assets/logos/css3.png',
-    './assets/logos/expressjs.png',
-    './assets/logos/html5.png',
-    './assets/logos/java.png',
-    './assets/logos/javascript.png',
-    './assets/logos/mongodb.png',
-    './assets/logos/nodejs.png',
-    './assets/logos/postgresql.png',
-    './assets/logos/react.png',
-    './assets/logos/redux.png',
-    './assets/logos/spring.png',
-    './assets/logos/typescript.png',
-  ];
+  techs: tech[] = [{ id: '', name: '', techImg: '' }];
   @ViewChild('techImagesNode') techImageNode: any;
   screenHeight: number = 0;
   screenWidth: number = 0;
-  constructor() {
+  constructor(private techService: TechsService) {
     this.onResize();
   }
+
+  ngOnInit(): void {
+    try {
+      this.techService.getTechs().subscribe((techs: tech[]) => {
+        console.log(techs);
+        this.techs = techs;
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   @HostListener('window:resize')
   onResize() {
     this.screenHeight = window.innerHeight;
@@ -46,7 +45,6 @@ export class PersonalInfoComponent implements OnInit {
     let maxValue = techImages.scrollLeftMax;
     let totalWidth = techImages.scrollWidth;
     // let visibleWidth = techImages.offsetWidth;
-    console.log(techImages);
     if (event.deltaY > 0) {
       if (maxValue - currentValue < scrollUnit) {
         techImages.style['scroll-behavior'] = 'auto';
@@ -57,12 +55,18 @@ export class PersonalInfoComponent implements OnInit {
         techImages.scrollLeft += scrollUnit;
       }
     } else if (currentValue - scrollUnit < scrollUnit) {
+      techImages.style['scroll-behavior'] = 'auto';
+      techImages.scrollLeft = currentValue - totalWidth / 2;
+      techImages.style['scroll-behavior'] = 'smooth';
       techImages.scrollLeft =
         totalWidth / 2 + Math.abs(currentValue - scrollUnit);
     } else {
       techImages.scrollLeft -= scrollUnit;
     }
   }
-
-  ngOnInit(): void {}
+}
+export interface tech {
+  id: String;
+  name: String;
+  techImg: String;
 }

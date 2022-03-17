@@ -1,9 +1,7 @@
 <div class="personalInfo columnContainer">
   <p class="aboutMeTitle darkFont fontLarge">I'm a web developer</p>
   <p class="description darkFont paddingSmall fontMedium">
-    I discovered -not so long ago- the programming world through microntrollers
-    using the legendary C language, which from I developed a passion for
-    automating and problem solving.
+    {{ aboutMe }}
   </p>
 </div>
 <div id="tech" class="columnContainer">
@@ -16,17 +14,19 @@
     (wheel)="onWheel($event)"
   >
     <img
-      *ngFor="let img of techImages; let i = index"
-      [src]="img"
+      *ngFor="let tech of techs; let i = index"
+      [src]="tech.techImg"
       class="techImage paddingMedium marginSmall"
-      [class]="i === techImages.length - 1 ? 'listEnd' : ''"
+      [class]="i === techs.length - 1 ? 'listEnd' : ''"
+      [alt]="tech.name.toString() + ' logo'"
     />
     <div *ngIf="screenHeight > 850" class="rowContainer">
       <img
-        *ngFor="let img of techImages; let i = index"
-        [src]="img"
+        *ngFor="let tech of techs; let i = index"
+        [src]="tech.techImg"
         class="techImage paddingMedium marginSmall"
-        [class]="i === techImages.length - 1 ? 'listEnd' : ''"
+        [class]="i === techs.length - 1 ? 'listEnd' : ''"
+        [alt]="tech.name.toString() + 'logo'"
       />
     </div>
   </div>
