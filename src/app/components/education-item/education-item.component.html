@@ -3,6 +3,9 @@
 </div>
 <div class="educationItemDescr columnContainer marginSmall justifyCenter">
   <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
+    {{ educationItem.degree }}
+  </p>
+  <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
     {{ educationItem.school }}
   </p>
   <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">

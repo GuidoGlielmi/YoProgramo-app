@@ -13,8 +13,9 @@ export class EducationService {
 }
 export interface education {
   id: string;
+  school: string;
+  degree: string;
   educationImg: string;
   startDate: string;
   endDate: string;
-  school: string;
 }

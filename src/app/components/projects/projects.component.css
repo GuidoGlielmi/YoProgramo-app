@@ -30,7 +30,7 @@
 .projectItemLeft::before {
   content: "";
   position: absolute;
-  left: 7vw;
+  left: 4vw;
   width: 121%;
   border-bottom: 2px solid #363636;
   bottom: 0;
@@ -39,7 +39,7 @@
 .projectItemRight::before {
   content: "";
   position: absolute;
-  right: 7vw;
+  right: 4vw;
   width: 121%;
   border-bottom: 2px solid #363636;
   bottom: 0;
@@ -52,11 +52,11 @@
     width: 75%;
   }
   .projectItemRight::before {
-    right: 2vw;
+    right: 12vw;
     width: 100%;
   }
   .projectItemLeft::before {
-    left: 2vw;
+    left: 12vw;
     width: 100%;
   }
 }
@@ -74,11 +74,9 @@
   }
 
   .projectItemRight::before {
-    right: 2vw;
     width: 100%;
   }
   .projectItemLeft::before {
-    left: 2vw;
     width: 100%;
   }
 }

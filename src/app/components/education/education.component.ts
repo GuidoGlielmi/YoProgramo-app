@@ -10,15 +10,7 @@ import {
   styleUrls: ['./education.component.css'],
 })
 export class EducationComponent implements OnInit {
-  education: education[] = [
-    {
-      id: '',
-      educationImg: '',
-      school: '',
-      startDate: '',
-      endDate: '',
-    },
-  ];
+  education: education[] = [];
   constructor(private educationService: EducationService) {}
   ngOnInit(): void {
     try {

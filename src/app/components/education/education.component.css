@@ -18,10 +18,13 @@
 .educationItem {
   display: flex;
   align-items: center;
+  margin: max(4vw, 4vh);
+  padding: max(2vw, 2vh);
 }
 .educationItemLeft,
 .educationItemRight {
   position: relative;
+  max-width: 70%;
 }
 .educationItemLeft::before {
   content: "";
@@ -62,7 +65,7 @@
   }
   .educationItem {
     flex-direction: column;
-    align-items: center;
+    align-self: center;
   }
   .educationItemRight::before {
     right: 2vw;

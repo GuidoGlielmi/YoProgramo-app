@@ -1,13 +1,11 @@
-<div class="rowContainer">
-  <img
-    class="logo rounded marginSmall"
-    [style.background]="
-      experience.title === 'Argentina Programa' ? '#1e1e1e' : ''
-    "
-    [src]="experience.experienceImg"
-    [alt]="experience.title"
-  />
-</div>
+<img
+  class="logo rounded marginSmall"
+  [style.background]="
+    experience.title === 'Argentina Programa' ? '#1e1e1e' : ''
+  "
+  [src]="experience.experienceImg"
+  [alt]="experience.title"
+/>
 <div
   class="infoBox columnContainer marginSmall justifyCenter"
   [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'"

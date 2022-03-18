@@ -1,3 +1,7 @@
+.infoBox,
+.logo {
+  z-index: 1;
+}
 .infoBox {
   text-align: center;
 }
