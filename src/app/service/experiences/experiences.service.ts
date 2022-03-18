@@ -18,4 +18,5 @@ export interface experience {
   endDate: string;
   title: string;
   description: string;
+  certificate: string;
 }

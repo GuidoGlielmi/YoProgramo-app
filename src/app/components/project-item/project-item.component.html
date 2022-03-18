@@ -4,36 +4,31 @@
   alt="logo"
 />
 <div class="columnContainer marginSmall justifyCenter">
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
+  <p
+    class="title p fontMedium marginSmall"
+    [class]="index % 2 === 0 ? 'darkFont' : ''"
+  >
     {{ projectItem.title }}
   </p>
-  <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
+  <p
+    class="description p fontSmall"
+    [class]="index % 2 === 0 ? 'darkFont' : ''"
+  >
     {{ projectItem.description }}
   </p>
   <ul>
-    <li
-      *ngFor="let url of projectItem.urls"
-      class="p fontSmall"
-      [class]="index % 2 === 0 ? 'darkFont' : ''"
-    >
-      <a [href]="url.url">{{ url.url }}</a>
+    <li *ngFor="let url of projectItem.urls" class="p fontSmall">
+      <a [href]="url.url" class="link p fontSmall">{{ url.name }}</a>
     </li>
   </ul>
-  <ul>
+  <ul class="p">
     <li
-      *ngFor="let tech of projectItem.techs"
+      *ngFor="let tech of projectItem.techs; let i = index"
       class="p projectTech fontSmall"
       [class]="index % 2 === 0 ? 'darkFont' : ''"
     >
-      {{ tech.name }}
+      <span>{{ tech.name }}</span
+      ><span *ngIf="i !== projectItem.techs.length - 1"> - </span>
     </li>
   </ul>
-  <a
-    href="../../../assets/img/certificates/RR.jpg"
-    target="_blank"
-    class="p fontSmall"
-    [class]="index % 2 === 0 ? 'darkFont' : ''"
-  >
-    Certificate
-  </a>
 </div>

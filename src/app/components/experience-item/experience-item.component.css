@@ -3,8 +3,20 @@
 }
 .logo {
   max-width: 15vw;
-  max-height: 40vh;
 }
 .p {
   text-shadow: inherit;
+}
+.certificate {
+  color: #1870f0;
+  transition: color 0.25s ease;
+}
+
+.certificate:hover {
+  color: red;
+}
+@media (max-width: 450px) {
+  .logo {
+    max-width: 15vh;
+  }
 }

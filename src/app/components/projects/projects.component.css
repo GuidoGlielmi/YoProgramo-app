@@ -17,6 +17,8 @@
 }
 .projectItem {
   display: flex;
+  align-items: center;
+  width: 60%;
 }
 .projectItemLeft,
 .projectItemRight {
@@ -44,6 +46,7 @@
   .projectItem {
     flex-direction: column;
     align-items: center;
+    width: unset;
   }
   .projectItemRight::before {
     right: 2vw;

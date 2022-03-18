@@ -9,6 +9,9 @@
   />
 </div>
 <div class="expDescr columnContainer marginSmall justifyCenter">
+  <h3 class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
+    {{ experience.title }}
+  </h3>
   <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
     {{ experience.startDate }}
   </p>
@@ -18,4 +21,12 @@
   <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
     {{ experience.description }}
   </p>
+  <a
+    *ngIf="experience.certificate"
+    [href]="experience.certificate"
+    target="_blank"
+    class="certificate fontMedium"
+  >
+    certificate
+  </a>
 </div>

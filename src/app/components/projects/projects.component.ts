@@ -10,16 +10,7 @@ import {
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  projects: project[] = [
-    {
-      id: '',
-      title: '',
-      projectImg: '',
-      description: '',
-      techs: [],
-      urls: [],
-    },
-  ];
+  projects: project[] = [];
   constructor(private projectService: ProjectsService) {}
 
   ngOnInit(): void {

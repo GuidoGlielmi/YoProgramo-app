@@ -23,5 +23,6 @@ export interface project {
 export interface projectUrls {
   id: String;
   url: String;
+  name: String;
   projectId: String;
 }
