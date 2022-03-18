@@ -1,14 +1,33 @@
-<img class="logo marginSmall" [src]="projectItem.logoUrl" alt="logo" />
+<img
+  class="logo rounded marginSmall"
+  [src]="projectItem.projectImg"
+  alt="logo"
+/>
 <div class="columnContainer marginSmall justifyCenter">
   <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
     {{ projectItem.title }}
   </p>
   <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
-    {{ projectItem.startDate }}
+    {{ projectItem.description }}
   </p>
-  <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
-    {{ projectItem.endDate }}
-  </p>
+  <ul>
+    <li
+      *ngFor="let url of projectItem.urls"
+      class="p fontSmall"
+      [class]="index % 2 === 0 ? 'darkFont' : ''"
+    >
+      <a [href]="url.url">{{ url.url }}</a>
+    </li>
+  </ul>
+  <ul>
+    <li
+      *ngFor="let tech of projectItem.techs"
+      class="p projectTech fontSmall"
+      [class]="index % 2 === 0 ? 'darkFont' : ''"
+    >
+      {{ tech.name }}
+    </li>
+  </ul>
   <a
     href="../../../assets/img/certificates/RR.jpg"
     target="_blank"

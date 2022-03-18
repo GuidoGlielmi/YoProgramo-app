@@ -9,6 +9,9 @@
   text-align: center;
   text-shadow: 0px 0px 1px #131313;
 }
+.projectTech {
+  display: inline;
+}
 @media (max-width: 650px) {
   .logo {
     width: 80%;

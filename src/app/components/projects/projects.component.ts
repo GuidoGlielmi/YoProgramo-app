@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  project,
+  ProjectsService,
+} from 'src/app/service/projects/projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -8,31 +12,24 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectsComponent implements OnInit {
   projects: project[] = [
     {
-      company: 'Radium Rocket',
-      logoUrl: '../../assets/logos/RRLogo.png',
-      description: 'Fictional company development',
-      title: 'Radium Rocket - MindSET',
-      startDate: '09/2016',
-      endDate: '11/2019',
-    },
-    {
-      company: 'Radium Rocket',
-      logoUrl: '../../assets/logos/APLogo.png',
-      description: 'Portfolio development',
-      title: 'Techinician in Electronic Systems',
-      startDate: '04/2021',
-      endDate: 'Current',
+      id: '',
+      title: '',
+      projectImg: '',
+      description: '',
+      techs: [],
+      urls: [],
     },
   ];
-  constructor() {}
+  constructor(private projectService: ProjectsService) {}
 
-  ngOnInit(): void {}
-}
-export interface project {
-  logoUrl: string;
-  company: string;
-  title: string;
-  description: string;
-  startDate: string;
-  endDate: string;
+  ngOnInit(): void {
+    try {
+      this.projectService.getProjects().subscribe((projects: project[]) => {
+        console.log(projects);
+        this.projects = projects;
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
