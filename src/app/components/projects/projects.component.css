@@ -18,8 +18,8 @@
 .projectItem {
   position: relative;
   width: 60%;
-  padding: max(2vw, 1.6vh);
-  margin: max(5vw, 4vh) 0;
+  padding: max(2vw, 2vh);
+  margin: max(5vw, 5vh) max(2vw, 2vh);
 }
 .projectItemLeft {
   align-self: flex-start;
@@ -51,12 +51,9 @@
     align-items: center;
     width: 75%;
   }
-  .projectItemRight::before {
-    right: 12vw;
-    width: 100%;
-  }
+  .projectItemRight::before,
   .projectItemLeft::before {
-    left: 12vw;
+    right: 12vw;
     width: 100%;
   }
 }
@@ -68,15 +65,16 @@
     left: 4vw;
     width: 88%;
   }
+  .projectItem {
+    padding: 3.5vh;
+  }
   .projectItemLeft,
   .projectItemRight {
     align-self: center;
   }
 
-  .projectItemRight::before {
-    width: 100%;
-  }
+  .projectItemRight::before,
   .projectItemLeft::before {
-    width: 100%;
+    right: 0vw;
   }
 }
