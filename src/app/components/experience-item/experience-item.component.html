@@ -5,22 +5,30 @@
       experience.title === 'Argentina Programa' ? '#1e1e1e' : ''
     "
     [src]="experience.experienceImg"
-    alt="logo"
+    [alt]="experience.title"
   />
 </div>
-<div class="expDescr columnContainer marginSmall justifyCenter">
-  <h3 class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
+<div
+  class="infoBox columnContainer marginSmall justifyCenter"
+  [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'"
+>
+  <h3 class="title inherit marginSmall fontLarge">
     {{ experience.title }}
   </h3>
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
-    {{ experience.startDate }}
-  </p>
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
-    {{ experience.endDate }}
-  </p>
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
-    {{ experience.description }}
-  </p>
+  <div class="columnContainer marginSmall">
+    <div class="datesContainer rowContainer">
+      <span class="experienceP inherit fontMedium">
+        {{ experience.startDate }}
+      </span>
+      <span>&nbsp;-&nbsp;</span>
+      <span class="experienceP inherit fontMedium">
+        {{ experience.endDate }}
+      </span>
+    </div>
+    <p class="experienceP inherit fontMedium">
+      {{ experience.description }}
+    </p>
+  </div>
   <a
     *ngIf="experience.certificate"
     [href]="experience.certificate"

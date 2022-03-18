@@ -4,10 +4,8 @@
     *ngFor="let p of projects; let i = index"
     [index]="i"
     [projectItem]="p"
-    class="marginMedium paddingMedium projectItem"
-    [class]="
-      i % 2 === 0 ? 'projectItemLeft alignLeft' : 'projectItemRight alignRight'
-    "
+    class="projectItem rowContainer"
+    [class]="i % 2 === 0 ? 'projectItemLeft' : 'projectItemRight'"
   >
   </app-project-item>
 </div>

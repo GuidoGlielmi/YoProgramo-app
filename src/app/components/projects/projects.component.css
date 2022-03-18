@@ -16,13 +16,16 @@
   width: 100%;
 }
 .projectItem {
-  display: flex;
-  align-items: center;
-  width: 60%;
-}
-.projectItemLeft,
-.projectItemRight {
   position: relative;
+  width: 60%;
+  padding: max(2vw, 1.6vh);
+  margin: max(5vw, 4vh) 0;
+}
+.projectItemLeft {
+  align-self: flex-start;
+}
+.projectItemRight {
+  align-self: flex-end;
 }
 .projectItemLeft::before {
   content: "";
@@ -46,7 +49,7 @@
   .projectItem {
     flex-direction: column;
     align-items: center;
-    width: unset;
+    width: 75%;
   }
   .projectItemRight::before {
     right: 2vw;
@@ -64,6 +67,10 @@
   .title::before {
     left: 4vw;
     width: 88%;
+  }
+  .projectItemLeft,
+  .projectItemRight {
+    align-self: center;
   }
 
   .projectItemRight::before {

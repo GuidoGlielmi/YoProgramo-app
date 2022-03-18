@@ -11,6 +11,7 @@
 }
 .description {
   padding-bottom: 1vw;
+  line-height: 30px;
 }
 .logoBox {
   position: relative;
@@ -18,6 +19,10 @@
 .logo {
   position: relative;
   width: 15vw;
+}
+.infoContainer {
+  width: 70%;
+  width: 70%;
 }
 .p {
   text-align: center;
@@ -38,13 +43,17 @@
 .projectTech {
   display: inline;
 }
-@media (max-width: 650px) {
+
+@media (max-width: 850px) {
   .logo {
-    width: 80%;
+    width: 17vh;
+  }
+  .description {
+    line-height: max(2.5vh, 2.5vw);
   }
 }
 @media (max-width: 450px) {
-  .logo {
-    width: 80%;
+  .infoContainer {
+    width: 100%;
   }
 }

@@ -1,5 +1,9 @@
 <div
-  [style]="i === 0 ? firstRightStyle : i % 2 === 0 ? rightStyle : leftStyle"
+  [ngClass]="{
+    firstRight: i === 0,
+    right: i % 2 === 0,
+    left: i % 2 !== 0
+  }"
   *ngFor="let e of experiences; let i = index"
 >
   <p *ngIf="i === 0" class="projectsImagesTitle darkFont fontLarge">
@@ -8,14 +12,12 @@
   <app-experience-item
     [index]="i"
     [experience]="e"
-    class="rowContainer"
-    [class]="
-      i === 0
-        ? 'firstExperienceRight'
-        : i % 2 === 0
-        ? 'experienceRight'
-        : 'experienceLeft'
-    "
+    class="experienceItem rowContainer"
+    [ngClass]="{
+      firstExperienceRight: i === 0,
+      experienceItemRight: i % 2 === 0,
+      experienceItemLeft: i % 2 !== 0
+    }"
   >
   </app-experience-item>
 </div>
