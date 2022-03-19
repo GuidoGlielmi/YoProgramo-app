@@ -15,16 +15,22 @@
 .educations {
   width: 100%;
 }
+.educationContainer {
+  margin: max(4vw, 4vh) 0;
+  width: 80%;
+}
+.closeAndEdit {
+  align-self: flex-end;
+}
 .educationItem {
   display: flex;
   align-items: center;
-  margin: max(4vw, 4vh);
+  width: 80%;
   padding: max(2vw, 2vh);
 }
 .educationItemLeft,
 .educationItemRight {
   position: relative;
-  max-width: 70%;
 }
 .educationItemLeft::before {
   content: "";

@@ -1,3 +1,5 @@
+.educationItemDescr {
+}
 .logoBox {
   position: relative;
 }
@@ -8,18 +10,35 @@
 .p {
   text-align: center;
 }
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.inputLabel {
+  width: 40%;
+  margin: 5px;
+}
+.label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.input {
+  display: block;
+}
+.saveButton {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 2px;
+}
+.inputError {
+  border-color: red;
+}
+.errorSpan {
+  color: red;
+}
 @media (max-width: 650px) {
   .logo {
     width: 80%;
   }
 }
-
-/*
-.logoBox::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  height: 10vh;
-  border-right: 2px solid #363636;
-  top: 16.5%;
-} */
