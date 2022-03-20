@@ -35,7 +35,7 @@ import { user, UsersService } from './service/users/users.service';
     ]),
     trigger('showLogin', [
       state('notShown', style({ opacity: 0, 'z-index': -1 })),
-      state('shown', style({ opacity: 1, 'z-index': 1 })),
+      state('shown', style({ opacity: 1, 'z-index': 2 })),
       transition('notShown <=> shown', animate('400ms ease-out')),
     ]),
   ],
