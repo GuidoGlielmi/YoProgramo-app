@@ -4,6 +4,7 @@
 }
 .percentage {
   position: absolute;
+  font-size: max(2vw, 2vh);
 }
 .circleContainer {
   transform: rotate(-90deg) scale(1, -1);

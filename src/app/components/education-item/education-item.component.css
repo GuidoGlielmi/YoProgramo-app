@@ -1,25 +1,60 @@
-.logoBox {
-  position: relative;
-}
-.logo {
-  position: relative;
-  width: 20vw;
-}
 .p {
   text-align: center;
 }
-@media (max-width: 650px) {
-  .logo {
-    width: 80%;
-  }
+.formInputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+  margin: 5px;
+}
+.label {
+  margin-bottom: 5px;
 }
 
-/*
-.logoBox::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  height: 10vh;
-  border-right: 2px solid #363636;
-  top: 16.5%;
-} */
+.saveButton {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 2px;
+}
+.inputError {
+  border-color: red;
+}
+.errorSpan {
+  color: red;
+}
+@media (max-width: 650px) {
+}
+@media (max-width: 450px) {
+  .mainContainer {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .form {
+    align-items: unset;
+  }
+  .formInputs {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .educationItemDescr {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .inputLabel {
+    width: unset;
+  }
+  .label {
+    align-self: center;
+  }
+  .logo {
+    width: unset;
+  }
+  .saveButton {
+    align-self: center;
+  }
+}

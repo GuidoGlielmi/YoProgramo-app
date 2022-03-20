@@ -5,7 +5,8 @@ import {
   animate,
   style,
 } from '@angular/animations';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { user, UsersService } from './service/users/users.service';
 
 @Component({
   selector: 'app-root',
@@ -39,13 +40,36 @@ import { Component, HostListener } from '@angular/core';
     ]),
   ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'YoProgramo-app';
   socialState = 'notShown';
   goDownState = 'unpressed';
   loginButtonState = 'unpressed';
   goDownFadeOutState = 'notBottom';
   loginState = 'notShown';
+  user: user = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    linkedInUrl: '',
+    githubUrl: '',
+    aboutMe: '',
+    profileImg: '',
+  };
+  constructor(private userService: UsersService) {}
+
+  ngOnInit(): void {
+    try {
+      this.userService.getUser().subscribe((user: user[]) => {
+        console.log(user);
+        this.user = user[0];
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   @HostListener('window:scroll')
   onWindowScroll() {
     if (
@@ -79,6 +103,7 @@ export class AppComponent {
     else this.loginButtonState = 'pressed';
   }
 }
+
 /*
 Los templates de Angular son fragmentos de HTML dinámicos, y cuando Angular los renderiza, transforma el DOM de acuerdo con las instrucciones dadas por las directivas. Una directiva es una clase con un decorador @Directive() (del cual extiende el decorador @Component). Además de los componentes, existen otros dos tipos de directivas: estructural y atributo.
 @Component: Directivas con template propio.

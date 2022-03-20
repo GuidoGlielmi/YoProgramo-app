@@ -15,9 +15,18 @@
 .educations {
   width: 100%;
 }
+.educationContainer {
+  margin: max(4vw, 4vh) 0;
+  width: 80%;
+}
+.closeAndEdit {
+  align-self: flex-end;
+}
 .educationItem {
   display: flex;
   align-items: center;
+  width: 80%;
+  padding: max(2vw, 2vh);
 }
 .educationItemLeft,
 .educationItemRight {
@@ -43,6 +52,10 @@
 }
 
 @media (max-width: 850px) {
+  .educationItemLeft,
+  .educationItemRight {
+    width: 100%;
+  }
   .educationItemRight::before {
     right: 2vw;
     width: 100%;
@@ -62,7 +75,6 @@
   }
   .educationItem {
     flex-direction: column;
-    align-items: center;
   }
   .educationItemRight::before {
     right: 2vw;

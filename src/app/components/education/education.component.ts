@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  education,
+  EducationService,
+} from 'src/app/service/education/education.service';
 
 @Component({
   selector: 'app-education',
@@ -6,30 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./education.component.css'],
 })
 export class EducationComponent implements OnInit {
-  education: education[] = [
-    {
-      logoUrl: '../../assets/logos/fhya-logo.png',
-      school: 'Escuela de Música - Facultad de Humanidades y Artes',
-      title: 'Sound and Recording Technician',
-      startDate: '09/2016',
-      endDate: '11/2019',
-    },
-    {
-      logoUrl: '../../assets/logos/IPS-UNR-logo.png',
-      school: 'Instituto Politécnico Superior',
-      title: 'Technician in Electronic Systems',
-      startDate: '04/2021',
-      endDate: 'Current',
-    },
-  ];
-  constructor() {}
-
-  ngOnInit(): void {}
-}
-export interface education {
-  logoUrl: string;
-  school: string;
-  title: string;
-  startDate: string;
-  endDate: string;
+  education: education[] = [];
+  constructor(private educationService: EducationService) {}
+  ngOnInit(): void {
+    try {
+      this.educationService.getEducation().subscribe({
+        next: (education: education[]) => {
+          this.education = education;
+        },
+        error: (error) => console.log(error),
+        complete: () => console.log('complete'),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }

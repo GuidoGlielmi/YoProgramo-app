@@ -1,19 +1,38 @@
-<div class="rowContainer">
-  <img
-    class="logo marginSmall"
-    [class]="experience.title === 'Taller Corazón de Manzana' ? 'rounded' : ''"
-    [src]="experience.logoUrl"
-    alt="logo"
-  />
-</div>
-<div class="expDescr columnContainer marginSmall justifyCenter">
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
-    {{ experience.startDate }}
-  </p>
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
-    {{ experience.endDate }}
-  </p>
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'">
-    {{ experience.description }}
-  </p>
+<img
+  class="logo rounded marginSmall"
+  [style.background]="
+    experience.title === 'Argentina Programa' ? '#1e1e1e' : ''
+  "
+  [src]="experience.experienceImg"
+  [alt]="experience.title"
+/>
+<div
+  class="infoBox columnContainer marginSmall justifyCenter"
+  [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'"
+>
+  <h3 class="title inherit marginSmall fontLarge">
+    {{ experience.title }}
+  </h3>
+  <div class="columnContainer marginSmall">
+    <div class="datesContainer rowContainer">
+      <span class="experienceP inherit fontMedium">
+        {{ experience.startDate }}
+      </span>
+      <span>&nbsp;-&nbsp;</span>
+      <span class="experienceP inherit fontMedium">
+        {{ experience.endDate }}
+      </span>
+    </div>
+    <p class="experienceP inherit fontMedium">
+      {{ experience.description }}
+    </p>
+  </div>
+  <a
+    *ngIf="experience.certificate"
+    [href]="experience.certificate"
+    target="_blank"
+    class="certificate fontMedium"
+  >
+    certificate
+  </a>
 </div>

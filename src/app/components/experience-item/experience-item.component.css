@@ -1,10 +1,44 @@
-.expDescr {
+.infoBox,
+.logo {
+  z-index: 1;
+}
+.infoBox {
   text-align: center;
 }
 .logo {
   max-width: 15vw;
-  max-height: 40vh;
 }
-.p {
+.title {
+  font-size: xx-large;
+}
+.datesContainer {
+  text-align: center;
+}
+.experienceP {
+  font-size: x-large;
+}
+.inherit {
+  color: inherit;
   text-shadow: inherit;
+}
+.certificate {
+  color: #1870f0;
+  transition: color 0.25s ease;
+}
+
+.certificate:hover {
+  color: rgb(190, 0, 0);
+}
+@media (max-width: 700px) {
+  .title {
+    font-size: large;
+  }
+  .experienceP {
+    font-size: medium;
+  }
+}
+@media (max-width: 450px) {
+  .logo {
+    max-width: 15vh;
+  }
 }

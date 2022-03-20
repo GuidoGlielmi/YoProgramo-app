@@ -109,6 +109,15 @@ button {
   .paddingMedium {
     padding: max(2vh, 10px);
   }
+  .fontSmall {
+    font-size: medium;
+  }
+  .fontMedium {
+    font-size: large;
+  }
+  .fontLarge {
+    font-size: x-large;
+  }
 }
 @media (max-width: 450px) {
   .marginSmall {
@@ -121,9 +130,9 @@ button {
     font-size: small;
   }
   .fontMedium {
-    font-size: large;
+    font-size: medium;
   }
   .fontLarge {
-    font-size: x-large;
+    font-size: larger;
   }
 }

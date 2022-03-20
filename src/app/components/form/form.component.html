@@ -1,0 +1,22 @@
+<!-- <form
+    [formGroup]="newEducationItem"
+    (ngSubmit)="saveEducation()"
+    class="columnContainer"
+  >
+    <div *ngFor="let k of keys; let i = index" class="inputLabel">
+      <div class="inputLabel">
+        <label [for]="k" class="label">{{ k }}</label>
+        <input
+          [formControlName]="k"
+          [value]="values[i]"
+          [ngClass]="{
+            inputError:
+              this.newEducationItem.controls[k]?.errors &&
+              this.newEducationItem.controls[k]?.touched
+          }"
+          class="input"
+          [id]="k"
+        />
+      </div>
+    </div>
+  </form> -->

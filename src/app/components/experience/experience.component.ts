@@ -1,51 +1,37 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  experience,
+  ExperiencesService,
+} from 'src/app/service/experiences/experiences.service';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css'],
 })
 export class ExperienceComponent implements OnInit {
-  public experiences: experience[] = [
-    {
-      logoUrl: '../../assets/logos/RRLogo.png',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      title: 'Radium Rocket',
-      description: 'Bootcamp',
-    },
-    {
-      logoUrl: '../../assets/logos/APLogo.png',
-      title: 'Argentina Programa',
-      startDate: '11/2021',
-      endDate: '05/2022',
-      description: 'Aguante Cristina',
-    },
-    {
-      logoUrl: '../../assets/logos/TCDM-logo.jpg',
-      title: 'Taller Corazón de Manzana',
-      startDate: '09/2021',
-      endDate: '01/2022',
-      description: 'Casitas',
-    },
-  ];
-  vwh = 'vw';
-  constructor() {
-    this.onResize();
+  public experiences: experience[] = [];
+
+  constructor(private experienceService: ExperiencesService) {}
+
+  ngOnInit(): void {
+    try {
+      this.experienceService
+        .getExperiences()
+        .subscribe((experiences: experience[]) => {
+          this.experiences = experiences;
+          this.experiences.push(experiences[0]);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }
-  @HostListener('window:resize')
+
+  /*  @HostListener('window:resize')
   onResize() {
     if (window.innerHeight > window.innerWidth) {
       this.vwh = 'vh';
     } else {
       this.vwh = 'vw';
     }
-  }
-  ngOnInit(): void {}
-}
-export interface experience {
-  logoUrl: string;
-  startDate: string;
-  endDate: string;
-  title: string;
-  description: string;
+  } */
 }

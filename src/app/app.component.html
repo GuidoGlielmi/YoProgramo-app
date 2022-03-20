@@ -26,7 +26,7 @@
         rel="noreferrer"
         ><img
           class="APimg"
-          src="../../../assets/logos/APLogo.png"
+          src="/assets/logos/AP.png"
           alt="argentina programa logo"
       /></a>
       <a
@@ -40,21 +40,21 @@
     <div class="rowContainer">
       <div class="social rowContainer">
         <a
-          href="https://github.com/GuidoGlielmi"
+          [href]="user.githubUrl"
           target="_blank"
           class="marginSmall rowContainer"
           ><img
             class="socialIcon"
-            src="../../../assets/logos/GitHub-Mark-Light-64px.png"
+            src="/assets/logos/GitHub-Mark-Light-64px.png"
             alt="github logo"
         /></a>
         <a
-          href="https://www.linkedin.com/in/guido-glielmi/"
+          [href]="user.linkedInUrl"
           target="_blank"
           class="marginSmall rowContainer"
           ><img
             class="socialIcon"
-            src="../../../assets/logos/icons8-linkedin-64.png"
+            src="/assets/logos/linkedin.png"
             alt="linkedin logo"
         /></a>
       </div>
@@ -78,7 +78,7 @@
         class="socialMediaLinkOnCell marginSmall"
         ><img
           class="socialIcon"
-          src="../../../assets/logos/GitHub-Mark-Light-64px.png"
+          src="/assets/logos/GitHub-Mark-Light-64px.png"
           alt="github logo"
       /></a>
       <a
@@ -87,7 +87,7 @@
         class="socialMediaLinkOnCell marginSmall"
         ><img
           class="socialIcon"
-          src="../../../assets/logos/icons8-linkedin-64.png"
+          src="/assets/logos/linkedin.png"
           alt="linkedin logo"
       /></a>
     </div>
@@ -96,10 +96,11 @@
     </div>
   </div>
 </div>
-<app-header></app-header>
+<app-header [profileImgSrc]="user.profileImg"></app-header>
 <app-section color="pink">
   <app-personal-info
-    id="elf"
+    id="myself"
+    [aboutMe]="user.aboutMe"
     class="personalInfo columnContainer"
   ></app-personal-info>
 </app-section>

@@ -1,14 +1,130 @@
-<div class="logoBox">
-  <img class="logo marginSmall" [src]="educationItem.logoUrl" alt="logo" />
+<button (click)="registered = !registered">log in</button>
+<div *ngIf="!registered" class="mainContainer rowContainer">
+  <img class="logo marginSmall" [src]="educationItem.educationImg" alt="logo" />
+  <div class="educationItemDescr columnContainer marginSmall">
+    <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
+      {{ educationItem.degree }}
+    </p>
+    <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
+      {{ educationItem.school }}
+    </p>
+    <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
+      {{ educationItem.startDate }}
+    </p>
+    <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
+      {{ educationItem.endDate }}
+    </p>
+  </div>
 </div>
-<div class="educationItemDescr columnContainer marginSmall justifyCenter">
-  <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
-    {{ educationItem.title }}
-  </p>
-  <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
-    {{ educationItem.startDate }}
-  </p>
-  <p class="p fontSmall" [class]="index % 2 === 0 ? 'darkFont' : ''">
-    {{ educationItem.endDate }}
-  </p>
+<div *ngIf="registered" class="mainContainer rowContainer">
+  <img class="logo marginSmall" [src]="educationItem.educationImg" alt="logo" />
+  <form
+    [formGroup]="newEducationItem"
+    (ngSubmit)="saveEducation()"
+    class="form columnContainer"
+  >
+    <div class="formInputs">
+      <div class="inputLabel">
+        <label for="school" class="label">School</label>
+        <input
+          formControlName="school"
+          [ngClass]="{
+            inputError: school?.errors && school?.touched && !schoolClicked
+          }"
+          (focus)="schoolClicked = true"
+          (blur)="schoolClicked = false"
+          class="input"
+          id="school"
+        /><span
+          *ngIf="school?.errors && school?.touched && !schoolClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="startDate" class="label">Start date</label>
+        <input
+          formControlName="startDate"
+          [ngClass]="{
+            inputError:
+              startDate?.errors && startDate?.touched && !startDateClicked
+          }"
+          (focus)="startDateClicked = true"
+          (blur)="startDateClicked = false"
+          class="input"
+          id="startDate"
+        /><span
+          *ngIf="startDate?.errors && startDate?.touched && !startDateClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="endDate" class="label">End date</label>
+        <input
+          formControlName="endDate"
+          [ngClass]="{
+            inputError: endDate?.errors && endDate?.touched && !endDateClicked
+          }"
+          (focus)="endDateClicked = true"
+          (blur)="endDateClicked = false"
+          class="input"
+          id="endDate"
+        /><span
+          *ngIf="endDate?.errors && endDate?.touched && !endDateClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="degree" class="label">Degree</label>
+        <input
+          formControlName="degree"
+          [ngClass]="{
+            inputError: degree?.errors && degree?.touched && !degreeClicked
+          }"
+          (focus)="degreeClicked = true"
+          (blur)="degreeClicked = false"
+          class="input"
+          id="degree"
+        /><span
+          *ngIf="degree?.errors && degree?.touched && !degreeClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="educationImg" class="label">Institute image</label>
+        <input
+          (focus)="educationImgClicked = true"
+          (blur)="educationImgClicked = false"
+          class="input"
+          [ngClass]="{
+            inputError:
+              educationImg?.errors &&
+              educationImg?.touched &&
+              !educationImgClicked
+          }"
+          formControlName="educationImg"
+          id="educationImg"
+        />
+        <span
+          *ngIf="
+            educationImg?.errors &&
+            educationImg?.touched &&
+            !educationImgClicked
+          "
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="saveButton"
+      [disabled]="!newEducationItem.valid"
+    >
+      Save
+    </button>
+  </form>
 </div>

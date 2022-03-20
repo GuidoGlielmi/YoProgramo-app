@@ -1,3 +1,18 @@
+.title {
+  border-bottom: 2px solid rgb(37, 37, 37);
+  padding: 10px 5vw;
+  border-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      #202020 20% 80%,
+      rgba(0, 0, 0, 0)
+    )
+    0 0 1%;
+}
+.description {
+  padding-bottom: 1vw;
+  line-height: 30px;
+}
 .logoBox {
   position: relative;
 }
@@ -5,17 +20,40 @@
   position: relative;
   width: 15vw;
 }
+.infoContainer {
+  width: 70%;
+  width: 70%;
+}
 .p {
   text-align: center;
   text-shadow: 0px 0px 1px #131313;
 }
-@media (max-width: 650px) {
+.link {
+  display: inline-block;
+  position: relative;
+  margin: 3px;
+  transition: margin 0.3s ease, color 0.3s ease;
+  right: 0;
+  color: #1870f0;
+}
+.link:hover {
+  margin: 7px;
+  color: rgb(214, 0, 0);
+}
+.projectTech {
+  display: inline;
+}
+
+@media (max-width: 850px) {
   .logo {
-    width: 80%;
+    width: max(17vh, 17vw);
+  }
+  .description {
+    line-height: max(2.5vh, 2.5vw);
   }
 }
 @media (max-width: 450px) {
-  .logo {
-    width: 80%;
+  .infoContainer {
+    width: 100%;
   }
 }

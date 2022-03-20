@@ -1,22 +1,22 @@
 <p class="title fontLarge">Soft & Hard skills</p>
 <div class="skillsContainer rowContainer">
   <div *ngFor="let skill of skills" class="marginMedium columnContainer">
-    <p class="skillTitle">{{ skill.title }}</p>
+    <p class="skillTitle">{{ skill.name }}</p>
     <app-progress-ring
       class="columnContainer"
       [radius]="size"
-      [percentage]="skill.ability"
+      [percentage]="skill.abilityPercentage"
     ></app-progress-ring>
   </div>
 </div>
 <p id="languages" class="languages fontLarge">Languages</p>
 <div class="skillsContainer rowContainer">
   <div *ngFor="let language of languages" class="marginMedium columnContainer">
-    <p class="skillTitle">{{ language.title }}</p>
+    <p class="skillTitle">{{ language.name }}</p>
     <app-progress-ring
       class="columnContainer"
       [radius]="size"
-      [percentage]="language.ability"
+      [percentage]="language.abilityPercentage"
     ></app-progress-ring>
   </div>
 </div>

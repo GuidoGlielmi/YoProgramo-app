@@ -19,6 +19,11 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { CloseIconComponent } from './components/close-icon/close-icon.component';
+import { CloseAndEditComponent } from './components/close-and-edit/close-and-edit.component';
+import { FormComponent } from './components/form/form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +41,17 @@ import { ModalComponent } from './components/modal/modal.component';
     ProjectItemComponent,
     FooterComponent,
     ModalComponent,
+    CloseIconComponent,
+    CloseAndEditComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
