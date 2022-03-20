@@ -5,8 +5,13 @@
 .infoBox {
   text-align: center;
 }
+.logoContainer {
+  justify-content: center;
+  height: 25vh;
+  width: 25vh;
+}
 .logo {
-  max-width: 15vw;
+  max-width: 100%;
 }
 .title {
   font-size: xx-large;
@@ -38,7 +43,4 @@
   }
 }
 @media (max-width: 450px) {
-  .logo {
-    max-width: 15vh;
-  }
 }
