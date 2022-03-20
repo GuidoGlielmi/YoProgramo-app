@@ -10,20 +10,15 @@ import {
 })
 export class ExperienceComponent implements OnInit {
   public experiences: experience[] = [];
-  // vwh = 'vw';
 
-  constructor(private experienceService: ExperiencesService) {
-    // this.onResize();
-  }
+  constructor(private experienceService: ExperiencesService) {}
 
   ngOnInit(): void {
     try {
       this.experienceService
         .getExperiences()
         .subscribe((experiences: experience[]) => {
-          console.log(experiences);
           this.experiences = experiences;
-          this.experiences.push(experiences[0]);
           this.experiences.push(experiences[0]);
         });
     } catch (err) {

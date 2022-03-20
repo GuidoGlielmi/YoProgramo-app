@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { education } from 'src/app/service/education/education.service';
+import {
+  education,
+  EducationService,
+} from 'src/app/service/education/education.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-education-item',
@@ -18,7 +21,10 @@ export class EducationItemComponent implements OnInit {
   educationImgClicked: boolean = false;
   registered: boolean = false;
   newEducationItem: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private educationService: EducationService
+  ) {
     this.newEducationItem = this.formBuilder.group({
       id: ['', [Validators.required]],
       school: ['', [Validators.required]],
@@ -30,10 +36,18 @@ export class EducationItemComponent implements OnInit {
   }
 
   saveEducation() {
-    console.log(this.newEducationItem);
+    this.educationService
+      .putEducation(this.newEducationItem.value)
+      .subscribe({
+        next: (asd) => console.log('asd'),
+        error: (error) => console.log(error),
+      });
+    // without subscription, it doesn't work
+    /*   console.log(this.newEducationItem.value);
     console.log(this.newEducationItem.touched);
-    console.log(this.educationImg?.status);
+    console.log(this.educationImg?.status); */
   }
+
   ngOnInit(): void {
     this.newEducationItem.patchValue({
       id: this.educationItem.id,

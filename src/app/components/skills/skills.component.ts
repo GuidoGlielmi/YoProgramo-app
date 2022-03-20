@@ -15,7 +15,6 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {
     try {
       this.skillService.getSkills().subscribe((skills: skills[]) => {
-        console.log(skills);
         for (let skill of skills) {
           if (skill.type === 'language') this.languages.push(skill);
           else this.skills.push(skill);

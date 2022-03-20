@@ -1,12 +1,6 @@
 <button (click)="registered = !registered">log in</button>
-<div *ngIf="!registered" class="rowContainer">
-  <div class="logoBox">
-    <img
-      class="logo marginSmall"
-      [src]="educationItem.educationImg"
-      alt="logo"
-    />
-  </div>
+<div *ngIf="!registered" class="mainContainer rowContainer">
+  <img class="logo marginSmall" [src]="educationItem.educationImg" alt="logo" />
   <div class="educationItemDescr columnContainer marginSmall">
     <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
       {{ educationItem.degree }}
@@ -22,20 +16,14 @@
     </p>
   </div>
 </div>
-<div *ngIf="registered" class="educationItemDescr rowContainer">
-  <div class="logoBox">
-    <img
-      class="logo marginSmall"
-      [src]="educationItem.educationImg"
-      alt="logo"
-    />
-  </div>
+<div *ngIf="registered" class="mainContainer rowContainer">
+  <img class="logo marginSmall" [src]="educationItem.educationImg" alt="logo" />
   <form
     [formGroup]="newEducationItem"
     (ngSubmit)="saveEducation()"
-    class="columnContainer"
+    class="form columnContainer"
   >
-    <div class="form">
+    <div class="formInputs">
       <div class="inputLabel">
         <label for="school" class="label">School</label>
         <input
@@ -47,7 +35,11 @@
           (blur)="schoolClicked = false"
           class="input"
           id="school"
-        />
+        /><span
+          *ngIf="school?.errors && school?.touched && !schoolClicked"
+          class="errorSpan"
+          >Required</span
+        >
       </div>
       <div class="inputLabel">
         <label for="startDate" class="label">Start date</label>
@@ -61,7 +53,11 @@
           (blur)="startDateClicked = false"
           class="input"
           id="startDate"
-        />
+        /><span
+          *ngIf="startDate?.errors && startDate?.touched && !startDateClicked"
+          class="errorSpan"
+          >Required</span
+        >
       </div>
       <div class="inputLabel">
         <label for="endDate" class="label">End date</label>
@@ -74,7 +70,11 @@
           (blur)="endDateClicked = false"
           class="input"
           id="endDate"
-        />
+        /><span
+          *ngIf="endDate?.errors && endDate?.touched && !endDateClicked"
+          class="errorSpan"
+          >Required</span
+        >
       </div>
       <div class="inputLabel">
         <label for="degree" class="label">Degree</label>
@@ -87,7 +87,11 @@
           (blur)="degreeClicked = false"
           class="input"
           id="degree"
-        />
+        /><span
+          *ngIf="degree?.errors && degree?.touched && !degreeClicked"
+          class="errorSpan"
+          >Required</span
+        >
       </div>
       <div class="inputLabel">
         <label for="educationImg" class="label">Institute image</label>

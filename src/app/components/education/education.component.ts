@@ -14,9 +14,12 @@ export class EducationComponent implements OnInit {
   constructor(private educationService: EducationService) {}
   ngOnInit(): void {
     try {
-      this.educationService.getTechs().subscribe((education: education[]) => {
-        console.log(education);
-        this.education = education;
+      this.educationService.getEducation().subscribe({
+        next: (education: education[]) => {
+          this.education = education;
+        },
+        error: (error) => console.log(error),
+        complete: () => console.log('complete'),
       });
     } catch (err) {
       console.log(err);

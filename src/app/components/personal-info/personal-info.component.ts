@@ -25,7 +25,6 @@ export class PersonalInfoComponent implements OnInit {
   ngOnInit(): void {
     try {
       this.techService.getTechs().subscribe((techs: tech[]) => {
-        console.log(techs);
         this.techs = techs;
       });
     } catch (err) {

@@ -52,6 +52,10 @@
 }
 
 @media (max-width: 850px) {
+  .educationItemLeft,
+  .educationItemRight {
+    width: 100%;
+  }
   .educationItemRight::before {
     right: 2vw;
     width: 100%;
@@ -71,7 +75,6 @@
   }
   .educationItem {
     flex-direction: column;
-    align-self: center;
   }
   .educationItemRight::before {
     right: 2vw;

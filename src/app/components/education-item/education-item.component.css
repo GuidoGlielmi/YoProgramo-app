@@ -1,31 +1,20 @@
-.educationItemDescr {
-}
-.logoBox {
-  position: relative;
-}
-.logo {
-  position: relative;
-  width: 20vw;
-}
 .p {
   text-align: center;
 }
-.form {
+.formInputs {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
 }
 .inputLabel {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  width: 47%;
   margin: 5px;
 }
 .label {
-  display: inline-block;
   margin-bottom: 5px;
 }
-.input {
-  display: block;
-}
+
 .saveButton {
   padding: 5px;
   margin: 5px;
@@ -38,7 +27,34 @@
   color: red;
 }
 @media (max-width: 650px) {
+}
+@media (max-width: 450px) {
+  .mainContainer {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .form {
+    align-items: unset;
+  }
+  .formInputs {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .educationItemDescr {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .inputLabel {
+    width: unset;
+  }
+  .label {
+    align-self: center;
+  }
   .logo {
-    width: 80%;
+    width: unset;
+  }
+  .saveButton {
+    align-self: center;
   }
 }
