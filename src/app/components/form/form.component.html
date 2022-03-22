@@ -1,22 +1,40 @@
-<!-- <form
-    [formGroup]="newEducationItem"
-    (ngSubmit)="saveEducation()"
-    class="columnContainer"
-  >
-    <div *ngFor="let k of keys; let i = index" class="inputLabel">
-      <div class="inputLabel">
-        <label [for]="k" class="label">{{ k }}</label>
+<form
+  [formGroup]="inputsForm"
+  (ngSubmit)="onSubmit()"
+  class="form columnContainer"
+>
+  <div class="formInputs rowContainer">
+    <div *ngFor="let input of formData" class="inputLabel columnContainer">
+      <label [for]="input.key" class="label">{{ input.key }}</label>
+      *ngIf="input.key !== 'id' && typeOf(input) !== 'object'"
+      <div>
         <input
-          [formControlName]="k"
-          [value]="values[i]"
+          [formControlName]="input.key"
+          class="input"
           [ngClass]="{
             inputError:
-              this.newEducationItem.controls[k]?.errors &&
-              this.newEducationItem.controls[k]?.touched
+              this.inputsForm.controls[input.key].errors &&
+              this.inputsForm.controls[input.key].touched &&
+              !input.clicked
           }"
-          class="input"
-          [id]="k"
+          (focus)="input.clicked = true"
+          (blur)="input.clicked = false"
+          [id]="input.key"
         />
+        <span
+          *ngIf="
+            this.inputsForm.controls[input.key].errors &&
+            this.inputsForm.controls[input.key].touched &&
+            !input.clicked
+          "
+          class="errorSpan"
+          >Required</span
+        >
       </div>
+      <form *ngIf="typeOf(input) === 'object'"></form>
     </div>
-  </form> -->
+  </div>
+  <button type="submit" class="saveButton" [disabled]="!inputsForm.valid">
+    Save
+  </button>
+</form>

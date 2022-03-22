@@ -3,9 +3,14 @@
   <app-project-item
     *ngFor="let p of projects; let i = index"
     [index]="i"
-    [projectItem]="p"
+    [project]="p"
     class="projectItem rowContainer"
     [class]="i % 2 === 0 ? 'projectItemLeft' : 'projectItemRight'"
   >
   </app-project-item>
+  <app-projects-form
+    *ngIf="loggedIn"
+    [new]="true"
+    (onAddProject)="addProject($event)"
+  ></app-projects-form>
 </div>

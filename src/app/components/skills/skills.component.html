@@ -1,7 +1,20 @@
 <p class="title fontLarge">Soft & Hard skills</p>
 <div class="skillsContainer rowContainer">
   <div *ngFor="let skill of skills" class="marginMedium columnContainer">
-    <p class="skillTitle">{{ skill.name }}</p>
+    <input *ngIf="loggedIn" class="skillTitle" [value]="skill.name" />
+    <p *ngIf="!loggedIn" class="skillTitle">{{ skill.name }}</p>
+    <input
+      *ngIf="loggedIn"
+      class="marginSmall"
+      [(ngModel)]="skill.abilityPercentage"
+      type="number"
+      step="5"
+      min="0"
+      max="100"
+      type="number"
+      name="setPercentage"
+      id="setPercentage"
+    />
     <app-progress-ring
       class="columnContainer"
       [radius]="size"
@@ -12,7 +25,20 @@
 <p id="languages" class="languages fontLarge">Languages</p>
 <div class="skillsContainer rowContainer">
   <div *ngFor="let language of languages" class="marginMedium columnContainer">
-    <p class="skillTitle">{{ language.name }}</p>
+    <input *ngIf="loggedIn" class="skillTitle" [value]="language.name" />
+    <p *ngIf="!loggedIn" class="skillTitle">{{ language.name }}</p>
+    <input
+      *ngIf="loggedIn"
+      class="marginSmall"
+      [(ngModel)]="language.abilityPercentage"
+      type="number"
+      step="5"
+      min="0"
+      max="100"
+      type="number"
+      name="setPercentage"
+      id="setPercentage"
+    />
     <app-progress-ring
       class="columnContainer"
       [radius]="size"

@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { experience } from 'src/app/service/experiences/experiences.service';
+import {
+  experience,
+  ExperiencesService,
+} from 'src/app/service/experiences/experiences.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-experience-item',
@@ -11,7 +15,9 @@ export class ExperienceItemComponent implements OnInit {
   experience!: experience;
   @Input()
   index!: number;
+  loggedIn: boolean = true;
   constructor() {}
 
+  saveExperience() {}
   ngOnInit(): void {}
 }

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { project } from 'src/app/service/projects/projects.service';
+import { ProjectsService } from 'src/app/service/projects/projects.service';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TechsService, tech } from 'src/app/service/techs/techs.service';
 
 @Component({
   selector: 'app-project-item',
@@ -8,9 +10,12 @@ import { project } from 'src/app/service/projects/projects.service';
 })
 export class ProjectItemComponent implements OnInit {
   @Input()
-  projectItem!: project;
+  project!: any;
   @Input()
   index!: number;
+
+  loggedIn: boolean = true;
+
   constructor() {}
 
   ngOnInit(): void {}

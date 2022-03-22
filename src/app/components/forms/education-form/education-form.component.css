@@ -1,0 +1,55 @@
+.formContainer {
+  display: flex;
+  align-items: center;
+}
+.formInputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+  margin: 5px;
+}
+.label {
+  margin-bottom: 5px;
+}
+
+.saveButton {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 2px;
+}
+.inputError {
+  border-color: red;
+}
+.errorSpan {
+  color: red;
+}
+@media (max-width: 450px) {
+  .form {
+    align-items: unset;
+  }
+  .formInputs {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .educationItemDescr {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .inputLabel {
+    width: unset;
+  }
+  .label {
+    align-self: center;
+  }
+  .logo {
+    width: unset;
+  }
+  .saveButton {
+    align-self: center;
+  }
+}

@@ -5,13 +5,20 @@ import {
 } from 'src/app/service/education/education.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
-  selector: 'app-education-item',
-  templateUrl: './education-item.component.html',
-  styleUrls: ['./education-item.component.css'],
+  selector: 'app-education-form',
+  templateUrl: './education-form.component.html',
+  styleUrls: ['./education-form.component.css'],
 })
-export class EducationItemComponent implements OnInit {
+export class EducationFormComponent implements OnInit {
   @Input()
-  educationItem!: education;
+  educationItem: education = {
+    id: '',
+    school: '',
+    degree: '',
+    startDate: '',
+    endDate: '',
+    educationImg: '',
+  };
   @Input()
   index!: number;
   schoolClicked: boolean = false;
@@ -19,7 +26,7 @@ export class EducationItemComponent implements OnInit {
   endDateClicked: boolean = false;
   degreeClicked: boolean = false;
   educationImgClicked: boolean = false;
-  registered: boolean = true;
+  registered: boolean = false;
   newEducationItem: FormGroup;
   constructor(
     private formBuilder: FormBuilder,

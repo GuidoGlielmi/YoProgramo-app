@@ -5,6 +5,7 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
   styleUrls: ['./progress-ring.component.css'],
 })
 export class ProgressRingComponent implements OnInit {
+  loggedIn: boolean = true;
   @Input() color = 'rgb(90, 136, 126)';
   @Input() percentage = 100;
   @Input() radius = 7;
@@ -48,7 +49,7 @@ export class ProgressRingComponent implements OnInit {
     this.cxy = this.radius + this.strokeWidth / 2;
     this.offset = (this.circumference * (100 - this.percentage)) / 100;
   }
-  onChange(): void {
+  ngOnChanges() {
     this.offset = (this.circumference * (100 - this.percentage)) / 100;
     /*
     --------- Angular animation way: ---------

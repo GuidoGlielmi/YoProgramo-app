@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  project,
-  ProjectsService,
-} from 'src/app/service/projects/projects.service';
+import { ProjectsService } from 'src/app/service/projects/projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -10,12 +7,17 @@ import {
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  projects: project[] = [];
+  projects: any[] = [];
+  loggedIn = true;
   constructor(private projectService: ProjectsService) {}
 
+  addProject(newProject: any) {
+    /* this.projects.push(newProject); */
+    console.log(newProject);
+  }
   ngOnInit(): void {
     try {
-      this.projectService.getProjects().subscribe((projects: project[]) => {
+      this.projectService.getProjects().subscribe((projects: any[]) => {
         this.projects = projects;
       });
     } catch (err) {

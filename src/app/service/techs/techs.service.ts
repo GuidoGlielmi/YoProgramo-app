@@ -12,7 +12,7 @@ export class TechsService {
   }
 }
 export interface tech {
-  id: String;
-  name: String;
-  techImg: String;
+  id: string;
+  name: string;
+  techImg: string;
 }

@@ -1,0 +1,159 @@
+<div class="formContainer">
+  <div class="logoContainer rowContainer marginSmall">
+    <img
+      *ngIf="project.projectImg"
+      class="logo rounded"
+      [style.background]="
+        project.title === 'Argentina Programa' ? '#1e1e1e' : ''
+      "
+      [src]="project.projectImg"
+      [alt]="project.title"
+    />
+  </div>
+  <form
+    [formGroup]="newProject"
+    (ngSubmit)="saveProject()"
+    class="form columnContainer"
+  >
+    <div class="formInputs">
+      <div class="inputLabel">
+        <label for="title" class="label">Title</label>
+        <input
+          formControlName="title"
+          [ngClass]="{
+            inputError: title?.errors && title?.touched && !titleClicked
+          }"
+          (focus)="titleClicked = true"
+          (blur)="titleClicked = false"
+          class="input"
+          id="title"
+        /><span
+          *ngIf="title?.errors && title?.touched && !titleClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="projectImg" class="label">Project image</label>
+        <input
+          formControlName="projectImg"
+          [ngClass]="{
+            inputError:
+              projectImg?.errors && projectImg?.touched && !projectImgClicked
+          }"
+          (focus)="projectImgClicked = true"
+          (blur)="projectImgClicked = false"
+          class="input"
+          id="projectImg"
+        /><span
+          *ngIf="
+            projectImg?.errors && projectImg?.touched && !projectImgClicked
+          "
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="description" class="label">Description</label>
+        <input
+          formControlName="description"
+          [ngClass]="{
+            inputError:
+              description?.errors && description?.touched && !descriptionClicked
+          }"
+          (focus)="descriptionClicked = true"
+          (blur)="descriptionClicked = false"
+          class="input"
+          id="description"
+        /><span
+          *ngIf="
+            description?.errors && description?.touched && !descriptionClicked
+          "
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="formGroupsContainer">
+        <div formArrayName="urls" class="inputLabel">
+          <p class="inputGroupTitle">Urls</p>
+          <div class="inputGroup">
+            <div
+              *ngFor="let url of urlsGroup.controls; let i = index"
+              [formGroupName]="i"
+              class="inputGroupElement"
+            >
+              <input formControlName="url" class="flex1" />
+              <app-close-icon
+                (click)="deleteUrl(i)"
+                size="20px"
+                class="closeIcon"
+              ></app-close-icon>
+            </div>
+          </div>
+          <div class="newElementContainer">
+            <p for="newUrl">New URL</p>
+            <div class="newUrl">
+              <label for="newUrl">URL</label
+              ><input
+                type="text"
+                id="newUrl"
+                class="flex1"
+                [(ngModel)]="newUrl.url"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+            <div class="newUrl">
+              <label for="newName">Name</label
+              ><input
+                type="text"
+                id="newName"
+                class="flex1"
+                [(ngModel)]="newUrl.name"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+            <app-close-icon
+              (click)="addUrl()"
+              size="20px"
+              class="addIcon"
+            ></app-close-icon>
+          </div>
+        </div>
+        <div class="inputLabel">
+          <p class="inputGroupTitle">Techs</p>
+          <div class="inputGroup">
+            <div
+              *ngFor="let tech of this.project.techs"
+              class="inputGroupElement"
+            >
+              <span class="flex1"> {{ tech.name }} </span
+              ><app-close-icon
+                (click)="deleteTechFromProject(tech)"
+                size="20px"
+                class="closeIcon"
+              ></app-close-icon>
+            </div>
+          </div>
+          <div class="newElementContainer">
+            <label for="newTech">New Tech</label>
+            <div class="rowContainer">
+              <select
+                type="text"
+                id="newTech"
+                class="flex1"
+                [ngModel]="remainingTechs"
+                (ngModelChange)="addTechToProject($event)"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option *ngFor="let tech of remainingTechs" [ngValue]="tech">
+                  {{ tech.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="saveButton">Save</button>
+  </form>
+</div>

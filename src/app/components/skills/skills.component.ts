@@ -10,6 +10,7 @@ export class SkillsComponent implements OnInit {
   @Input() size: number = 0;
   skills: skills[] = [];
   languages: skills[] = [];
+  loggedIn = true;
   constructor(private skillService: SkillsService) {}
 
   ngOnInit(): void {
