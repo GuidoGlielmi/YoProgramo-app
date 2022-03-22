@@ -1,3 +1,61 @@
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgb(97, 67, 121);
+  box-shadow: 0px -10px 30px 1px #363636;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+}
+.argPrograma {
+  display: flex;
+  height: 100%;
+}
+.APImgLink {
+  display: flex;
+  height: 100%;
+}
+.APimg {
+  max-height: 100%;
+}
+.yoProgramo {
+  align-self: center;
+  font-size: max(2vw, 2.5vh);
+}
+.rightSideBox {
+  display: flex;
+  height: 100%;
+}
+.social {
+  display: flex;
+  height: 100%;
+  padding: 0 10px;
+}
+.socialLink {
+  height: 100%;
+}
+.socialIcon {
+  padding: 2vh 10px;
+  height: 100%;
+}
+.loginButton {
+  padding: 13px 15px;
+  margin: 2vh 15px;
+  font-size: max(1.5vw, 2vh);
+  color: rgb(40, 40, 40);
+  text-shadow: 0px 0px 1.5px #686868;
+  box-shadow: 0.5px 0.5px 2px 1px #202020;
+  background: #f0f0f0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .loginModal {
   display: flex;
   justify-content: center;
@@ -33,11 +91,6 @@
   width: 99vw;
   padding-top: 26vh;
 }
-.socialMediaLinkOnCell {
-  width: 100%;
-  height: 100%;
-}
-
 .education {
   width: 100%;
   padding: 10vh 0 200px 0;
@@ -59,61 +112,13 @@
   flex-direction: column;
   background-color: rgba(19, 12, 39, 0.8);
 }
-.navContainer {
-  align-items: initial;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  background: rgb(97, 67, 121);
-  box-shadow: 0px -10px 30px 1px #363636;
-}
-.nav {
-  justify-content: space-between;
-}
-.social {
-  padding: 0 10px;
-}
-.socialIcon {
-  width: 3vw;
-}
-.APimg {
-  width: 10vw;
-}
-.yoProgramo {
-  font-size: 2vw;
-}
 .dropDownBox {
   display: none;
 }
-.loginButton {
-  margin: max(1vw, 1vh);
-  padding: min(3vw, 15px, 3vh) min(3.5vw, 20px, 3.5vh);
-  font-size: large;
-  color: rgb(40, 40, 40);
-  text-shadow: 0px 0px 1.5px #686868;
-  box-shadow: 0.5px 0.5px 2px 1px #202020;
-  background: #f0f0f0;
-  border-radius: 10px;
-  cursor: pointer;
-}
+
 @media (max-width: 850px) {
   .goDownLink {
     display: none;
-  }
-  .APimg {
-    width: 15vh;
-  }
-  .socialIcon {
-    width: 5vh;
-  }
-  .yoProgramo {
-    font-size: 2vh;
-  }
-  .loginButton {
-    margin: max(1vw, 1vh);
-    padding: min(3vw, 9px, 3vh) min(3.5vw, 9px, 3.5vh);
-    font-size: small;
   }
 }
 @media (max-width: 650px) {
@@ -122,22 +127,23 @@
     justify-content: center;
     flex-basis: 0;
   }
-  .loginButton {
-    font-size: x-small;
-  }
 }
 
 @media (max-width: 450px) {
-  .nav {
-    width: 100%;
-  }
-  .navContainer {
-    align-items: center;
-    border-radius: 0 0 20px 20px;
+  .social {
+    display: none;
   }
   .dropDownBox {
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .socialOnCell {
+    display: flex;
+    height: 0;
+  }
+  .socialLinkOnCell {
+    height: 100%;
   }
   .dropDown {
     justify-content: center;
@@ -166,22 +172,5 @@
     transform-origin: top right;
     border-radius: 2px;
     background-color: rgb(238, 238, 238);
-  }
-  .APimg {
-    width: 13vh !important;
-  }
-  .yoProgramo {
-    font-size: 2.5vh;
-  }
-  .social {
-    display: none;
-  }
-  .socialOnCell {
-    justify-content: space-around;
-    height: 0;
-  }
-  .socialIcon {
-    width: 100% !important;
-    height: 100%;
   }
 }

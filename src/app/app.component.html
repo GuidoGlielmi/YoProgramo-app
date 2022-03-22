@@ -16,11 +16,11 @@
   </button></a
 >
 
-<div #navBar class="navContainer columnContainer">
-  <nav class="nav rowContainer">
-    <div class="argPrograma rowContainer">
+<div #navBar class="navContainer">
+  <nav class="nav">
+    <div class="argPrograma">
       <a
-        class="rowContainer"
+        class="APImgLink"
         href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
         target="_blank"
         rel="noreferrer"
@@ -37,21 +37,15 @@
         >#YoProgramo</a
       >
     </div>
-    <div class="rowContainer">
+    <div class="rightSideBox">
       <div class="social rowContainer">
-        <a
-          [href]="user.githubUrl"
-          target="_blank"
-          class="marginSmall rowContainer"
+        <a [href]="user.githubUrl" target="_blank" class="socialLink"
           ><img
             class="socialIcon"
             src="/assets/logos/GitHub-Mark-Light-64px.png"
             alt="github logo"
         /></a>
-        <a
-          [href]="user.linkedInUrl"
-          target="_blank"
-          class="marginSmall rowContainer"
+        <a [href]="user.linkedInUrl" target="_blank" class="socialLink"
           ><img
             class="socialIcon"
             src="/assets/logos/linkedin.png"
@@ -70,12 +64,12 @@
       </button>
     </div>
   </nav>
-  <div class="dropDownBox columnContainer">
-    <div [@hideSocialIcons]="socialState" class="socialOnCell rowContainer">
+  <div class="dropDownBox">
+    <div [@hideSocialIcons]="socialState" class="socialOnCell">
       <a
         href="https://github.com/GuidoGlielmi"
         target="_blank"
-        class="socialMediaLinkOnCell marginSmall"
+        class="socialLinkOnCell"
         ><img
           class="socialIcon"
           src="/assets/logos/GitHub-Mark-Light-64px.png"
@@ -84,7 +78,7 @@
       <a
         href="https://www.linkedin.com/in/guido-glielmi/"
         target="_blank"
-        class="socialMediaLinkOnCell marginSmall"
+        class="socialLinkOnCell"
         ><img
           class="socialIcon"
           src="/assets/logos/linkedin.png"

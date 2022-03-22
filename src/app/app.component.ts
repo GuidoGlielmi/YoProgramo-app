@@ -20,7 +20,7 @@ import { user, UsersService } from './service/users/users.service';
     ]),
     trigger('hideSocialIcons', [
       state('notShown', style({ height: 0 })),
-      state('shown', style({ height: '5vh' })),
+      state('shown', style({ height: '10vh' })),
       transition('shown <=> notShown', animate('400ms ease-out')),
     ]),
     trigger('goDown', [
