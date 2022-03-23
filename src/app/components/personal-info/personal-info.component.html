@@ -4,30 +4,34 @@
     {{ aboutMe }}
   </p>
 </div>
-<div id="tech" class="columnContainer">
+<div id="tech" class="techContainer">
   <p class="techImagesTitle darkFont fontLarge">
     Some technologies I am familiar with
   </p>
-  <div
-    #techImagesNode
-    class="techImages rowContainer"
-    (wheel)="onWheel($event)"
-  >
-    <img
+  <div #techImagesNode class="techImages" (wheel)="onWheel($event)">
+    <div
       *ngFor="let tech of techs; let i = index"
-      [src]="tech.techImg"
-      class="techImage paddingMedium marginSmall"
+      class="techImageContainer"
       [class]="i === techs.length - 1 ? 'listEnd' : ''"
-      [alt]="tech.name.toString() + ' logo'"
-    />
-    <div *ngIf="screenHeight > 850" class="rowContainer">
+    >
       <img
-        *ngFor="let tech of techs; let i = index"
         [src]="tech.techImg"
-        class="techImage paddingMedium marginSmall"
-        [class]="i === techs.length - 1 ? 'listEnd' : ''"
-        [alt]="tech.name.toString() + 'logo'"
+        class="techImage"
+        [alt]="tech.name.toString() + ' logo'"
       />
+    </div>
+    <div class="extraTechs">
+      <div
+        *ngFor="let tech of techs; let i = index"
+        class="techImageContainer"
+        [class]="i === techs.length - 1 ? 'listEnd' : ''"
+      >
+        <img
+          [src]="tech.techImg"
+          class="techImage"
+          [alt]="tech.name.toString() + 'logo'"
+        />
+      </div>
     </div>
   </div>
 </div>

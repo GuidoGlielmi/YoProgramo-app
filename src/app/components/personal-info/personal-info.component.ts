@@ -26,6 +26,16 @@ export class PersonalInfoComponent implements OnInit {
     try {
       this.techService.getTechs().subscribe((techs: tech[]) => {
         this.techs = techs;
+        this.techs.push({
+          id: 'asdasd',
+          name: 'tuvieja',
+          techImg: '/assets/img/profile-img.jpg',
+        });
+        this.techs.push({
+          id: 'asdasd',
+          name: 'tuvieja',
+          techImg: '/assets/img/banner2.jpg',
+        });
       });
     } catch (err) {
       console.log(err);

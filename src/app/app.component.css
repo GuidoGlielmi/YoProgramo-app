@@ -89,9 +89,9 @@
   text-shadow: 0px 0px 1.5px #ececec;
 }
 .personalInfo {
-  position: relative;
-  width: 99vw;
-  padding-top: 26vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20vh;
 }
 .education {
   width: 100%;
@@ -121,13 +121,6 @@
 @media (max-width: 850px) {
   .goDownLink {
     display: none;
-  }
-}
-@media (max-width: 650px) {
-  .personalInfo {
-    flex-direction: column;
-    justify-content: center;
-    flex-basis: 0;
   }
 }
 

@@ -3,65 +3,91 @@
   width: 100%;
 }
 .aboutMeTitle {
+  position: relative;
+  padding-top: 10px;
   margin: 2vh 0 4vh;
-  width: 100%;
   text-align: center;
 }
 .aboutMeTitle::before {
   content: "";
   position: absolute;
-  left: 0vw;
-  width: 69%;
+  left: -73%;
+  width: 167%;
   border-top: 3px solid #363636;
   top: 0vh;
 }
 .personalInfo {
   align-self: flex-start;
-  position: relative;
   width: 50%;
-  margin: 0 0 20vh 5vw;
+  margin: 0 0 15vh 5vw;
 }
 .description {
   font-weight: 500;
   text-align: left;
 }
+.techContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .techImagesTitle {
   align-self: flex-end;
   position: relative;
-  width: 60%;
+  width: max(70vw, 40vh);
+  padding-top: 10px;
   margin-bottom: 4vh;
 }
 .techImagesTitle::before {
   content: "";
   position: absolute;
-  left: 1vw;
+  left: 2%;
+  top: 0;
   width: 91%;
   border-top: 3px solid #363636;
-  top: -1.5vh;
 }
 
 .techImages {
+  display: flex;
   overflow: auto;
-  width: 95vw;
+  width: 95%;
   scrollbar-width: none;
   scroll-behavior: smooth;
   overscroll-behavior-block: contain;
-  margin: auto;
   border-right: 2px solid black;
   border-left: 2px solid black;
 }
-.techImage {
+.techImageContainer {
+  display: flex;
+  justify-content: center;
   flex-shrink: 0;
-  width: 10vw;
+  width: 8.55vw;
+  height: 8.55vw;
+  margin: 1vw;
+  padding: max(1.5vw, 2vh);
   border-radius: 150% 100% / 10% 40%;
   box-shadow: 0px 0px 5px 0px #08001e;
+}
+.techImage {
+  max-width: 100%;
 }
 .listEnd {
   border-right: 3px solid black;
 }
+.extraTechs {
+  display: flex;
+}
 @media (max-width: 850px) {
   .aboutMeTitle::before {
-    width: 88%;
+    left: -22%;
+    width: 115%;
+  }
+  .techImageContainer {
+    width: 15vw;
+    height: 15vw;
+    margin: 2vw;
+  }
+  .extraTechs {
+    display: none;
   }
 }
 @media (max-width: 650px) {
@@ -70,42 +96,17 @@
     width: 80%;
     margin: 0 0 15vh 0;
   }
-  .aboutMeTitle {
-    margin-top: 1vh;
-  }
-  .aboutMeTitle::before {
-    width: 75%;
-    left: -4vw;
-  }
-  .techImagesTitle {
-    margin-top: 1vh;
-    width: 80vw;
-  }
-  .techImagesTitle::before {
-    width: 90%;
-    left: 2vw;
-  }
-  .techImage {
-    width: 40%;
-  }
 }
 @media (max-width: 450px) {
-  .personalInfo {
-    width: 80%;
-  }
   .aboutMe {
     text-align: center;
-  }
-  .aboutMeTitle::before {
-    width: 94%;
   }
   .description {
     font-size: medium;
   }
-  .techImagesTitle {
-    width: 80%;
-  }
-  .techImagesTitle::before {
-    width: 89%;
+  .techImageContainer {
+    width: 25vw;
+    height: 25vw;
+    margin: 3.33vw;
   }
 }
