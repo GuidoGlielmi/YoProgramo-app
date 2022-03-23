@@ -81,25 +81,25 @@ export class ProjectsFormComponent implements OnInit {
       ...this.newUrl,
       projectId: this.project.id,
     };
-    this.projectService
+    /* this.projectService
       .addUrlToProject(newUrl)
-      .subscribe(() => console.log('Completed'));
+      .subscribe(() => console.log('Completed')); */
   }
   deleteUrl(selectedUrlIndex: number) {
     let selectedUrlId = this.urlsGroup.controls[selectedUrlIndex].value.id;
     this.urlsGroup.removeAt(selectedUrlIndex);
-    this.projectService
+    /*  this.projectService
       .deleteUrlFromProject(selectedUrlId)
-      .subscribe(() => console.log('Completed'));
+      .subscribe(() => console.log('Completed')); */
   }
   addTechToProject(newTech: tech) {
     this.project.techs.push(newTech);
     this.remainingTechs = this.remainingTechs.filter(
       (tech) => tech.id !== newTech.id
     );
-    this.projectService
+    /*  this.projectService
       .addTechToProject(newTech.id, this.project.id)
-      .subscribe(() => console.log('Completed'));
+      .subscribe(() => console.log('Completed')); */
   }
   deleteTechFromProject(tech: tech) {
     this.project.techs = this.project.techs.filter(
@@ -109,9 +109,9 @@ export class ProjectsFormComponent implements OnInit {
       (projectTech: tech) => tech.id !== projectTech.id
     );
     this.remainingTechs.push(tech);
-    this.projectService
+    /*  this.projectService
       .deleteTechFromProject(tech.id, this.project.id)
-      .subscribe(() => console.log('Completed'));
+      .subscribe(() => console.log('Completed')); */
   }
   ngOnInit(): void {
     this.newProject = this.formBuilder.group({

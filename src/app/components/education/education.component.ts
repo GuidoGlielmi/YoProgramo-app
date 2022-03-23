@@ -11,6 +11,7 @@ import {
 })
 export class EducationComponent implements OnInit {
   education: education[] = [];
+  showNewForm = false;
   constructor(private educationService: EducationService) {}
   ngOnInit(): void {
     try {

@@ -50,7 +50,10 @@
   bottom: 0;
   border-image: linear-gradient(to left, #363636, rgba(0, 0, 0, 0)) 0 0 1%;
 }
-
+.addEducation {
+  padding: 5px;
+  margin: 5vh 0;
+}
 @media (max-width: 850px) {
   .educationItemLeft,
   .educationItemRight {

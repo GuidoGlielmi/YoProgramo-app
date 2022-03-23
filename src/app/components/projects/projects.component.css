@@ -19,7 +19,7 @@
   position: relative;
   width: 60%;
   padding: max(2vw, 2vh);
-  margin: max(5vw, 5vh) max(2vw, 2vh);
+  margin: 40px max(2vw, 2vh);
 }
 .projectItemLeft {
   align-self: flex-start;
@@ -44,6 +44,10 @@
   border-bottom: 2px solid #363636;
   bottom: 0;
   border-image: linear-gradient(to left, #202020, rgba(0, 0, 0, 0)) 0 0 1%;
+}
+.addProject {
+  padding: 5px;
+  margin: 5vh 0;
 }
 @media (max-width: 850px) {
   .projectItem {

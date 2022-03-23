@@ -9,6 +9,7 @@ import { ProjectsService } from 'src/app/service/projects/projects.service';
 export class ProjectsComponent implements OnInit {
   projects: any[] = [];
   loggedIn = true;
+  showNewForm = false;
   constructor(private projectService: ProjectsService) {}
 
   addProject(newProject: any) {

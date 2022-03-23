@@ -1,4 +1,4 @@
-<div *ngIf="!loggedIn">
+<div class="experienceContainer" *ngIf="!loggedIn">
   <div class="logoContainer rowContainer marginSmall">
     <img
       class="logo rounded"
@@ -10,7 +10,7 @@
     />
   </div>
   <div
-    class="infoBox columnContainer marginSmall justifyCenter"
+    class="infoBox columnContainer marginSmall"
     [class]="index % 2 === 0 ? 'darkFont' : 'lightFont'"
   >
     <h3 class="title inherit marginSmall fontLarge">
@@ -40,10 +40,8 @@
     </a>
   </div>
 </div>
-<div>
-  <app-experience-form
-    *ngIf="loggedIn"
-    class="infoBox rowContainer"
-    [experience]="experience"
-  ></app-experience-form>
-</div>
+<app-experience-form
+  *ngIf="loggedIn"
+  [experience]="experience"
+></app-experience-form>
+<button (click)="loggedIn = !loggedIn" style="z-index: 1">log in</button>

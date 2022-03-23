@@ -1,118 +1,123 @@
-<div class="logoContainer rowContainer marginSmall">
-  <img
-    class="logo rounded"
-    [style.background]="
-      experience.title === 'Argentina Programa' ? '#1e1e1e' : ''
-    "
-    [src]="experience.experienceImg"
-    [alt]="experience.title"
-  />
-</div>
-<form
-  [formGroup]="newExperience"
-  (ngSubmit)="saveExperience()"
-  class="form columnContainer"
->
-  <div class="formInputs">
-    <div class="inputLabel">
-      <label for="title" class="label">Title</label>
-      <input
-        formControlName="title"
-        [ngClass]="{
-          inputError: title?.errors && title?.touched && !titleClicked
-        }"
-        (focus)="titleClicked = true"
-        (blur)="titleClicked = false"
-        class="input"
-        id="title"
-      /><span
-        *ngIf="title?.errors && title?.touched && !titleClicked"
-        class="errorSpan"
-        >Required</span
-      >
-    </div>
-    <div class="inputLabel">
-      <label for="startDate" class="label">Start date</label>
-      <input
-        formControlName="startDate"
-        [ngClass]="{
-          inputError:
-            startDate?.errors && startDate?.touched && !startDateClicked
-        }"
-        (focus)="startDateClicked = true"
-        (blur)="startDateClicked = false"
-        class="input"
-        id="startDate"
-      /><span
-        *ngIf="startDate?.errors && startDate?.touched && !startDateClicked"
-        class="errorSpan"
-        >Required</span
-      >
-    </div>
-    <div class="inputLabel">
-      <label for="endDate" class="label">End date</label>
-      <input
-        formControlName="endDate"
-        [ngClass]="{
-          inputError: endDate?.errors && endDate?.touched && !endDateClicked
-        }"
-        (focus)="endDateClicked = true"
-        (blur)="endDateClicked = false"
-        class="input"
-        id="endDate"
-      /><span
-        *ngIf="endDate?.errors && endDate?.touched && !endDateClicked"
-        class="errorSpan"
-        >Required</span
-      >
-    </div>
-    <div class="inputLabel">
-      <label for="certificate" class="label">Certificate</label>
-      <input
-        formControlName="certificate"
-        [ngClass]="{
-          inputError:
+<div class="experienceFormContainer">
+  <div
+    *ngIf="experience.experienceImg"
+    class="logoContainer rowContainer marginSmall"
+  >
+    <img
+      class="logo rounded"
+      [style.background]="
+        experience.title === 'Argentina Programa' ? '#1e1e1e' : ''
+      "
+      [src]="experience.experienceImg"
+      [alt]="experience.title"
+    />
+  </div>
+  <form
+    [formGroup]="newExperience"
+    (ngSubmit)="saveExperience()"
+    class="form columnContainer"
+  >
+    <div class="formInputs">
+      <div class="inputLabel">
+        <label for="title" class="label">Title</label>
+        <input
+          formControlName="title"
+          [ngClass]="{
+            inputError: title?.errors && title?.touched && !titleClicked
+          }"
+          (focus)="titleClicked = true"
+          (blur)="titleClicked = false"
+          class="input"
+          id="title"
+        /><span
+          *ngIf="title?.errors && title?.touched && !titleClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="startDate" class="label">Start date</label>
+        <input
+          formControlName="startDate"
+          [ngClass]="{
+            inputError:
+              startDate?.errors && startDate?.touched && !startDateClicked
+          }"
+          (focus)="startDateClicked = true"
+          (blur)="startDateClicked = false"
+          class="input"
+          id="startDate"
+        /><span
+          *ngIf="startDate?.errors && startDate?.touched && !startDateClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="endDate" class="label">End date</label>
+        <input
+          formControlName="endDate"
+          [ngClass]="{
+            inputError: endDate?.errors && endDate?.touched && !endDateClicked
+          }"
+          (focus)="endDateClicked = true"
+          (blur)="endDateClicked = false"
+          class="input"
+          id="endDate"
+        /><span
+          *ngIf="endDate?.errors && endDate?.touched && !endDateClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="certificate" class="label">Certificate</label>
+        <input
+          formControlName="certificate"
+          [ngClass]="{
+            inputError:
+              certificate?.errors && certificate?.touched && !certificateClicked
+          }"
+          (focus)="certificateClicked = true"
+          (blur)="certificateClicked = false"
+          class="input"
+          id="certificate"
+        /><span
+          *ngIf="
             certificate?.errors && certificate?.touched && !certificateClicked
-        }"
-        (focus)="certificateClicked = true"
-        (blur)="certificateClicked = false"
-        class="input"
-        id="certificate"
-      /><span
-        *ngIf="
-          certificate?.errors && certificate?.touched && !certificateClicked
-        "
-        class="errorSpan"
-        >Required</span
-      >
-    </div>
-    <div class="inputLabel">
-      <label for="experienceImg" class="label">Institute image</label>
-      <input
-        (focus)="experienceImgClicked = true"
-        (blur)="experienceImgClicked = false"
-        class="input"
-        [ngClass]="{
-          inputError:
+          "
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="experienceImg" class="label">Institute image</label>
+        <input
+          (focus)="experienceImgClicked = true"
+          (blur)="experienceImgClicked = false"
+          class="input"
+          [ngClass]="{
+            inputError:
+              experienceImg?.errors &&
+              experienceImg?.touched &&
+              !experienceImgClicked
+          }"
+          formControlName="experienceImg"
+          id="experienceImg"
+        />
+        <span
+          *ngIf="
             experienceImg?.errors &&
             experienceImg?.touched &&
             !experienceImgClicked
-        }"
-        formControlName="experienceImg"
-        id="experienceImg"
-      />
-      <span
-        *ngIf="
-          experienceImg?.errors &&
-          experienceImg?.touched &&
-          !experienceImgClicked
-        "
-        class="errorSpan"
-        >Required</span
-      >
+          "
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
     </div>
-  </div>
-  <button type="submit" class="saveButton" [disabled]="!newExperience.valid">
-    Save
-  </button>
-</form>
+    <button type="submit" class="saveButton" [disabled]="!newExperience.valid">
+      Save
+    </button>
+  </form>
+</div>

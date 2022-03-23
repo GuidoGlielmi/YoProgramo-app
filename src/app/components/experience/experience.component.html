@@ -22,3 +22,9 @@
   >
   </app-experience-item>
 </div>
+<div class="newExperienceContainer">
+  <app-experience-form *ngIf="showNewForm"></app-experience-form>
+</div>
+<button (click)="showNewForm = !showNewForm" class="addExperience">
+  Add experience
+</button>

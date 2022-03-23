@@ -1,13 +1,21 @@
+.experienceFormContainer {
+  display: flex;
+  flex-direction: column;
+  /* this is so its childs can be selected */
+  z-index: 1;
+  position: relative;
+}
 .logoContainer {
   justify-content: center;
-  height: 25vh;
-  width: 25vh;
+  align-items: center;
+  height: 15vh;
+  width: 15vh;
 }
 .logo {
   max-width: 100%;
 }
 .form {
-  width: 30vw;
+  width: 100%;
 }
 .formInputs {
   display: flex;

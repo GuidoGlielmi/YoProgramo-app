@@ -1,6 +1,15 @@
-.infoBox,
-.logo {
+.experienceContainer {
+  display: flex;
+  align-items: center;
   z-index: 1;
+}
+.logoContainer {
+  flex-shrink: 0;
+  width: 15vh;
+  height: 15vh;
+}
+.logo {
+  width: 100%;
 }
 .infoBox {
   position: relative;

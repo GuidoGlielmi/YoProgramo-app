@@ -17,4 +17,8 @@
     >
     </app-education-item>
   </div>
+  <app-education-form *ngIf="showNewForm"></app-education-form>
+  <button (click)="showNewForm = !showNewForm" class="addEducation">
+    Add education
+  </button>
 </div>

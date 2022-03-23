@@ -8,9 +8,12 @@
     [class]="i % 2 === 0 ? 'projectItemLeft' : 'projectItemRight'"
   >
   </app-project-item>
-  <app-projects-form
+  <app-projects-form *ngIf="showNewForm"></app-projects-form>
+  <button
+    (click)="showNewForm = !showNewForm"
     *ngIf="loggedIn"
-    [new]="true"
-    (onAddProject)="addProject($event)"
-  ></app-projects-form>
+    class="addProject"
+  >
+    Add project
+  </button>
 </div>

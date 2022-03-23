@@ -1,7 +1,9 @@
 <div class="formContainer">
-  <div class="logoContainer rowContainer marginSmall">
+  <div
+    *ngIf="project.projectImg"
+    class="logoContainer rowContainer marginSmall"
+  >
     <img
-      *ngIf="project.projectImg"
       class="logo rounded"
       [style.background]="
         project.title === 'Argentina Programa' ? '#1e1e1e' : ''
