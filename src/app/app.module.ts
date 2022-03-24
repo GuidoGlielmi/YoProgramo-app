@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
@@ -27,6 +27,8 @@ import { ProgressRingComponent } from './components/progress-ring/progress-ring.
 import { CloseIconComponent } from './components/close-icon/close-icon.component';
 import { CloseAndEditComponent } from './components/close-and-edit/close-and-edit.component';
 import { FormComponent } from './components/form/form.component';
+import { ResponsesInterceptor } from './interceptors/responses.interceptor';
+import { TechsFormComponent } from './components/forms/techs-form/techs-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,7 @@ import { FormComponent } from './components/form/form.component';
     ProjectsFormComponent,
     EducationFormComponent,
     ExperienceFormComponent,
+    TechsFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,9 @@ import { FormComponent } from './components/form/form.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ResponsesInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,11 +1,11 @@
 <div class="closeAndEdit rowContainer">
   <img
-    (click)="onEdit()"
+    (click)="onEdit.emit()"
     class="editIcon"
     src="/assets/icons/edit-icon.png"
     alt="edit icon"
   />
-  <div (click)="onDelete()" class="closeContainer rowContainer">
+  <div (click)="onDelete.emit()" class="closeContainer rowContainer">
     <div class="close rowContainer">
       <div class="closeLeft"></div>
       <div class="closeRight"></div>

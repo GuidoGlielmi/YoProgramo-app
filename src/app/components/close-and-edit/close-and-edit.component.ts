@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-close-and-edit',
@@ -7,12 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CloseAndEditComponent implements OnInit {
   constructor() {}
+  @Output() onEdit = new EventEmitter<any>();
+  @Output() onDelete = new EventEmitter<any>();
 
-  onEdit() {
-    console.log('edit');
-  }
-  onDelete() {
-    console.log('edit');
-  }
   ngOnInit(): void {}
 }

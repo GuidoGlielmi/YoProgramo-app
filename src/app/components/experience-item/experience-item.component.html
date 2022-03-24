@@ -1,4 +1,4 @@
-<div class="experienceContainer" *ngIf="!loggedIn">
+<div class="experienceContainer">
   <div class="logoContainer rowContainer marginSmall">
     <img
       class="logo rounded"
@@ -40,8 +40,3 @@
     </a>
   </div>
 </div>
-<app-experience-form
-  *ngIf="loggedIn"
-  [experience]="experience"
-></app-experience-form>
-<button (click)="loggedIn = !loggedIn" style="z-index: 1">log in</button>

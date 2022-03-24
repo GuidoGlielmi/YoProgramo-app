@@ -1,14 +1,35 @@
 <p class="title darkFont fontLarge">Projects i've worked on</p>
 <div class="columnContainer projects">
-  <app-project-item
-    *ngFor="let p of projects; let i = index"
-    [index]="i"
-    [project]="p"
-    class="projectItem rowContainer"
-    [class]="i % 2 === 0 ? 'projectItemLeft' : 'projectItemRight'"
-  >
-  </app-project-item>
-  <app-projects-form *ngIf="showNewForm"></app-projects-form>
+  <div *ngFor="let p of projects; let i = index">
+    <app-close-and-edit
+      *ngIf="loggedIn"
+      class="closeAndEdit"
+      (onEdit)="showForm[i] = !showForm[i]"
+      (onDelete)="deleteProject(i)"
+    ></app-close-and-edit>
+    <app-project-item
+      *ngIf="!showForm[i]"
+      [index]="i"
+      [project]="p"
+      class="projectItem rowContainer"
+      [class]="i % 2 === 0 ? 'projectItemLeft' : 'projectItemRight'"
+    >
+    </app-project-item>
+    <app-projects-form
+      *ngIf="showForm[i]"
+      (onSaveProject)="addProject($event)"
+      [index]="i"
+      [project]="p"
+      class="projectItem rowContainer"
+      [class]="i % 2 === 0 ? 'projectItemLeft' : 'projectItemRight'"
+    >
+    </app-projects-form>
+  </div>
+  <app-projects-form
+    *ngIf="showNewForm"
+    [isNewProjectItem]="true"
+    (onAddProject)="addProject($event)"
+  ></app-projects-form>
   <button
     (click)="showNewForm = !showNewForm"
     *ngIf="loggedIn"

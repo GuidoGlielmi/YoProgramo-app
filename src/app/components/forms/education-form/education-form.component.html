@@ -5,11 +5,7 @@
     [src]="educationItem.educationImg"
     alt="logo"
   />
-  <form
-    [formGroup]="newEducationItem"
-    (ngSubmit)="saveEducation()"
-    class="form columnContainer"
-  >
+  <form [formGroup]="newEducationItem" class="form columnContainer">
     <div class="formInputs">
       <div class="inputLabel">
         <label for="school" class="label">School</label>
@@ -107,11 +103,22 @@
       </div>
     </div>
     <button
+      *ngIf="!isNewEducationItem"
+      (click)="saveEducation()"
       type="submit"
       class="saveButton"
       [disabled]="!newEducationItem.valid"
     >
       Save
+    </button>
+    <button
+      *ngIf="isNewEducationItem"
+      (click)="addEducation()"
+      type="submit"
+      class="saveButton"
+      [disabled]="!newEducationItem.valid"
+    >
+      Add
     </button>
   </form>
 </div>

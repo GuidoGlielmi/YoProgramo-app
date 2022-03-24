@@ -3,8 +3,20 @@
   [@showLogin]="loginState"
   (click)="toggleLogin($event)"
   class="loginModal"
-></app-modal
-><a href="#down" class="goDownLink"
+></app-modal>
+<div
+  [ngClass]="{
+    responseMsgContainer: !responseMsgError,
+    responseMsgErrorContainer: responseMsgError
+  }"
+  [@showResponseModal]="responseModalState"
+>
+  <p class="responseMsg">{{ responseMsg }}</p>
+  <button (click)="responseModalState = 'notShown'" class="closeResponseModal">
+    X
+  </button>
+</div>
+<a href="#down" class="goDownLink"
   ><button
     [@goDown]="goDownState"
     [@goDownFadeOut]="goDownFadeOutState"

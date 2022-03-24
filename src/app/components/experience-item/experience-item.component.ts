@@ -18,6 +18,5 @@ export class ExperienceItemComponent implements OnInit {
   loggedIn: boolean = true;
   constructor() {}
 
-  saveExperience() {}
   ngOnInit(): void {}
 }

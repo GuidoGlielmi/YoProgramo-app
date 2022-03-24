@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   experience,
   ExperiencesService,
@@ -22,6 +22,9 @@ export class ExperienceFormComponent implements OnInit {
   };
   @Input()
   index!: number;
+  @Input() isNewExperienceItem = false;
+  @Output() onAddExperience = new EventEmitter<any>();
+  @Output() onSaveExperience = new EventEmitter<any>();
   titleClicked: boolean = false;
   startDateClicked: boolean = false;
   endDateClicked: boolean = false;
@@ -34,7 +37,7 @@ export class ExperienceFormComponent implements OnInit {
     private experienceService: ExperiencesService
   ) {
     this.newExperience = this.formBuilder.group({
-      id: ['', [Validators.required]],
+      id: '',
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
       startDate: ['', [Validators.required]],
@@ -43,12 +46,23 @@ export class ExperienceFormComponent implements OnInit {
       experienceImg: ['', [Validators.required]],
     });
   }
-
+  addExperience() {
+    this.experienceService
+      .addExperience(this.newExperience.value)
+      .subscribe((data) => {
+        this.newExperience.get('id')?.setValue(data.data);
+        this.onAddExperience.emit(this.newExperience.value);
+      });
+  }
   saveExperience() {
-    this.experienceService.putExperience(this.newExperience.value).subscribe({
-      next: (asd) => console.log('asd'),
-      error: (error) => console.log(error),
-    });
+    this.experienceService
+      .putExperience(this.newExperience.value)
+      .subscribe(() => {
+        this.onSaveExperience.emit({
+          newExperience: this.newExperience.value,
+          index: this.index,
+        });
+      });
   }
   ngOnInit(): void {
     this.newExperience.patchValue({

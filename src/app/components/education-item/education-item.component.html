@@ -1,4 +1,4 @@
-<div *ngIf="!registered" class="mainContainer rowContainer">
+<div class="mainContainer rowContainer">
   <img class="logo marginSmall" [src]="educationItem.educationImg" alt="logo" />
   <div class="educationItemDescr columnContainer marginSmall">
     <p class="p fontMedium" [class]="index % 2 === 0 ? 'darkFont' : ''">
@@ -15,8 +15,3 @@
     </p>
   </div>
 </div>
-<app-education-form
-  *ngIf="registered"
-  class="mainContainer rowContainer"
-  [educationItem]="educationItem"
-></app-education-form>

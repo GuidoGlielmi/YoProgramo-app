@@ -6,6 +6,8 @@ import {
   style,
 } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ResponsesInterceptor } from './interceptors/responses.interceptor';
+import { ResponseService } from './service/responses/response.service';
 import { user, UsersService } from './service/users/users.service';
 
 @Component({
@@ -38,8 +40,36 @@ import { user, UsersService } from './service/users/users.service';
       state('shown', style({ opacity: 1, 'z-index': 2 })),
       transition('notShown <=> shown', animate('400ms ease-out')),
     ]),
+    trigger('showResponseModal', [
+      state('notShown', style({ opacity: 0, 'z-index': -1 })),
+      state('shown', style({ opacity: 1, 'z-index': 2 })),
+      transition('notShown <=> shown', animate('400ms ease-out')),
+    ]),
   ],
 })
+/*
+    Create Subject property in service:
+
+import { Subject } from 'rxjs';
+
+export class AuthService {
+  loginAccures: Subject<boolean> = new Subject<boolean>();
+}
+
+    When event happens in child page/component use:
+
+logout() {
+  this.authService.loginAccures.next(false);
+}
+
+    And subscribe to subject in parent page/component:
+
+constructor(private authService: AuthService) {
+  this.authService.loginAccures.subscribe((isLoggedIn: boolean) => {
+    this.isLoggedIn = isLoggedIn;
+  })
+}
+ */
 export class AppComponent implements OnInit {
   title = 'YoProgramo-app';
   socialState = 'notShown';
@@ -47,6 +77,9 @@ export class AppComponent implements OnInit {
   loginButtonState = 'unpressed';
   goDownFadeOutState = 'notBottom';
   loginState = 'notShown';
+  responseModalState = 'notShown';
+  responseMsg = '';
+  responseMsgError = false;
   user: user = {
     id: '',
     firstName: '',
@@ -57,19 +90,41 @@ export class AppComponent implements OnInit {
     aboutMe: '',
     profileImg: '',
   };
-  constructor(private userService: UsersService) {}
+  constructor(
+    private userService: UsersService,
+    private responseService: ResponseService // private responseService: ResponsesInterceptor
+  ) {}
 
   ngOnInit(): void {
     try {
+      this.responseService.errorListener().subscribe((msg) => {
+        if (msg) {
+          this.responseMsgError = true;
+          this.responseModalState = 'shown';
+          this.responseMsg = msg;
+        }
+      });
+      this.responseService.successListener().subscribe((msg) => {
+        if (msg) {
+          this.responseMsgError = false;
+          this.responseModalState = 'shown';
+          this.responseMsg = msg;
+          setTimeout(() => {
+            this.responseModalState = 'notShown';
+          }, 5000);
+        }
+      });
       this.userService.getUser().subscribe((user: user[]) => {
-        console.log(user);
         this.user = user[0];
       });
     } catch (err) {
       console.log(err);
     }
   }
-
+  /*   onError() {
+    this.errorModalState =
+      this.errorModalState === 'notShown' ? 'shown' : 'notShown';
+  } */
   @HostListener('window:scroll')
   onWindowScroll() {
     if (

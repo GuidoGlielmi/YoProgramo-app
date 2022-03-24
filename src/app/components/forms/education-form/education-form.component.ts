@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   education,
   EducationService,
 } from 'src/app/service/education/education.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResponseService } from 'src/app/service/responses/response.service';
 @Component({
   selector: 'app-education-form',
   templateUrl: './education-form.component.html',
@@ -19,21 +20,23 @@ export class EducationFormComponent implements OnInit {
     endDate: '',
     educationImg: '',
   };
+  @Input() isNewEducationItem = false;
   @Input()
   index!: number;
+  @Output() onAddEducation = new EventEmitter<any>();
+  @Output() onSaveEducation = new EventEmitter<any>();
   schoolClicked: boolean = false;
   startDateClicked: boolean = false;
   endDateClicked: boolean = false;
   degreeClicked: boolean = false;
   educationImgClicked: boolean = false;
-  registered: boolean = false;
   newEducationItem: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private educationService: EducationService
   ) {
     this.newEducationItem = this.formBuilder.group({
-      id: ['', [Validators.required]],
+      id: '',
       school: ['', [Validators.required]],
       degree: ['', [Validators.required]],
       startDate: ['', [Validators.required]],
@@ -43,14 +46,24 @@ export class EducationFormComponent implements OnInit {
   }
 
   saveEducation() {
-    this.educationService.putEducation(this.newEducationItem.value).subscribe({
-      next: (asd) => console.log('asd'),
-      error: (error) => console.log(error),
-    });
+    this.educationService
+      .putEducation(this.newEducationItem.value)
+      .subscribe(() => {
+        this.onSaveEducation.emit({
+          newEducation: this.newEducationItem.value,
+          index: this.index,
+        });
+      });
     // without subscription, it doesn't work
-    /*   console.log(this.newEducationItem.value);
-    console.log(this.newEducationItem.touched);
-    console.log(this.educationImg?.status); */
+  }
+  addEducation() {
+    this.educationService
+      .addEducation(this.newEducationItem.value)
+      .subscribe((data: any) => {
+        this.newEducationItem.get('id')?.setValue(data.data);
+        this.onAddEducation.emit(this.newEducationItem.value);
+        this.newEducationItem.reset();
+      });
   }
 
   ngOnInit(): void {

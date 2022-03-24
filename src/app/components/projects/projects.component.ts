@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from 'src/app/service/projects/projects.service';
+import {
+  project,
+  ProjectsService,
+} from 'src/app/service/projects/projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -10,19 +13,24 @@ export class ProjectsComponent implements OnInit {
   projects: any[] = [];
   loggedIn = true;
   showNewForm = false;
+  showForm: boolean[] = [];
   constructor(private projectService: ProjectsService) {}
 
-  addProject(newProject: any) {
-    /* this.projects.push(newProject); */
-    console.log(newProject);
+  addProject(newProject: project) {
+    this.projects.push(newProject);
+  }
+  saveProject(newProject: { newProject: project; index: number }) {
+    this.projects[newProject.index] = newProject.newProject;
+  }
+  deleteProject(index: number) {
+    this.projects.splice(index, 1);
   }
   ngOnInit(): void {
-    try {
-      this.projectService.getProjects().subscribe((projects: any[]) => {
-        this.projects = projects;
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    this.projectService.getProjects().subscribe((projects: any[]) => {
+      this.projects = projects;
+      for (const element of projects) {
+        this.showForm.push(false);
+      }
+    });
   }
 }

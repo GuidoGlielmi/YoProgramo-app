@@ -9,18 +9,35 @@
     Some technologies I am familiar with
   </p>
   <div #techImagesNode class="techImages" (wheel)="onWheel($event)">
-    <div
-      *ngFor="let tech of techs; let i = index"
-      class="techImageContainer"
-      [class]="i === techs.length - 1 ? 'listEnd' : ''"
-    >
-      <img
-        [src]="tech.techImg"
-        class="techImage"
-        [alt]="tech.name.toString() + ' logo'"
-      />
+    <div #techImage *ngFor="let tech of techs; let i = index">
+      <div
+        [ngClass]="{
+          techImageContainer: !loggedIn,
+          techFormContainer: loggedIn,
+          listEnd: i === techs.length - 1
+        }"
+      >
+        <app-close-and-edit
+          *ngIf="loggedIn"
+          class="closeAndEdit"
+          (onEdit)="showForm[i] = !showForm[i]"
+          (onDelete)="deleteTech(i)"
+        ></app-close-and-edit>
+        <img
+          *ngIf="!showForm[i]"
+          [src]="tech.techImg"
+          [class]="loggedIn ? 'techImageLogged' : 'techImage'"
+          [alt]="tech.name.toString() + ' logo'"
+        />
+        <app-techs-form
+          *ngIf="showForm[i] && loggedIn"
+          (onSaveTech)="saveTech($event)"
+          [tech]="tech"
+          [index]="i"
+        ></app-techs-form>
+      </div>
     </div>
-    <div class="extraTechs">
+    <div *ngIf="!loggedIn" class="extraTechs">
       <div
         *ngFor="let tech of techs; let i = index"
         class="techImageContainer"
@@ -34,4 +51,15 @@
       </div>
     </div>
   </div>
+  <div *ngIf="loggedIn" class="newTechContainer">
+    <app-techs-form
+      *ngIf="showNewForm"
+      (onAddTech)="addTech($event)"
+      [isNewTechItem]="true"
+    ></app-techs-form>
+    <button (click)="showNewForm = !showNewForm" class="button">
+      Add tech
+    </button>
+  </div>
+  <button (click)="loggedIn = !loggedIn" class="button">Log in</button>
 </div>

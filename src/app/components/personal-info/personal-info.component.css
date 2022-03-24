@@ -67,14 +67,38 @@
   border-radius: 150% 100% / 10% 40%;
   box-shadow: 0px 0px 5px 0px #08001e;
 }
+.techFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 1vw;
+  padding: max(1.5vw, 2vh);
+  border-radius: 150% 100% / 10% 40%;
+  box-shadow: 0px 0px 5px 0px #08001e;
+}
 .techImage {
   max-width: 100%;
+}
+.techImageLogged {
+  height: 8.55vw;
 }
 .listEnd {
   border-right: 3px solid black;
 }
 .extraTechs {
   display: flex;
+}
+.newTechContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 2px;
 }
 @media (max-width: 850px) {
   .aboutMeTitle::before {

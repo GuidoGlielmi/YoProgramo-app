@@ -1,0 +1,56 @@
+<form [formGroup]="newTechItem" class="form columnContainer">
+  <div class="formInputs">
+    <div class="inputLabel">
+      <label for="name" class="label">Name</label>
+      <input
+        formControlName="name"
+        [ngClass]="{
+          inputError: name?.errors && name?.touched && !nameClicked
+        }"
+        (focus)="nameClicked = true"
+        (blur)="nameClicked = false"
+        class="input"
+        id="name"
+      /><span
+        *ngIf="name?.errors && name?.touched && !nameClicked"
+        class="errorSpan"
+        >Required</span
+      >
+    </div>
+    <div class="inputLabel">
+      <label for="techImg" class="label">Technology image</label>
+      <input
+        formControlName="techImg"
+        [ngClass]="{
+          inputError: techImg?.errors && techImg?.touched && !techImgClicked
+        }"
+        (focus)="techImgClicked = true"
+        (blur)="techImgClicked = false"
+        class="input"
+        id="techImg"
+      /><span
+        *ngIf="techImg?.errors && techImg?.touched && !techImgClicked"
+        class="errorSpan"
+        >Required</span
+      >
+    </div>
+  </div>
+  <button
+    *ngIf="!isNewTechItem"
+    (click)="saveTech()"
+    type="submit"
+    class="button"
+    [disabled]="!newTechItem.valid"
+  >
+    Save
+  </button>
+  <button
+    *ngIf="isNewTechItem"
+    (click)="addTech()"
+    type="submit"
+    class="button"
+    [disabled]="!newTechItem.valid"
+  >
+    Add
+  </button>
+</form>

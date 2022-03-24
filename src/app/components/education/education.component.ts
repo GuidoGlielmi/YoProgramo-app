@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   education,
   EducationService,
 } from 'src/app/service/education/education.service';
+import { ResponseService } from 'src/app/service/responses/response.service';
 
 @Component({
   selector: 'app-education',
@@ -11,19 +12,28 @@ import {
 })
 export class EducationComponent implements OnInit {
   education: education[] = [];
+  loggedIn = true;
+  showForm: boolean[] = [];
   showNewForm = false;
   constructor(private educationService: EducationService) {}
   ngOnInit(): void {
-    try {
-      this.educationService.getEducation().subscribe({
-        next: (education: education[]) => {
-          this.education = education;
-        },
-        error: (error) => console.log(error),
-        complete: () => console.log('complete'),
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    // instanciating EducationService
+    this.educationService.getEducation().subscribe((education: education[]) => {
+      this.education = education;
+      for (const element of education) {
+        this.showForm.push(false);
+      }
+    });
+  }
+  addEducation(newEducation: education) {
+    this.education.push(newEducation);
+  }
+  saveEducation(newEducation: { newEducation: education; index: number }) {
+    this.education[newEducation.index] = newEducation.newEducation;
+  }
+  deleteEducation(i: number) {
+    this.educationService
+      .deleteEducation(this.education[i].id)
+      .subscribe(() => this.education.splice(i, 1));
   }
 }

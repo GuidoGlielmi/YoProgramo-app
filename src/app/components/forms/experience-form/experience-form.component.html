@@ -12,11 +12,7 @@
       [alt]="experience.title"
     />
   </div>
-  <form
-    [formGroup]="newExperience"
-    (ngSubmit)="saveExperience()"
-    class="form columnContainer"
-  >
+  <form [formGroup]="newExperience" class="form columnContainer">
     <div class="formInputs">
       <div class="inputLabel">
         <label for="title" class="label">Title</label>
@@ -31,6 +27,26 @@
           id="title"
         /><span
           *ngIf="title?.errors && title?.touched && !titleClicked"
+          class="errorSpan"
+          >Required</span
+        >
+      </div>
+      <div class="inputLabel">
+        <label for="description" class="label">description</label>
+        <input
+          formControlName="description"
+          [ngClass]="{
+            inputError:
+              description?.errors && description?.touched && !descriptionClicked
+          }"
+          (focus)="descriptionClicked = true"
+          (blur)="descriptionClicked = false"
+          class="input"
+          id="description"
+        /><span
+          *ngIf="
+            description?.errors && description?.touched && !descriptionClicked
+          "
           class="errorSpan"
           >Required</span
         >
@@ -116,8 +132,23 @@
         >
       </div>
     </div>
-    <button type="submit" class="saveButton" [disabled]="!newExperience.valid">
+    <button
+      *ngIf="!isNewExperienceItem"
+      (click)="saveExperience()"
+      type="submit"
+      class="saveButton"
+      [disabled]="!newExperience.valid"
+    >
       Save
+    </button>
+    <button
+      *ngIf="isNewExperienceItem"
+      (click)="addExperience()"
+      type="submit"
+      class="saveButton"
+      [disabled]="!newExperience.valid"
+    >
+      Add
     </button>
   </form>
 </div>

@@ -1,35 +1,30 @@
-<div *ngIf="!loggedIn">
-  <img class="logo rounded marginSmall" [src]="project.projectImg" alt="logo" />
-  <div class="infoContainer columnContainer marginSmall justifyCenter">
-    <p
-      class="title p fontMedium marginSmall"
+<img class="logo rounded marginSmall" [src]="project.projectImg" alt="logo" />
+<div class="infoContainer columnContainer marginSmall justifyCenter">
+  <p
+    class="title p fontMedium marginSmall"
+    [class]="index % 2 === 0 ? 'darkFont' : ''"
+  >
+    {{ project.title }}
+  </p>
+  <p
+    class="description p fontSmall"
+    [class]="index % 2 === 0 ? 'darkFont' : ''"
+  >
+    {{ project.description }}
+  </p>
+  <ul>
+    <li *ngFor="let url of project.urls" class="p fontSmall">
+      <a [href]="url.url" class="link p fontSmall">{{ url.name }}</a>
+    </li>
+  </ul>
+  <ul class="p">
+    <li
+      *ngFor="let tech of project.techs; let i = index"
+      class="p projectTech fontSmall"
       [class]="index % 2 === 0 ? 'darkFont' : ''"
     >
-      {{ project.title }}
-    </p>
-    <p
-      class="description p fontSmall"
-      [class]="index % 2 === 0 ? 'darkFont' : ''"
-    >
-      {{ project.description }}
-    </p>
-    <ul>
-      <li *ngFor="let url of project.urls" class="p fontSmall">
-        <a [href]="url.url" class="link p fontSmall">{{ url.name }}</a>
-      </li>
-    </ul>
-    <ul class="p">
-      <li
-        *ngFor="let tech of project.techs; let i = index"
-        class="p projectTech fontSmall"
-        [class]="index % 2 === 0 ? 'darkFont' : ''"
-      >
-        <span>{{ tech.name }}</span
-        ><span *ngIf="i !== project.techs.length - 1"> - </span>
-      </li>
-    </ul>
-  </div>
-</div>
-<div *ngIf="loggedIn" class="infoBox rowContainer">
-  <app-projects-form [project]="project"></app-projects-form>
+      <span>{{ tech.name }}</span
+      ><span *ngIf="i !== project.techs.length - 1"> - </span>
+    </li>
+  </ul>
 </div>

@@ -17,10 +17,11 @@ export class ProjectsFormComponent implements OnInit {
     urls: [],
     techs: [],
   };
-  @Input() new = false;
   @Output() onAddProject = new EventEmitter<any>();
+  @Output() onSaveProject = new EventEmitter<any>();
   @Input()
   index!: number;
+  @Input() isNewProjectItem = false;
   techs: tech[] = [];
   remainingTechs: tech[] = [];
   titleClicked: boolean = false;
@@ -37,22 +38,31 @@ export class ProjectsFormComponent implements OnInit {
     private projectService: ProjectsService,
     private techService: TechsService
   ) {
-    try {
-      this.techService.getTechs().subscribe((techs: tech[]) => {
-        this.techs = techs;
-        for (const tech of techs) {
-          if (
-            !this.project.techs.find(
-              (projectTech: tech) => tech.id === projectTech.id
-            )
-          ) {
-            this.remainingTechs.push(tech);
-          }
+    this.techService.getTechs().subscribe((techs: tech[]) => {
+      this.techs = techs;
+      for (const tech of techs) {
+        if (
+          !this.project.techs.find(
+            (projectTech: tech) => tech.id === projectTech.id
+          )
+        ) {
+          this.remainingTechs.push(tech);
         }
-      });
-    } catch (err) {
-      console.log(err);
-    }
+      }
+    });
+  }
+  addProject() {
+    let techs = this.project.techs.map((tech: tech) => tech.id);
+    let newProject = {
+      project: { ...this.project, ...this.newProject.value },
+      techs,
+    };
+    this.projectService.addProject(newProject).subscribe((data) => {
+      this.project = data.data;
+      this.setProjectForm();
+      this.onAddProject.emit({ ...this.project, ...this.newProject.value });
+      console.log('Completed');
+    });
   }
 
   saveProject() {
@@ -61,14 +71,9 @@ export class ProjectsFormComponent implements OnInit {
       project: { ...this.project, ...this.newProject.value },
       techs,
     };
-    console.log(newProject);
-    this.projectService.putProject(newProject).subscribe({
-      next: (asd) => console.log('Completed'),
-      error: (error) => console.log(error),
+    this.projectService.putProject(newProject).subscribe(() => {
+      this.onSaveProject.emit({ ...this.project, ...this.newProject.value });
     });
-    if (this.new) {
-      this.onAddProject.emit({ ...this.project, ...this.newProject.value });
-    }
   }
   addUrl() {
     const newUrlFormGroup = this.formBuilder.group({
@@ -81,39 +86,25 @@ export class ProjectsFormComponent implements OnInit {
       ...this.newUrl,
       projectId: this.project.id,
     };
-    /* this.projectService
-      .addUrlToProject(newUrl)
-      .subscribe(() => console.log('Completed')); */
   }
   deleteUrl(selectedUrlIndex: number) {
     let selectedUrlId = this.urlsGroup.controls[selectedUrlIndex].value.id;
     this.urlsGroup.removeAt(selectedUrlIndex);
-    /*  this.projectService
-      .deleteUrlFromProject(selectedUrlId)
-      .subscribe(() => console.log('Completed')); */
   }
   addTechToProject(newTech: tech) {
     this.project.techs.push(newTech);
     this.remainingTechs = this.remainingTechs.filter(
       (tech) => tech.id !== newTech.id
     );
-    /*  this.projectService
-      .addTechToProject(newTech.id, this.project.id)
-      .subscribe(() => console.log('Completed')); */
   }
   deleteTechFromProject(tech: tech) {
     this.project.techs = this.project.techs.filter(
       (projectTech: tech) => tech.id !== projectTech.id
     );
-    this.project.techs.filter(
-      (projectTech: tech) => tech.id !== projectTech.id
-    );
     this.remainingTechs.push(tech);
-    /*  this.projectService
-      .deleteTechFromProject(tech.id, this.project.id)
-      .subscribe(() => console.log('Completed')); */
   }
-  ngOnInit(): void {
+
+  setProjectForm() {
     this.newProject = this.formBuilder.group({
       id: [this.project.id],
       title: [this.project.title, [Validators.required]],
@@ -130,6 +121,10 @@ export class ProjectsFormComponent implements OnInit {
       });
       this.urlsGroup.push(newUrl);
     });
+  }
+
+  ngOnInit(): void {
+    this.setProjectForm();
   }
   get title() {
     return this.newProject.get('title');

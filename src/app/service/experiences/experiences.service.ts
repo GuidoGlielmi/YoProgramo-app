@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
+import { responseObject } from '../responses/response.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,25 +11,22 @@ export class ExperiencesService {
   getExperiences(): Observable<experience[]> {
     return this.http.get<experience[]>('http://localhost:8080/experiences');
   }
-  addExperience(experience: experience): Observable<experience> {
-    return this.http
-      .post<experience>('http://localhost:8080/experience', experience)
-      .pipe(/* retry(3), */ catchError(this.handleError));
-  }
-  putExperience(experience: experience): Observable<experience> {
-    return this.http.put<experience>(
-      'http://localhost:8080/experience',
+  addExperience(experience: experience): Observable<responseObject> {
+    return this.http.post<responseObject>(
+      'http://localhost:8080/experiences',
       experience
     );
   }
-  private handleError(error: HttpErrorResponse) {
-    console.log(error);
-    if (error.status === 0) {
-      // A client-side or network error occurred
-      return throwError(() => new Error(error.error));
-    } else {
-      return throwError(() => new Error(`${error.status}: ${error.error}`));
-    }
+  putExperience(experience: experience): Observable<responseObject> {
+    return this.http.put<responseObject>(
+      'http://localhost:8080/experiences',
+      experience
+    );
+  }
+  deleteExperience(experienceId: string): Observable<responseObject> {
+    return this.http.delete<responseObject>(
+      `http://localhost:8080/experiences/${experienceId}`
+    );
   }
 }
 export interface experience {

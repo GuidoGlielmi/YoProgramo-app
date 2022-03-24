@@ -4,8 +4,13 @@
     *ngFor="let e of education; let i = index"
     class="educationContainer columnContainer"
   >
-    <app-close-and-edit class="closeAndEdit"></app-close-and-edit>
+    <app-close-and-edit
+      class="closeAndEdit"
+      (onEdit)="showForm[i] = !showForm[i]"
+      (onDelete)="deleteEducation(i)"
+    ></app-close-and-edit>
     <app-education-item
+      *ngIf="!showForm[i]"
       [index]="i"
       [educationItem]="e"
       class="educationItem"
@@ -16,8 +21,19 @@
       "
     >
     </app-education-item>
+    <app-education-form
+      *ngIf="showForm[i]"
+      (onSaveEducation)="saveEducation($event)"
+      class="mainContainer rowContainer"
+      [educationItem]="e"
+      [index]="i"
+    ></app-education-form>
   </div>
-  <app-education-form *ngIf="showNewForm"></app-education-form>
+  <app-education-form
+    *ngIf="showNewForm"
+    (onAddEducation)="addEducation($event)"
+    [isNewEducationItem]="true"
+  ></app-education-form>
   <button (click)="showNewForm = !showNewForm" class="addEducation">
     Add education
   </button>

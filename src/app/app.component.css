@@ -1,3 +1,26 @@
+.responseMsgContainer,
+.responseMsgErrorContainer {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px;
+  color: white;
+  border-radius: 2px;
+  box-shadow: 0.5px 0.5px 2px 1px #202020;
+}
+.responseMsgContainer {
+  background-color: #19a819;
+}
+.responseMsgErrorContainer {
+  background-color: #df2a2a;
+}
+.closeResponseModal {
+  margin-left: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #0e0e0e;
+}
 .navContainer {
   display: flex;
   flex-direction: column;

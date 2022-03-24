@@ -15,7 +15,11 @@ import { tech, TechsService } from 'src/app/service/techs/techs.service';
 export class PersonalInfoComponent implements OnInit {
   @Input() aboutMe: String = '';
   techs: tech[] = [{ id: '', name: '', techImg: '' }];
-  @ViewChild('techImagesNode') techImageNode: any;
+  @ViewChild('techImagesNode') techImagesNode: any;
+  @ViewChild('techImage') techImageNode: any;
+  loggedIn = true;
+  showForm: boolean[] = [];
+  showNewForm = false;
   screenHeight: number = 0;
   screenWidth: number = 0;
   constructor(private techService: TechsService) {
@@ -23,23 +27,25 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    try {
-      this.techService.getTechs().subscribe((techs: tech[]) => {
-        this.techs = techs;
-        this.techs.push({
-          id: 'asdasd',
-          name: 'tuvieja',
-          techImg: '/assets/img/profile-img.jpg',
-        });
-        this.techs.push({
-          id: 'asdasd',
-          name: 'tuvieja',
-          techImg: '/assets/img/banner2.jpg',
-        });
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    this.techService.getTechs().subscribe((techs: tech[]) => {
+      this.techs = techs;
+      for (const element of techs) {
+        this.showForm.push(false);
+      }
+    });
+  }
+  addTech(newTech: tech) {
+    this.techs.push(newTech);
+  }
+  saveTech(newTech: { newTech: tech; index: number }) {
+    console.log(newTech);
+
+    this.techs[newTech.index] = newTech.newTech;
+  }
+  deleteTech(i: number) {
+    this.techService
+      .deleteTech(this.techs[i].id)
+      .subscribe(() => this.techs.splice(i, 1));
   }
 
   @HostListener('window:resize')
@@ -48,8 +54,9 @@ export class PersonalInfoComponent implements OnInit {
     this.screenWidth = window.innerWidth;
   }
   onWheel(event: WheelEvent): void {
-    let techImages = this.techImageNode.nativeElement;
-    let scrollUnit = techImages.clientHeight;
+    let techImages = this.techImagesNode.nativeElement;
+    let techImage = this.techImageNode.nativeElement;
+    let scrollUnit = techImage.clientWidth; /*  + this.screenWidth * 0.02 */
     let currentValue = techImages.scrollLeft;
     let maxValue = techImages.scrollLeftMax;
     let totalWidth = techImages.scrollWidth;

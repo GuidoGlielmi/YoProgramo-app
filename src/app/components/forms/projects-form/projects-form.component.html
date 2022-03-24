@@ -12,11 +12,7 @@
       [alt]="project.title"
     />
   </div>
-  <form
-    [formGroup]="newProject"
-    (ngSubmit)="saveProject()"
-    class="form columnContainer"
-  >
+  <form [formGroup]="newProject" class="form columnContainer">
     <div class="formInputs">
       <div class="inputLabel">
         <label for="title" class="label">Title</label>
@@ -156,6 +152,21 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="saveButton">Save</button>
+    <button
+      *ngIf="!isNewProjectItem"
+      (click)="saveProject()"
+      type="submit"
+      class="saveButton"
+    >
+      Save
+    </button>
+    <button
+      *ngIf="isNewProjectItem"
+      (click)="addProject()"
+      type="submit"
+      class="saveButton"
+    >
+      Add
+    </button>
   </form>
 </div>

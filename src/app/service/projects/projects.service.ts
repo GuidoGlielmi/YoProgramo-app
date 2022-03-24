@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
+import { responseObject } from '../responses/response.service';
 import { tech } from '../techs/techs.service';
 
 @Injectable({
@@ -9,45 +9,53 @@ import { tech } from '../techs/techs.service';
 })
 export class ProjectsService {
   constructor(private http: HttpClient) {}
-  getProjects(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/projects');
+  getProjects(): Observable<project[]> {
+    return this.http.get<project[]>('http://localhost:8080/projects');
   }
-  addProject(project: any): Observable<any> {
-    return this.http
-      .post<any>('http://localhost:8080/projects', project)
-      .pipe(/* retry(3), */ catchError(this.handleError));
+  addProject(project: any): Observable<responseObject> {
+    return this.http.post<responseObject>(
+      'http://localhost:8080/projects',
+      project
+    );
   }
-  putProject(project: any): Observable<any> {
-    return this.http.put<any>('http://localhost:8080/projects', project);
+  putProject(project: any): Observable<responseObject> {
+    return this.http.put<responseObject>(
+      'http://localhost:8080/projects',
+      project
+    );
   }
-  addUrlToProject(projectUrl: any): Observable<any> {
-    return this.http.post<any>(
+  deleteProject(projectId: string): Observable<responseObject> {
+    return this.http.delete<responseObject>(
+      `http://localhost:8080/projects/${projectId}`
+    );
+  }
+  addUrlToProject(projectUrl: projectUrls): Observable<responseObject> {
+    return this.http.post<responseObject>(
       'http://localhost:8080/projects/url',
       projectUrl
     );
   }
-  deleteUrlFromProject(urlId: string): Observable<any> {
-    return this.http.delete<any>(`http://localhost:8080/projects/url/${urlId}`);
+  deleteUrlFromProject(urlId: string): Observable<responseObject> {
+    return this.http.delete<responseObject>(
+      `http://localhost:8080/projects/url/${urlId}`
+    );
   }
-  addTechToProject(techId: string, projectId: string): Observable<any> {
-    return this.http.post<any>(
+  addTechToProject(
+    techId: string,
+    projectId: string
+  ): Observable<responseObject> {
+    return this.http.post<responseObject>(
       `http://localhost:8080/projects/${projectId}/tech/${techId}`,
       ''
     );
   }
-  deleteTechFromProject(techId: string, projectId: string): Observable<any> {
-    return this.http.delete<any>(
+  deleteTechFromProject(
+    techId: string,
+    projectId: string
+  ): Observable<responseObject> {
+    return this.http.delete<responseObject>(
       `http://localhost:8080/projects/${projectId}/tech/${techId}`
     );
-  }
-  private handleError(error: HttpErrorResponse) {
-    console.log(error);
-    if (error.status === 0) {
-      // A client-side or network error occurred
-      return throwError(() => new Error(error.error));
-    } else {
-      return throwError(() => new Error(`${error.status}: ${error.error}`));
-    }
   }
 }
 export interface project {

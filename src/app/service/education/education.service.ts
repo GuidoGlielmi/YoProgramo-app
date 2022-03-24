@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, retry, throwError } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
+import { responseObject } from '../responses/response.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,30 +9,25 @@ import { Observable } from 'rxjs/internal/Observable';
 export class EducationService {
   constructor(private http: HttpClient) {}
   getEducation(): Observable<education[]> {
-    return this.http
-      .get<education[]>('http://localhost:8080/education')
-      .pipe(catchError(this.handleError));
+    return this.http.get<education[]>('http://localhost:8080/education');
   }
-  putEducation(education: education): Observable<education> {
-    return this.http.put<education>(
+  addEducation(education: education): Observable<responseObject> {
+    return this.http.post<responseObject>(
+      'http://localhost:8080/education',
+      education
+    );
+  }
+  putEducation(education: education): Observable<responseObject> {
+    return this.http.put<responseObject>(
       'http://localhost:8080/education',
       education
     );
   }
 
-  addEducation(education: education): Observable<education> {
-    return this.http
-      .post<education>('http://localhost:8080/education', education)
-      .pipe(/* retry(3), */ catchError(this.handleError));
-  }
-  private handleError(error: HttpErrorResponse) {
-    console.log(error);
-    if (error.status === 0) {
-      // A client-side or network error occurred
-      return throwError(() => new Error(error.error));
-    } else {
-      return throwError(() => new Error(`${error.status}: ${error.error}`));
-    }
+  deleteEducation(educationId: string): Observable<responseObject> {
+    return this.http.delete<responseObject>(
+      `http://localhost:8080/education/${educationId}`
+    );
   }
 }
 export interface education {

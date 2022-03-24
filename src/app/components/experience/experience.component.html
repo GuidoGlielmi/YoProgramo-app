@@ -9,8 +9,14 @@
   <p *ngIf="i === 0" class="projectsImagesTitle darkFont fontLarge">
     Experiences
   </p>
-  <app-close-and-edit class="closeAndEdit"></app-close-and-edit>
+  <app-close-and-edit
+    *ngIf="loggedIn"
+    class="closeAndEdit"
+    (onEdit)="showForm[i] = !showForm[i]"
+    (onDelete)="deleteExperience(i)"
+  ></app-close-and-edit>
   <app-experience-item
+    *ngIf="!showForm[i]"
     [index]="i"
     [experience]="e"
     class="experienceItem rowContainer"
@@ -21,9 +27,19 @@
     }"
   >
   </app-experience-item>
+  <app-experience-form
+    *ngIf="showForm[i]"
+    (onSaveExperience)="saveExperience($event)"
+    [experience]="e"
+    [index]="i"
+  ></app-experience-form>
 </div>
 <div class="newExperienceContainer">
-  <app-experience-form *ngIf="showNewForm"></app-experience-form>
+  <app-experience-form
+    *ngIf="showNewForm"
+    [isNewExperienceItem]="true"
+    (onAddExperience)="addExperience($event)"
+  ></app-experience-form>
 </div>
 <button (click)="showNewForm = !showNewForm" class="addExperience">
   Add experience
