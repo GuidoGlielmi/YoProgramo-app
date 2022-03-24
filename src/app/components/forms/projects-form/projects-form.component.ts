@@ -1,7 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ProjectsService } from 'src/app/service/projects/projects.service';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import {
+  ProjectsService,
+  projectUrls,
+} from 'src/app/service/projects/projects.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TechsService, tech } from 'src/app/service/techs/techs.service';
+import { UpdateTechsService } from 'src/app/service/techs/update-techs.service';
 @Component({
   selector: 'app-projects-form',
   templateUrl: './projects-form.component.html',
@@ -28,15 +39,19 @@ export class ProjectsFormComponent implements OnInit {
   descriptionClicked: boolean = false;
   projectImgClicked: boolean = false;
   newProject!: FormGroup;
-  newUrl: any = {
+  newUrl: projectUrls = {
+    id: '',
     projectId: '',
     name: '',
     url: '',
   };
+  newUrlClicked: boolean = false;
+  newUrlNameClicked: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private projectService: ProjectsService,
-    private techService: TechsService
+    private techService: TechsService,
+    private updateTechService: UpdateTechsService
   ) {
     this.techService.getTechs().subscribe((techs: tech[]) => {
       this.techs = techs;
@@ -49,6 +64,11 @@ export class ProjectsFormComponent implements OnInit {
           this.remainingTechs.push(tech);
         }
       }
+      this.updateTechService.watchTechUpdate().subscribe((newTech) => {
+        if (newTech) {
+          this.remainingTechs.push(newTech);
+        }
+      });
     });
   }
   addProject() {
@@ -58,19 +78,25 @@ export class ProjectsFormComponent implements OnInit {
       techs,
     };
     this.projectService.addProject(newProject).subscribe((data) => {
-      this.project = data.data;
-      this.setProjectForm();
-      this.onAddProject.emit({ ...this.project, ...this.newProject.value });
-      console.log('Completed');
+      this.onAddProject.emit(data.data);
+      this.newUrl = {
+        id: '',
+        projectId: '',
+        name: '',
+        url: '',
+      };
+      this.newProject.reset();
     });
   }
 
   saveProject() {
     let techs = this.project.techs.map((tech: tech) => tech.id);
+
     let newProject = {
       project: { ...this.project, ...this.newProject.value },
       techs,
     };
+
     this.projectService.putProject(newProject).subscribe(() => {
       this.onSaveProject.emit({ ...this.project, ...this.newProject.value });
     });
@@ -96,6 +122,7 @@ export class ProjectsFormComponent implements OnInit {
     this.remainingTechs = this.remainingTechs.filter(
       (tech) => tech.id !== newTech.id
     );
+    console.log(this.project);
   }
   deleteTechFromProject(tech: tech) {
     this.project.techs = this.project.techs.filter(
@@ -103,7 +130,6 @@ export class ProjectsFormComponent implements OnInit {
     );
     this.remainingTechs.push(tech);
   }
-
   setProjectForm() {
     this.newProject = this.formBuilder.group({
       id: [this.project.id],

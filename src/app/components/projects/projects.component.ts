@@ -23,7 +23,9 @@ export class ProjectsComponent implements OnInit {
     this.projects[newProject.index] = newProject.newProject;
   }
   deleteProject(index: number) {
-    this.projects.splice(index, 1);
+    this.projectService
+      .deleteProject(this.projects[index].id)
+      .subscribe(() => this.projects.splice(index, 1));
   }
   ngOnInit(): void {
     this.projectService.getProjects().subscribe((projects: any[]) => {

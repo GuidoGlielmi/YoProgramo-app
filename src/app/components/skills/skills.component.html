@@ -1,48 +1,65 @@
 <p class="title fontLarge">Soft & Hard skills</p>
+<button (click)="loggedIn = !loggedIn">Log in</button>
 <div class="skillsContainer rowContainer">
-  <div *ngFor="let skill of skills" class="marginMedium columnContainer">
-    <input *ngIf="loggedIn" class="skillTitle" [value]="skill.name" />
-    <p *ngIf="!loggedIn" class="skillTitle">{{ skill.name }}</p>
-    <input
-      *ngIf="loggedIn"
-      class="marginSmall"
-      [(ngModel)]="skill.abilityPercentage"
-      type="number"
-      step="5"
-      min="0"
-      max="100"
-      type="number"
-      name="setPercentage"
-      id="setPercentage"
-    />
-    <app-progress-ring
-      class="columnContainer"
-      [radius]="size"
-      [percentage]="skill.abilityPercentage"
-    ></app-progress-ring>
+  <div
+    *ngFor="let skill of skills; let i = index"
+    class="marginMedium columnContainer"
+  >
+    <div *ngIf="!loggedIn">
+      <p class="skillTitle">{{ skill.name }}</p>
+      <app-progress-ring
+        class="columnContainer"
+        [radius]="size"
+        [percentage]="skill.abilityPercentage"
+      ></app-progress-ring>
+    </div>
+    <div *ngIf="loggedIn">
+      <app-close-and-edit
+        class="closeAndEdit"
+        (onEdit)="showSkillForm[i] = !showSkillForm[i]"
+        (onDelete)="deleteSkillOrLanguage(skill, i)"
+      ></app-close-and-edit>
+      <app-skills-form
+        [skill]="skill"
+        [index]="i"
+        (onSaveSkill)="saveSkillOrLanguage($event)"
+      ></app-skills-form>
+    </div>
   </div>
 </div>
 <p id="languages" class="languages fontLarge">Languages</p>
 <div class="skillsContainer rowContainer">
-  <div *ngFor="let language of languages" class="marginMedium columnContainer">
-    <input *ngIf="loggedIn" class="skillTitle" [value]="language.name" />
-    <p *ngIf="!loggedIn" class="skillTitle">{{ language.name }}</p>
-    <input
-      *ngIf="loggedIn"
-      class="marginSmall"
-      [(ngModel)]="language.abilityPercentage"
-      type="number"
-      step="5"
-      min="0"
-      max="100"
-      type="number"
-      name="setPercentage"
-      id="setPercentage"
-    />
-    <app-progress-ring
-      class="columnContainer"
-      [radius]="size"
-      [percentage]="language.abilityPercentage"
-    ></app-progress-ring>
+  <div
+    *ngFor="let language of languages; let i = index"
+    class="marginMedium columnContainer"
+  >
+    <div *ngIf="!loggedIn">
+      <p class="skillTitle">{{ language.name }}</p>
+      <app-progress-ring
+        class="columnContainer"
+        [radius]="size"
+        [percentage]="language.abilityPercentage"
+      ></app-progress-ring>
+    </div>
+    <div>
+      <app-close-and-edit
+        *ngIf="loggedIn"
+        class="closeAndEdit"
+        (onEdit)="showLanguageForm[i] = !showLanguageForm[i]"
+        (onDelete)="deleteSkillOrLanguage(language, i)"
+      ></app-close-and-edit>
+      <app-skills-form
+        *ngIf="loggedIn"
+        [skill]="language"
+        [index]="i"
+        (onSaveSkill)="saveSkillOrLanguage($event)"
+      ></app-skills-form>
+    </div>
   </div>
 </div>
+<app-skills-form
+  *ngIf="showNewForm"
+  [isNewSkillItem]="true"
+  (onAddSkill)="addSkillOrLanguage($event)"
+></app-skills-form>
+<button (click)="showNewForm = !showNewForm">Add language</button>

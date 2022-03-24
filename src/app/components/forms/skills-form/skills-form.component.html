@@ -1,0 +1,54 @@
+<form [formGroup]="newSkill">
+  <div>
+    <label for="newName"></label>
+    <input
+      formControlName="name"
+      name="newName"
+      id="newName"
+      class="skillTitle"
+      [ngClass]="{
+        inputError: name?.errors && name?.touched && !nameClicked
+      }"
+      (focus)="nameClicked = true"
+      (blur)="nameClicked = false"
+    />
+  </div>
+  <div>
+    <label for="newPercentage"></label>
+    <input
+      formControlName="abilityPercentage"
+      name="newPercentage"
+      id="newPercentage"
+      class="marginSmall"
+      type="number"
+      step="5"
+      min="0"
+      max="100"
+      type="number"
+      [ngClass]="{
+        inputError:
+          abilityPercentage?.errors &&
+          abilityPercentage?.touched &&
+          !abilityPercentageClicked
+      }"
+      (focus)="abilityPercentageClicked = true"
+      (blur)="abilityPercentageClicked = false"
+    />
+  </div>
+  <div>
+    <label for="newType"></label>
+    <input
+      formControlName="type"
+      name="newType"
+      id="newType"
+      class="skillTitle"
+      [ngClass]="{
+        inputError: type?.errors && type?.touched && !typeClicked
+      }"
+      (focus)="typeClicked = true"
+      (blur)="typeClicked = false"
+    />
+  </div>
+  <button *ngIf="isNewSkillItem" (click)="addSkill()">Add</button>
+  <button *ngIf="!isNewSkillItem" (click)="saveSkill()">Save</button>
+</form>

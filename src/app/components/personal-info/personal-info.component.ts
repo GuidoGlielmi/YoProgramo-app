@@ -38,8 +38,6 @@ export class PersonalInfoComponent implements OnInit {
     this.techs.push(newTech);
   }
   saveTech(newTech: { newTech: tech; index: number }) {
-    console.log(newTech);
-
     this.techs[newTech.index] = newTech.newTech;
   }
   deleteTech(i: number) {

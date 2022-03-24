@@ -37,6 +37,7 @@
   border-color: red;
 }
 .errorSpan {
+  text-align: left;
   color: red;
 }
 .inputGroupTitle {

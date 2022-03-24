@@ -29,6 +29,7 @@ import { CloseAndEditComponent } from './components/close-and-edit/close-and-edi
 import { FormComponent } from './components/form/form.component';
 import { ResponsesInterceptor } from './interceptors/responses.interceptor';
 import { TechsFormComponent } from './components/forms/techs-form/techs-form.component';
+import { SkillsFormComponent } from './components/forms/skills-form/skills-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { TechsFormComponent } from './components/forms/techs-form/techs-form.com
     EducationFormComponent,
     ExperienceFormComponent,
     TechsFormComponent,
+    SkillsFormComponent,
   ],
   imports: [
     BrowserModule,
