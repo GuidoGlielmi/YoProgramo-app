@@ -17,8 +17,6 @@ export class ResponsesInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log(req);
-
     if (req.method !== 'GET') {
       return next
         .handle(req)

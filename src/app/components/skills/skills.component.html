@@ -1,65 +1,72 @@
 <p class="title fontLarge">Soft & Hard skills</p>
 <button (click)="loggedIn = !loggedIn">Log in</button>
 <div class="skillsContainer rowContainer">
-  <div
-    *ngFor="let skill of skills; let i = index"
+  <ng-container
+    *ngFor="let skillOrLanguage of skillsAndLanguages; let i = index"
     class="marginMedium columnContainer"
   >
-    <div *ngIf="!loggedIn">
-      <p class="skillTitle">{{ skill.name }}</p>
-      <app-progress-ring
-        class="columnContainer"
-        [radius]="size"
-        [percentage]="skill.abilityPercentage"
-      ></app-progress-ring>
-    </div>
-    <div *ngIf="loggedIn">
+    <div *ngIf="skillOrLanguage.type === 'HardAndSoft'" class="skillContainer">
       <app-close-and-edit
+        *ngIf="loggedIn"
+        (onEdit)="showForm[i] = !showForm[i]"
+        (onDelete)="deleteSkillOrLanguage(i)"
         class="closeAndEdit"
-        (onEdit)="showSkillForm[i] = !showSkillForm[i]"
-        (onDelete)="deleteSkillOrLanguage(skill, i)"
       ></app-close-and-edit>
+      <div *ngIf="!showForm[i]" class="skillContainer">
+        <p class="skillTitle">{{ skillOrLanguage.name }}</p>
+        <app-progress-ring
+          class="columnContainer"
+          [radius]="size"
+          [percentage]="skillOrLanguage.abilityPercentage"
+        ></app-progress-ring>
+      </div>
       <app-skills-form
-        [skill]="skill"
+        *ngIf="loggedIn && showForm[i]"
+        [skill]="skillOrLanguage"
+        [skillTypes]="skillTypes"
         [index]="i"
         (onSaveSkill)="saveSkillOrLanguage($event)"
       ></app-skills-form>
     </div>
-  </div>
+  </ng-container>
 </div>
 <p id="languages" class="languages fontLarge">Languages</p>
 <div class="skillsContainer rowContainer">
-  <div
-    *ngFor="let language of languages; let i = index"
+  <ng-container
+    *ngFor="let skillOrLanguage of skillsAndLanguages; let i = index"
     class="marginMedium columnContainer"
   >
-    <div *ngIf="!loggedIn">
-      <p class="skillTitle">{{ language.name }}</p>
-      <app-progress-ring
-        class="columnContainer"
-        [radius]="size"
-        [percentage]="language.abilityPercentage"
-      ></app-progress-ring>
-    </div>
-    <div>
+    <div *ngIf="skillOrLanguage.type === 'language'" class="skillContainer">
       <app-close-and-edit
         *ngIf="loggedIn"
         class="closeAndEdit"
-        (onEdit)="showLanguageForm[i] = !showLanguageForm[i]"
-        (onDelete)="deleteSkillOrLanguage(language, i)"
+        (onEdit)="showForm[i] = !showForm[i]"
+        (onDelete)="deleteSkillOrLanguage(i)"
       ></app-close-and-edit>
+      <div *ngIf="!showForm[i]" class="skillContainer">
+        <p class="skillTitle">{{ skillOrLanguage.name }}</p>
+        <app-progress-ring
+          class="columnContainer"
+          [radius]="size"
+          [percentage]="skillOrLanguage.abilityPercentage"
+        ></app-progress-ring>
+      </div>
       <app-skills-form
-        *ngIf="loggedIn"
-        [skill]="language"
+        *ngIf="loggedIn && showForm[i]"
+        [skill]="skillOrLanguage"
+        [skillTypes]="skillTypes"
         [index]="i"
         (onSaveSkill)="saveSkillOrLanguage($event)"
       ></app-skills-form>
     </div>
-  </div>
+  </ng-container>
 </div>
 <app-skills-form
-  *ngIf="showNewForm"
+  *ngIf="loggedIn && showNewForm"
   [isNewSkillItem]="true"
+  [skillTypes]="skillTypes"
   (onAddSkill)="addSkillOrLanguage($event)"
 ></app-skills-form>
-<button (click)="showNewForm = !showNewForm">Add language</button>
+<button *ngIf="loggedIn" (click)="showNewForm = !showNewForm" class="button">
+  Add Item
+</button>

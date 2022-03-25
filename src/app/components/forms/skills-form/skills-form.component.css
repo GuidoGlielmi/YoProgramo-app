@@ -1,0 +1,24 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+.label {
+  margin-bottom: 5px;
+}
+.inputError {
+  border-color: red;
+}
+.errorSpan {
+  color: red;
+}
+.button {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 2px;
+}

@@ -3,7 +3,6 @@ import {
   experience,
   ExperiencesService,
 } from 'src/app/service/experiences/experiences.service';
-import { ResponseService } from 'src/app/service/responses/response.service';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -14,20 +13,12 @@ export class ExperienceComponent implements OnInit {
   showNewForm = false;
   loggedIn = true;
   showForm: boolean[] = [];
-  constructor(
-    private experienceService: ExperiencesService,
-    private responseService: ResponseService
-  ) {
-    for (const experience of this.experiences) {
-      this.showForm.push(false);
-    }
-  }
+  constructor(private experienceService: ExperiencesService) {}
   addExperience(newExperience: experience) {
     this.experiences.push(newExperience);
+    this.experiences.sort((a, b) => a.title.localeCompare(b.title));
   }
   saveExperience(newExperience: { newExperience: experience; index: number }) {
-    console.log(newExperience);
-
     this.experiences[newExperience.index] = newExperience.newExperience;
   }
   deleteExperience(i: number) {

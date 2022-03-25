@@ -20,13 +20,11 @@ export class EducationComponent implements OnInit {
     // instanciating EducationService
     this.educationService.getEducation().subscribe((education: education[]) => {
       this.education = education;
-      for (const element of education) {
-        this.showForm.push(false);
-      }
     });
   }
   addEducation(newEducation: education) {
     this.education.push(newEducation);
+    this.education.sort((a, b) => a.degree.localeCompare(b.degree));
   }
   saveEducation(newEducation: { newEducation: education; index: number }) {
     this.education[newEducation.index] = newEducation.newEducation;

@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() profileImgSrc: String = '';
+  @Input() profileImgSrc: string = '';
   constructor() {}
 
   ngOnInit(): void {}

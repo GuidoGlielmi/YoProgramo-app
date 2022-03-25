@@ -12,7 +12,6 @@ import {
 } from 'src/app/service/projects/projects.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TechsService, tech } from 'src/app/service/techs/techs.service';
-import { UpdateTechsService } from 'src/app/service/techs/update-techs.service';
 @Component({
   selector: 'app-projects-form',
   templateUrl: './projects-form.component.html',
@@ -50,27 +49,8 @@ export class ProjectsFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private projectService: ProjectsService,
-    private techService: TechsService,
-    private updateTechService: UpdateTechsService
-  ) {
-    this.techService.getTechs().subscribe((techs: tech[]) => {
-      this.techs = techs;
-      for (const tech of techs) {
-        if (
-          !this.project.techs.find(
-            (projectTech: tech) => tech.id === projectTech.id
-          )
-        ) {
-          this.remainingTechs.push(tech);
-        }
-      }
-      this.updateTechService.watchTechUpdate().subscribe((newTech) => {
-        if (newTech) {
-          this.remainingTechs.push(newTech);
-        }
-      });
-    });
-  }
+    private techService: TechsService
+  ) {}
   addProject() {
     let techs = this.project.techs.map((tech: tech) => tech.id);
     let newProject = {
@@ -150,6 +130,24 @@ export class ProjectsFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.techService.watchTechUpdate().subscribe((techs) => {
+      if (techs) {
+        console.log(techs);
+
+        if (techs instanceof Array) {
+          this.techs = techs;
+          for (const tech of techs) {
+            if (
+              !this.project.techs.find(
+                (projectTech: tech) => tech.id === projectTech.id
+              )
+            ) {
+              this.remainingTechs.push(tech);
+            }
+          }
+        } else this.remainingTechs.push(techs);
+      }
+    });
     this.setProjectForm();
   }
   get title() {

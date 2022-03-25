@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { skills, SkillsService } from 'src/app/service/skills/skills.service';
 
 @Component({
@@ -9,38 +8,36 @@ import { skills, SkillsService } from 'src/app/service/skills/skills.service';
 })
 export class SkillsComponent implements OnInit {
   @Input() size: number = 0;
-  skills: skills[] = [];
-  languages: skills[] = [];
+  skillsAndLanguages: skills[] = [];
+  skillTypes: string[] = [];
   loggedIn = true;
   showNewForm = false;
-  showSkillForm: boolean[] = [];
-  showLanguageForm: boolean[] = [];
+  showForm: boolean[] = [];
   constructor(private skillService: SkillsService) {}
 
   ngOnInit(): void {
     this.skillService.getSkills().subscribe((skills: skills[]) => {
-      for (let skill of skills) {
-        if (skill.type === 'language') {
-          this.languages.push(skill);
-          this.showSkillForm.push(false);
-        } else {
-          this.skills.push(skill);
-          this.showLanguageForm.push(false);
+      this.skillsAndLanguages = skills;
+      for (const skill of skills) {
+        if (!this.skillTypes.includes(skill.type)) {
+          this.skillTypes.push(skill.type);
         }
       }
     });
   }
   addSkillOrLanguage(skillOrLanguage: skills) {
-    if (skillOrLanguage.type === 'skill') this.skills.push(skillOrLanguage);
-    else this.languages.push(skillOrLanguage);
+    this.skillsAndLanguages.push(skillOrLanguage);
+    this.skillsAndLanguages.sort((a, b) => a.name.localeCompare(b.name));
   }
   saveSkillOrLanguage(newItem: { skillOrLanguage: skills; i: number }) {
-    if (newItem.skillOrLanguage.type === 'skill')
-      this.skills[newItem.i] = newItem.skillOrLanguage;
-    else this.skills[newItem.i] = newItem.skillOrLanguage;
+    // it has to have the same property names as the emitted object
+    this.skillsAndLanguages[newItem.i] = newItem.skillOrLanguage;
   }
-  deleteSkillOrLanguage(skillOrLanguage: skills, i: number) {
-    if (skillOrLanguage.type === 'skill') this.skills.splice(i, 1);
-    else this.languages.splice(i, 1);
+  deleteSkillOrLanguage(i: number) {
+    this.skillService
+      .deleteSkill(this.skillsAndLanguages[i].id)
+      .subscribe(() => {
+        this.skillsAndLanguages.splice(i, 1);
+      });
   }
 }

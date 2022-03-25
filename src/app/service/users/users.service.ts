@@ -30,12 +30,12 @@ export class UsersService {
   }
 }
 export interface user {
-  id: String;
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
   linkedInUrl: string;
   githubUrl: string;
   aboutMe: string;
-  profileImg: String;
+  profileImg: string;
 }

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { tech, TechsService } from 'src/app/service/techs/techs.service';
-import { UpdateTechsService } from 'src/app/service/techs/update-techs.service';
 
 @Component({
   selector: 'app-techs-form',
@@ -24,8 +23,7 @@ export class TechsFormComponent implements OnInit {
   newTechItem: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private techService: TechsService,
-    private updateTechService: UpdateTechsService
+    private techService: TechsService
   ) {
     this.newTechItem = this.formBuilder.group({
       id: '',
@@ -37,7 +35,7 @@ export class TechsFormComponent implements OnInit {
     this.techService.postTech(this.newTechItem.value).subscribe((data) => {
       this.newTechItem.get('id')?.setValue(data.data);
       this.onAddTech.emit(this.newTechItem.value);
-      this.updateTechService.updateTech(this.newTechItem.value);
+      this.techService.updateTech(this.newTechItem.value);
       this.newTechItem.reset();
     });
   }

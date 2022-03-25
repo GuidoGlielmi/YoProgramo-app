@@ -67,8 +67,8 @@ export interface project {
   urls: projectUrls[];
 }
 export interface projectUrls {
-  id: String;
-  url: String;
-  name: String;
-  projectId: String;
+  id: string;
+  url: string;
+  name: string;
+  projectId: string;
 }

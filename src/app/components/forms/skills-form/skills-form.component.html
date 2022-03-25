@@ -1,25 +1,30 @@
-<form [formGroup]="newSkill">
-  <div>
-    <label for="newName"></label>
+<form [formGroup]="newSkill" class="form">
+  <div class="inputLabel">
+    <label for="newName" class="label">Name</label>
     <input
       formControlName="name"
       name="newName"
       id="newName"
-      class="skillTitle"
+      class="input"
       [ngClass]="{
         inputError: name?.errors && name?.touched && !nameClicked
       }"
       (focus)="nameClicked = true"
       (blur)="nameClicked = false"
     />
+    <span
+      *ngIf="name?.errors && name?.touched && !nameClicked"
+      class="errorSpan"
+      >Required</span
+    >
   </div>
-  <div>
-    <label for="newPercentage"></label>
+  <div class="inputLabel">
+    <label for="newPercentage" class="label">Ability percentage</label>
     <input
       formControlName="abilityPercentage"
       name="newPercentage"
       id="newPercentage"
-      class="marginSmall"
+      class="input"
       type="number"
       step="5"
       min="0"
@@ -34,21 +39,44 @@
       (focus)="abilityPercentageClicked = true"
       (blur)="abilityPercentageClicked = false"
     />
+    <span
+      *ngIf="
+        abilityPercentage?.errors &&
+        abilityPercentage?.touched &&
+        !abilityPercentageClicked
+      "
+      class="errorSpan"
+      >Required</span
+    >
   </div>
-  <div>
-    <label for="newType"></label>
-    <input
+  <div class="inputLabel">
+    <label for="newType" class="label">Type</label>
+    <select
       formControlName="type"
       name="newType"
       id="newType"
-      class="skillTitle"
+      class="input"
       [ngClass]="{
         inputError: type?.errors && type?.touched && !typeClicked
       }"
       (focus)="typeClicked = true"
       (blur)="typeClicked = false"
-    />
+    >
+      <option [ngValue]="null" disabled>Select Type</option>
+      <option *ngFor="let t of skillTypes" [value]="t">
+        {{ t }}
+      </option>
+    </select>
+    <span
+      *ngIf="type?.errors && type?.touched && !typeClicked"
+      class="errorSpan"
+      >Required</span
+    >
   </div>
-  <button *ngIf="isNewSkillItem" (click)="addSkill()">Add</button>
-  <button *ngIf="!isNewSkillItem" (click)="saveSkill()">Save</button>
+  <button *ngIf="isNewSkillItem" (click)="addSkill()" class="button">
+    Add
+  </button>
+  <button *ngIf="!isNewSkillItem" (click)="saveSkill()" class="button">
+    Save
+  </button>
 </form>

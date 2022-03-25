@@ -30,8 +30,8 @@ export class SkillsService {
   }
 }
 export interface skills {
-  id: String;
-  name: String;
-  type: String;
+  id: string;
+  name: string;
+  type: string;
   abilityPercentage: number;
 }

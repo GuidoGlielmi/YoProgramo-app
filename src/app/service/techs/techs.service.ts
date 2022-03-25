@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { responseObject } from '../responses/response.service';
 
@@ -7,7 +8,19 @@ import { responseObject } from '../responses/response.service';
   providedIn: 'root',
 })
 export class TechsService {
+  private updatedTech = new BehaviorSubject<tech | tech[]>({
+    id: '',
+    name: '',
+    techImg: '',
+  });
   constructor(private http: HttpClient) {}
+
+  updateTech(tech: tech | tech[]) {
+    this.updatedTech.next(tech);
+  }
+  watchTechUpdate() {
+    return this.updatedTech.asObservable();
+  }
   getTechs(): Observable<tech[]> {
     return this.http.get<tech[]>('http://localhost:8080/techs');
   }

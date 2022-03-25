@@ -18,23 +18,17 @@ export class SkillsFormComponent implements OnInit {
   @Input()
   index!: number;
   @Input() isNewSkillItem = false;
+  @Input() skillTypes: string[] = [];
   @Output() onAddSkill = new EventEmitter<any>();
   @Output() onSaveSkill = new EventEmitter<any>();
   nameClicked: boolean = false;
   abilityPercentageClicked: boolean = false;
   typeClicked: boolean = false;
-  newSkill: FormGroup;
+  newSkill!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
     private skillService: SkillsService
-  ) {
-    this.newSkill = this.formBuilder.group({
-      id: '',
-      name: ['', [Validators.required]],
-      abilityPercentage: ['', [Validators.required]],
-      type: ['', [Validators.required]],
-    });
-  }
+  ) {}
   addSkill() {
     this.skillService.postSkill(this.newSkill.value).subscribe((data) => {
       this.newSkill.get('id')?.setValue(data.data);
@@ -44,17 +38,19 @@ export class SkillsFormComponent implements OnInit {
   saveSkill() {
     this.skillService.putSkill(this.newSkill.value).subscribe(() => {
       this.onSaveSkill.emit({
-        newSkill: this.newSkill.value,
-        index: this.index,
+        skillOrLanguage: this.newSkill.value,
+        i: this.index,
       });
     });
   }
   ngOnInit(): void {
-    this.newSkill.patchValue({
+    console.log(this.skillTypes);
+
+    this.newSkill = this.formBuilder.group({
       id: this.skill.id,
-      name: this.skill.name,
-      abilityPercentage: this.skill.name,
-      type: this.skill.name,
+      name: [this.skill.name, [Validators.required]],
+      abilityPercentage: [this.skill.abilityPercentage, [Validators.required]],
+      type: [this.skill.type, [Validators.required]],
     });
   }
   get id() {

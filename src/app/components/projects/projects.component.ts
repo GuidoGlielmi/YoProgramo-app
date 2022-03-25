@@ -14,10 +14,15 @@ export class ProjectsComponent implements OnInit {
   loggedIn = true;
   showNewForm = false;
   showForm: boolean[] = [];
-  constructor(private projectService: ProjectsService) {}
+  constructor(private projectService: ProjectsService) {
+    this.projectService.getProjects().subscribe((projects: any[]) => {
+      this.projects = projects;
+    });
+  }
 
   addProject(newProject: project) {
     this.projects.push(newProject);
+    this.projects.sort((a, b) => a.title.localeCompare(b.title));
   }
   saveProject(newProject: { newProject: project; index: number }) {
     this.projects[newProject.index] = newProject.newProject;
@@ -27,12 +32,5 @@ export class ProjectsComponent implements OnInit {
       .deleteProject(this.projects[index].id)
       .subscribe(() => this.projects.splice(index, 1));
   }
-  ngOnInit(): void {
-    this.projectService.getProjects().subscribe((projects: any[]) => {
-      this.projects = projects;
-      for (const element of projects) {
-        this.showForm.push(false);
-      }
-    });
-  }
+  ngOnInit(): void {}
 }

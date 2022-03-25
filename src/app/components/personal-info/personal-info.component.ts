@@ -13,7 +13,7 @@ import { tech, TechsService } from 'src/app/service/techs/techs.service';
   styleUrls: ['./personal-info.component.css'],
 })
 export class PersonalInfoComponent implements OnInit {
-  @Input() aboutMe: String = '';
+  @Input() aboutMe: string = '';
   techs: tech[] = [{ id: '', name: '', techImg: '' }];
   @ViewChild('techImagesNode') techImagesNode: any;
   @ViewChild('techImage') techImageNode: any;
@@ -29,13 +29,12 @@ export class PersonalInfoComponent implements OnInit {
   ngOnInit(): void {
     this.techService.getTechs().subscribe((techs: tech[]) => {
       this.techs = techs;
-      for (const element of techs) {
-        this.showForm.push(false);
-      }
+      this.techService.updateTech(techs);
     });
   }
   addTech(newTech: tech) {
     this.techs.push(newTech);
+    this.techs.sort((a, b) => a.name.localeCompare(b.name));
   }
   saveTech(newTech: { newTech: tech; index: number }) {
     this.techs[newTech.index] = newTech.newTech;
