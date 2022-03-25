@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
   }
   saveUser() {
     console.log(this.user);
-    // this.userService.postUser(this.user).subscribe();
+    this.userService.postUser(this.user).subscribe();
   }
 
   @HostListener('window:scroll')

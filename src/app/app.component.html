@@ -124,8 +124,13 @@
   </div>
 </div>
 <app-header
+  [firstName]="user.firstName"
+  [lastName]="user.lastName"
   [profileImgSrc]="user.profileImg"
   (onProfileImgChange)="user.profileImg = $event"
+  (onNameChange)="
+    user.firstName = $event.firstName; user.lastName = $event.lastName
+  "
 ></app-header>
 <app-section color="pink">
   <app-personal-info

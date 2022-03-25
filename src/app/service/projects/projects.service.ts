@@ -12,13 +12,13 @@ export class ProjectsService {
   getProjects(): Observable<project[]> {
     return this.http.get<project[]>('http://localhost:8080/projects');
   }
-  addProject(project: any): Observable<responseObject> {
+  addProject(project: project): Observable<responseObject> {
     return this.http.post<responseObject>(
       'http://localhost:8080/projects',
       project
     );
   }
-  putProject(project: any): Observable<responseObject> {
+  putProject(project: project): Observable<responseObject> {
     return this.http.put<responseObject>(
       'http://localhost:8080/projects',
       project

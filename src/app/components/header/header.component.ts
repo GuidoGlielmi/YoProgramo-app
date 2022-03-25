@@ -7,9 +7,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() profileImgSrc: string = '';
+  @Input() lastName: string = '';
+  @Input() firstName: string = '';
   @Output() onProfileImgChange = new EventEmitter();
+  @Output() onNameChange = new EventEmitter();
   loggedIn = true;
-  editProfileImg = false;
+  editUser = false;
   constructor() {}
 
   ngOnInit(): void {}

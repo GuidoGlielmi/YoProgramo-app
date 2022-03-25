@@ -5,19 +5,29 @@
       <app-close-and-edit
         *ngIf="loggedIn"
         class="closeAndEdit"
-        (onEdit)="editProfileImg = !editProfileImg"
+        (onEdit)="editUser = !editUser"
       ></app-close-and-edit>
-      <img
-        *ngIf="!editProfileImg"
-        id="myself"
-        class="profileImg"
-        [src]="profileImgSrc"
-        alt="Profile image"
-      />
-      <div *ngIf="loggedIn && editProfileImg" class="imgInputContainer">
+      <div *ngIf="!editUser" class="userInfo">
+        <img
+          id="myself"
+          class="profileImg"
+          [src]="profileImgSrc"
+          alt="Profile image"
+        />
+        <span class="name darkFont">{{ firstName + " " + lastName }}</span>
+      </div>
+      <div *ngIf="loggedIn && editUser" class="imgInputContainer">
         <input
           [(ngModel)]="profileImgSrc"
           (change)="onProfileImgChange.emit(profileImgSrc)"
+        />
+        <input
+          (change)="onNameChange.emit({firstName, lastName})"
+          [(ngModel)]="firstName"
+        />
+        <input
+          (change)="onNameChange.emit({firstName, lastName})"
+          [(ngModel)]="lastName"
         />
       </div>
     </div>

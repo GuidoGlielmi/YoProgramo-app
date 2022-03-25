@@ -52,33 +52,28 @@ export class ProjectsFormComponent implements OnInit {
     private techService: TechsService
   ) {}
   addProject() {
-    let techs = this.project.techs.map((tech: tech) => tech.id);
+    /*  let techs = this.project.techs.map((tech: tech) => tech.id);
     let newProject = {
       project: { ...this.project, ...this.newProject.value },
       techs,
+    }; */
+    let newProject = {
+      ...this.project,
+      ...this.newProject.value,
     };
     this.projectService.addProject(newProject).subscribe((data) => {
       this.onAddProject.emit(data.data);
-      this.newUrl = {
-        id: '',
-        projectId: '',
-        name: '',
-        url: '',
-      };
       this.newProject.reset();
     });
   }
 
   saveProject() {
-    let techs = this.project.techs.map((tech: tech) => tech.id);
-
     let newProject = {
-      project: { ...this.project, ...this.newProject.value },
-      techs,
+      ...this.project,
+      ...this.newProject.value,
     };
-
     this.projectService.putProject(newProject).subscribe(() => {
-      this.onSaveProject.emit({ ...this.project, ...this.newProject.value });
+      this.onSaveProject.emit(newProject);
     });
   }
   addUrl() {
@@ -88,13 +83,16 @@ export class ProjectsFormComponent implements OnInit {
       projectId: [this.project.id, [Validators.required]],
     });
     this.urlsGroup.push(newUrlFormGroup);
-    const newUrl = {
-      ...this.newUrl,
-      projectId: this.project.id,
+    this.newUrl = {
+      id: '',
+      projectId: '',
+      name: '',
+      url: '',
     };
+    this.newUrlNameClicked = true;
+    this.newUrlClicked = true;
   }
   deleteUrl(selectedUrlIndex: number) {
-    let selectedUrlId = this.urlsGroup.controls[selectedUrlIndex].value.id;
     this.urlsGroup.removeAt(selectedUrlIndex);
   }
   addTechToProject(newTech: tech) {

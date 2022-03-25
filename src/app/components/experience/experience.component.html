@@ -2,7 +2,8 @@
   [ngClass]="{
     firstRight: i === 0,
     right: i % 2 === 0,
-    left: i % 2 !== 0
+    left: i % 2 !== 0,
+    increasedHeight: showForm[i]
   }"
   *ngFor="let e of experiences; let i = index"
 >
@@ -33,14 +34,14 @@
     [experience]="e"
     [index]="i"
   ></app-experience-form>
+  <div *ngIf="i === experiences.length - 1" class="newExperienceContainer">
+    <app-experience-form
+      *ngIf="showNewForm"
+      [isNewExperienceItem]="true"
+      (onAddExperience)="addExperience($event)"
+    ></app-experience-form>
+    <button (click)="showNewForm = !showNewForm" class="addExperience">
+      Add experience
+    </button>
+  </div>
 </div>
-<div class="newExperienceContainer">
-  <app-experience-form
-    *ngIf="showNewForm"
-    [isNewExperienceItem]="true"
-    (onAddExperience)="addExperience($event)"
-  ></app-experience-form>
-</div>
-<button (click)="showNewForm = !showNewForm" class="addExperience">
-  Add experience
-</button>

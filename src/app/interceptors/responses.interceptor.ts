@@ -23,6 +23,8 @@ export class ResponsesInterceptor implements HttpInterceptor {
         .pipe(
           map((event: HttpEvent<any>) => {
             if (event instanceof HttpResponse) {
+              console.log(event.body.data);
+
               this.responseService.emitSuccess(event.body.msg);
             }
             return event;
