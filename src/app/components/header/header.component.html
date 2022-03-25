@@ -1,11 +1,25 @@
 <header class="header">
   <div class="imgAndTitle">
     <div id="home" class="bannerTitle">Welcome to my personal page!</div>
-    <img
-      id="myself"
-      class="profileImg"
-      [src]="profileImgSrc"
-      alt="Profile image"
-    />
+    <div>
+      <app-close-and-edit
+        *ngIf="loggedIn"
+        class="closeAndEdit"
+        (onEdit)="editProfileImg = !editProfileImg"
+      ></app-close-and-edit>
+      <img
+        *ngIf="!editProfileImg"
+        id="myself"
+        class="profileImg"
+        [src]="profileImgSrc"
+        alt="Profile image"
+      />
+      <div *ngIf="loggedIn && editProfileImg" class="imgInputContainer">
+        <input
+          [(ngModel)]="profileImgSrc"
+          (change)="onProfileImgChange.emit(profileImgSrc)"
+        />
+      </div>
+    </div>
   </div>
 </header>

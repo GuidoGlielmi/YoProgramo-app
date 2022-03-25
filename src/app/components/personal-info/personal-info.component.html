@@ -1,8 +1,25 @@
 <div class="personalInfo columnContainer">
   <p class="aboutMeTitle darkFont fontLarge">I'm a web developer</p>
-  <p class="description darkFont paddingSmall fontMedium">
-    {{ aboutMe }}
-  </p>
+  <div class="aboutMeContainer">
+    <app-close-and-edit
+      *ngIf="loggedIn"
+      class="closeAndEdit"
+      (onEdit)="editAboutMe = !editAboutMe"
+    ></app-close-and-edit>
+    <p
+      *ngIf="!editAboutMe"
+      class="description darkFont paddingSmall fontMedium"
+    >
+      {{ aboutMe }}
+    </p>
+    <textarea
+      *ngIf="loggedIn && editAboutMe"
+      [(ngModel)]="aboutMe"
+      (change)="onAboutMeChange.emit(aboutMe)"
+      class="descriptionInput"
+      >{{ aboutMe }}</textarea
+    >
+  </div>
 </div>
 <div id="tech" class="techContainer">
   <p class="techImagesTitle darkFont fontLarge">

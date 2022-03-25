@@ -1,8 +1,10 @@
 import {
   Component,
+  EventEmitter,
   HostListener,
   Input,
   OnInit,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { tech, TechsService } from 'src/app/service/techs/techs.service';
@@ -14,6 +16,8 @@ import { tech, TechsService } from 'src/app/service/techs/techs.service';
 })
 export class PersonalInfoComponent implements OnInit {
   @Input() aboutMe: string = '';
+  @Output() onAboutMeChange = new EventEmitter();
+  editAboutMe = false;
   techs: tech[] = [{ id: '', name: '', techImg: '' }];
   @ViewChild('techImagesNode') techImagesNode: any;
   @ViewChild('techImage') techImageNode: any;

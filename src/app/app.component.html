@@ -48,21 +48,42 @@
         rel="noreferrer"
         >#YoProgramo</a
       >
+      <button class="loginButton" (click)="saveUser()">Save user</button>
     </div>
     <div class="rightSideBox">
+      <app-close-and-edit
+        *ngIf="loggedIn"
+        class="closeAndEdit"
+        (onEdit)="editLinks = !editLinks"
+      ></app-close-and-edit>
       <div class="social rowContainer">
-        <a [href]="user.githubUrl" target="_blank" class="socialLink"
+        <a
+          *ngIf="!editLinks"
+          [href]="user.githubUrl"
+          target="_blank"
+          class="socialLink"
           ><img
             class="socialIcon"
             src="/assets/logos/GitHub-Mark-Light-64px.png"
             alt="github logo"
         /></a>
+        <input
+          *ngIf="editLinks"
+          [(ngModel)]="user.githubUrl"
+          class="urlInputs"
+        />
         <a [href]="user.linkedInUrl" target="_blank" class="socialLink"
           ><img
+            *ngIf="!editLinks"
             class="socialIcon"
             src="/assets/logos/linkedin.png"
             alt="linkedin logo"
         /></a>
+        <input
+          *ngIf="editLinks"
+          [(ngModel)]="user.linkedInUrl"
+          class="urlInputs"
+        />
       </div>
       <button
         id="modalButton"
@@ -102,11 +123,15 @@
     </div>
   </div>
 </div>
-<app-header [profileImgSrc]="user.profileImg"></app-header>
+<app-header
+  [profileImgSrc]="user.profileImg"
+  (onProfileImgChange)="user.profileImg = $event"
+></app-header>
 <app-section color="pink">
   <app-personal-info
     id="myself"
     [aboutMe]="user.aboutMe"
+    (onAboutMeChange)="user.aboutMe = $event"
     class="personalInfo"
   ></app-personal-info>
 </app-section>

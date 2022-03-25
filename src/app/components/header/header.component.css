@@ -31,6 +31,12 @@
   border-radius: 50%;
   box-shadow: 0px 0px 5px 0px #08001e;
 }
+.imgInputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30vh;
+  height: 30vh;
+}
 @media (max-width: 850px) {
   .header {
     align-items: center;

@@ -1,6 +1,7 @@
-.aboutMeBox {
-  position: relative;
-  width: 100%;
+.aboutMeContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
 }
 .aboutMeTitle {
   position: relative;
@@ -24,6 +25,12 @@
 .description {
   font-weight: 500;
   text-align: left;
+}
+.descriptionInput {
+  height: 80px;
+  padding: 2px;
+  font-size: larger;
+  resize: vertical;
 }
 .techContainer {
   display: flex;

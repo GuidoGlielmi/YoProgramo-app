@@ -90,41 +90,40 @@ export class AppComponent implements OnInit {
     aboutMe: '',
     profileImg: '',
   };
+  loggedIn = true;
+  editLinks = true;
   constructor(
     private userService: UsersService,
     private responseService: ResponseService // private responseService: ResponsesInterceptor
   ) {}
 
   ngOnInit(): void {
-    try {
-      this.responseService.errorListener().subscribe((msg) => {
-        if (msg) {
-          this.responseMsgError = true;
-          this.responseModalState = 'shown';
-          this.responseMsg = msg;
-        }
-      });
-      this.responseService.successListener().subscribe((msg) => {
-        if (msg) {
-          this.responseMsgError = false;
-          this.responseModalState = 'shown';
-          this.responseMsg = msg;
-          setTimeout(() => {
-            this.responseModalState = 'notShown';
-          }, 5000);
-        }
-      });
-      this.userService.getUser().subscribe((user: user[]) => {
-        this.user = user[0];
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    this.responseService.errorListener().subscribe((msg) => {
+      if (msg) {
+        this.responseMsgError = true;
+        this.responseModalState = 'shown';
+        this.responseMsg = msg;
+      }
+    });
+    this.responseService.successListener().subscribe((msg) => {
+      if (msg) {
+        this.responseMsgError = false;
+        this.responseModalState = 'shown';
+        this.responseMsg = msg;
+        setTimeout(() => {
+          this.responseModalState = 'notShown';
+        }, 5000);
+      }
+    });
+    this.userService.getUser().subscribe((user: user[]) => {
+      this.user = user[0];
+    });
   }
-  /*   onError() {
-    this.errorModalState =
-      this.errorModalState === 'notShown' ? 'shown' : 'notShown';
-  } */
+  saveUser() {
+    console.log(this.user);
+    // this.userService.postUser(this.user).subscribe();
+  }
+
   @HostListener('window:scroll')
   onWindowScroll() {
     if (
