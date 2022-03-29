@@ -4,7 +4,6 @@ import {
   EducationService,
 } from 'src/app/service/education/education.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ResponseService } from 'src/app/service/responses/response.service';
 @Component({
   selector: 'app-education-form',
   templateUrl: './education-form.component.html',
@@ -21,8 +20,6 @@ export class EducationFormComponent implements OnInit {
     educationImg: '',
   };
   @Input() isNewEducationItem = false;
-  @Input()
-  index!: number;
   @Output() onAddEducation = new EventEmitter<any>();
   @Output() onSaveEducation = new EventEmitter<any>();
   schoolClicked: boolean = false;
@@ -49,10 +46,7 @@ export class EducationFormComponent implements OnInit {
     this.educationService
       .putEducation(this.newEducationItem.value)
       .subscribe(() => {
-        this.onSaveEducation.emit({
-          newEducation: this.newEducationItem.value,
-          index: this.index,
-        });
+        this.onSaveEducation.emit(this.newEducationItem.value);
       });
     // without subscription, it doesn't work
   }

@@ -13,8 +13,6 @@ export class TechsFormComponent implements OnInit {
     name: '',
     techImg: '',
   };
-  @Input()
-  index!: number;
   @Output() onAddTech = new EventEmitter<any>();
   @Output() onSaveTech = new EventEmitter<any>();
   @Input() isNewTechItem = false;
@@ -41,10 +39,7 @@ export class TechsFormComponent implements OnInit {
   }
   saveTech() {
     this.techService.putTech(this.newTechItem.value).subscribe(() => {
-      this.onSaveTech.emit({
-        newTech: this.newTechItem.value,
-        index: this.index,
-      });
+      this.onSaveTech.emit(this.newTechItem.value);
     });
   }
   ngOnInit(): void {

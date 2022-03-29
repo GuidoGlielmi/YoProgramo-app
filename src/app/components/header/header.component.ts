@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/service/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,10 @@ export class HeaderComponent implements OnInit {
   @Input() firstName: string = '';
   @Output() onProfileImgChange = new EventEmitter();
   @Output() onNameChange = new EventEmitter();
-  loggedIn = true;
   editUser = false;
-  constructor() {}
+  constructor(private authService: AuthService) {
+    authService.isLoggedListener().subscribe(() => (this.editUser = false));
+  }
 
   ngOnInit(): void {}
 }

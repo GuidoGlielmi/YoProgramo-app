@@ -6,7 +6,7 @@ import {
   style,
 } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ResponsesInterceptor } from './interceptors/responses.interceptor';
+import { AuthService } from './service/auth/auth.service';
 import { ResponseService } from './service/responses/response.service';
 import { user, UsersService } from './service/users/users.service';
 
@@ -47,36 +47,13 @@ import { user, UsersService } from './service/users/users.service';
     ]),
   ],
 })
-/*
-    Create Subject property in service:
-
-import { Subject } from 'rxjs';
-
-export class AuthService {
-  loginAccures: Subject<boolean> = new Subject<boolean>();
-}
-
-    When event happens in child page/component use:
-
-logout() {
-  this.authService.loginAccures.next(false);
-}
-
-    And subscribe to subject in parent page/component:
-
-constructor(private authService: AuthService) {
-  this.authService.loginAccures.subscribe((isLoggedIn: boolean) => {
-    this.isLoggedIn = isLoggedIn;
-  })
-}
- */
 export class AppComponent implements OnInit {
   title = 'YoProgramo-app';
   socialState = 'notShown';
   goDownState = 'unpressed';
   loginButtonState = 'unpressed';
   goDownFadeOutState = 'notBottom';
-  loginState = 'notShown';
+  showLoginState = 'notShown';
   responseModalState = 'notShown';
   responseMsg = '';
   responseMsgError = false;
@@ -90,12 +67,18 @@ export class AppComponent implements OnInit {
     aboutMe: '',
     profileImg: '',
   };
-  loggedIn = true;
-  editLinks = true;
+  loggedIn = false;
+  editLinks = false;
   constructor(
     private userService: UsersService,
-    private responseService: ResponseService // private responseService: ResponsesInterceptor
-  ) {}
+    private responseService: ResponseService,
+    private authService: AuthService
+  ) {
+    authService.isLoggedListener().subscribe((isLogged) => {
+      this.loggedIn = isLogged;
+      this.editLinks = false;
+    });
+  }
 
   ngOnInit(): void {
     this.responseService.errorListener().subscribe((msg) => {
@@ -143,27 +126,21 @@ export class AppComponent implements OnInit {
     if (currentState) this.goDownState = 'unpressed';
     else this.goDownState = 'pressed';
   }
-  toggleLogin(event: any) {
+  toggleShowLoginModal(event: any) {
     if (
-      this.loginState === 'notShown' ||
+      this.showLoginState === 'notShown' ||
       event.target.id === 'modalBackground' ||
       event.target.id === 'modalButton'
     ) {
-      this.loginState = this.loginState === 'notShown' ? 'shown' : 'notShown';
+      this.showLoginState =
+        this.showLoginState === 'notShown' ? 'shown' : 'notShown';
     }
+  }
+  logout() {
+    this.authService.logOut();
   }
   pressLoginButton(currentState: boolean) {
     if (currentState) this.loginButtonState = 'unpressed';
     else this.loginButtonState = 'pressed';
   }
 }
-
-/*
-Los templates de Angular son fragmentos de HTML dinámicos, y cuando Angular los renderiza, transforma el DOM de acuerdo con las instrucciones dadas por las directivas. Una directiva es una clase con un decorador @Directive() (del cual extiende el decorador @Component). Además de los componentes, existen otros dos tipos de directivas: estructural y atributo.
-@Component: Directivas con template propio.
-  - ngModel: Implementa bindings
-  - ngClass: Añade clases
-  - ngStyle: Añade inline-styles
-@Structural: Añaden o quitan elementos del DOM.
-@Attribute: Cambian la apariencia o comportamiento del DOM.
-*/

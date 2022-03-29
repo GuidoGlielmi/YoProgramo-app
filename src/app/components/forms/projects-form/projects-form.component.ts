@@ -29,8 +29,6 @@ export class ProjectsFormComponent implements OnInit {
   };
   @Output() onAddProject = new EventEmitter<any>();
   @Output() onSaveProject = new EventEmitter<any>();
-  @Input()
-  index!: number;
   @Input() isNewProjectItem = false;
   techs: tech[] = [];
   remainingTechs: tech[] = [];
@@ -52,11 +50,6 @@ export class ProjectsFormComponent implements OnInit {
     private techService: TechsService
   ) {}
   addProject() {
-    /*  let techs = this.project.techs.map((tech: tech) => tech.id);
-    let newProject = {
-      project: { ...this.project, ...this.newProject.value },
-      techs,
-    }; */
     let newProject = {
       ...this.project,
       ...this.newProject.value,
@@ -130,8 +123,6 @@ export class ProjectsFormComponent implements OnInit {
   ngOnInit(): void {
     this.techService.watchTechUpdate().subscribe((techs) => {
       if (techs) {
-        console.log(techs);
-
         if (techs instanceof Array) {
           this.techs = techs;
           for (const tech of techs) {

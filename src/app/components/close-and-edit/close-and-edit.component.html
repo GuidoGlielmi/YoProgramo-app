@@ -1,4 +1,4 @@
-<div class="closeAndEdit rowContainer">
+<div *ngIf="loggedIn" class="closeAndEdit rowContainer">
   <img
     (click)="onEdit.emit()"
     class="editIcon"

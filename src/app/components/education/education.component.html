@@ -23,10 +23,9 @@
     </app-education-item>
     <app-education-form
       *ngIf="showForm[i]"
-      (onSaveEducation)="saveEducation($event)"
+      (onSaveEducation)="saveEducation($event, i)"
       class="mainContainer rowContainer"
       [educationItem]="e"
-      [index]="i"
     ></app-education-form>
   </div>
   <app-education-form
@@ -34,7 +33,11 @@
     (onAddEducation)="addEducation($event)"
     [isNewEducationItem]="true"
   ></app-education-form>
-  <button (click)="showNewForm = !showNewForm" class="addEducation">
+  <button
+    *ngIf="loggedIn"
+    (click)="showNewForm = !showNewForm"
+    class="addEducation"
+  >
     Add education
   </button>
 </div>

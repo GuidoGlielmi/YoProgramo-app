@@ -15,7 +15,6 @@ export class ExperienceItemComponent implements OnInit {
   experience!: experience;
   @Input()
   index!: number;
-  loggedIn: boolean = true;
   constructor() {}
 
   ngOnInit(): void {}

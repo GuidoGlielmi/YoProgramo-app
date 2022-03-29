@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth/auth.service';
 import {
   experience,
   ExperiencesService,
@@ -13,13 +14,22 @@ export class ExperienceComponent implements OnInit {
   showNewForm = false;
   loggedIn = true;
   showForm: boolean[] = [];
-  constructor(private experienceService: ExperiencesService) {}
-  addExperience(newExperience: experience) {
+  constructor(
+    private experienceService: ExperiencesService,
+    private authService: AuthService
+  ) {
+    authService.isLoggedListener().subscribe((isLogged) => {
+      this.loggedIn = isLogged;
+      this.showForm = [];
+      this.showNewForm = false;
+    });
+  }
+  addExperience(newExperience: any) {
     this.experiences.push(newExperience);
     this.experiences.sort((a, b) => a.title.localeCompare(b.title));
   }
-  saveExperience(newExperience: { newExperience: experience; index: number }) {
-    this.experiences[newExperience.index] = newExperience.newExperience;
+  saveExperience(newExperience: experience, i: number) {
+    this.experiences[i] = newExperience;
   }
   deleteExperience(i: number) {
     this.experienceService

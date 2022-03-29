@@ -1,7 +1,8 @@
 <app-modal
   id="modalBackground"
-  [@showLogin]="loginState"
-  (click)="toggleLogin($event)"
+  [@showLogin]="showLoginState"
+  (click)="toggleShowLoginModal($event)"
+  (onSuccessfullLogIn)="showLoginState = 'notShown'"
   class="loginModal"
 ></app-modal>
 <div
@@ -48,7 +49,9 @@
         rel="noreferrer"
         >#YoProgramo</a
       >
-      <button class="loginButton" (click)="saveUser()">Save user</button>
+      <button *ngIf="loggedIn" class="loginButton" (click)="saveUser()">
+        Save user
+      </button>
     </div>
     <div class="rightSideBox">
       <app-close-and-edit
@@ -56,44 +59,33 @@
         class="closeAndEdit"
         (onEdit)="editLinks = !editLinks"
       ></app-close-and-edit>
-      <div class="social rowContainer">
-        <a
-          *ngIf="!editLinks"
-          [href]="user.githubUrl"
-          target="_blank"
-          class="socialLink"
+      <div *ngIf="!editLinks" class="social rowContainer">
+        <a [href]="user.githubUrl" target="_blank" class="socialLink"
           ><img
             class="socialIcon"
             src="/assets/logos/GitHub-Mark-Light-64px.png"
             alt="github logo"
         /></a>
-        <input
-          *ngIf="editLinks"
-          [(ngModel)]="user.githubUrl"
-          class="urlInputs"
-        />
         <a [href]="user.linkedInUrl" target="_blank" class="socialLink"
           ><img
-            *ngIf="!editLinks"
             class="socialIcon"
             src="/assets/logos/linkedin.png"
             alt="linkedin logo"
         /></a>
-        <input
-          *ngIf="editLinks"
-          [(ngModel)]="user.linkedInUrl"
-          class="urlInputs"
-        />
+      </div>
+      <div *ngIf="editLinks" class="social rowContainer">
+        <input [(ngModel)]="user.githubUrl" class="urlInputs" />
+        <input [(ngModel)]="user.linkedInUrl" class="urlInputs" />
       </div>
       <button
         id="modalButton"
         class="loginButton"
-        (click)="toggleLogin($event)"
+        (click)="!loggedIn ? toggleShowLoginModal($event) : logout()"
         (click)="pressLoginButton(false)"
         [@goDown]="loginButtonState"
         (@goDown.done)="pressLoginButton(true)"
       >
-        Login
+        {{ !loggedIn ? "Log in" : "Log out" }}
       </button>
     </div>
   </nav>

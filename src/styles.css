@@ -21,6 +21,12 @@ body::-webkit-scrollbar {
 button {
   border: none;
 }
+.button {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 2px;
+}
 .darkFont {
   color: rgb(43, 43, 43);
 }

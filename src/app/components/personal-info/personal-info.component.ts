@@ -7,6 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { AuthService } from 'src/app/service/auth/auth.service';
 import { tech, TechsService } from 'src/app/service/techs/techs.service';
 
 @Component({
@@ -26,8 +27,17 @@ export class PersonalInfoComponent implements OnInit {
   showNewForm = false;
   screenHeight: number = 0;
   screenWidth: number = 0;
-  constructor(private techService: TechsService) {
+  constructor(
+    private techService: TechsService,
+    private authService: AuthService
+  ) {
     this.onResize();
+    authService.isLoggedListener().subscribe((isLogged) => {
+      this.loggedIn = isLogged;
+      this.showForm = [];
+      this.showNewForm = false;
+      this.editAboutMe = false;
+    });
   }
 
   ngOnInit(): void {
@@ -40,8 +50,8 @@ export class PersonalInfoComponent implements OnInit {
     this.techs.push(newTech);
     this.techs.sort((a, b) => a.name.localeCompare(b.name));
   }
-  saveTech(newTech: { newTech: tech; index: number }) {
-    this.techs[newTech.index] = newTech.newTech;
+  saveTech(newTech: tech, i: number) {
+    this.techs[i] = newTech;
   }
   deleteTech(i: number) {
     this.techService

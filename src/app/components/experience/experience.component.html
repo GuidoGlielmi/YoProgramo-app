@@ -11,7 +11,6 @@
     Experiences
   </p>
   <app-close-and-edit
-    *ngIf="loggedIn"
     class="closeAndEdit"
     (onEdit)="showForm[i] = !showForm[i]"
     (onDelete)="deleteExperience(i)"
@@ -30,9 +29,8 @@
   </app-experience-item>
   <app-experience-form
     *ngIf="showForm[i]"
-    (onSaveExperience)="saveExperience($event)"
+    (onSaveExperience)="saveExperience($event, i)"
     [experience]="e"
-    [index]="i"
   ></app-experience-form>
   <div *ngIf="i === experiences.length - 1" class="newExperienceContainer">
     <app-experience-form
@@ -40,7 +38,11 @@
       [isNewExperienceItem]="true"
       (onAddExperience)="addExperience($event)"
     ></app-experience-form>
-    <button (click)="showNewForm = !showNewForm" class="addExperience">
+    <button
+      *ngIf="loggedIn"
+      (click)="showNewForm = !showNewForm"
+      class="addExperience"
+    >
       Add experience
     </button>
   </div>

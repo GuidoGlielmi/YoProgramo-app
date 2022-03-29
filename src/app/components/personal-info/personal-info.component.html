@@ -2,7 +2,6 @@
   <p class="aboutMeTitle darkFont fontLarge">I'm a web developer</p>
   <div class="aboutMeContainer">
     <app-close-and-edit
-      *ngIf="loggedIn"
       class="closeAndEdit"
       (onEdit)="editAboutMe = !editAboutMe"
     ></app-close-and-edit>
@@ -13,7 +12,7 @@
       {{ aboutMe }}
     </p>
     <textarea
-      *ngIf="loggedIn && editAboutMe"
+      *ngIf="editAboutMe"
       [(ngModel)]="aboutMe"
       (change)="onAboutMeChange.emit(aboutMe)"
       class="descriptionInput"
@@ -47,24 +46,41 @@
           [alt]="tech.name.toString() + ' logo'"
         />
         <app-techs-form
-          *ngIf="showForm[i] && loggedIn"
-          (onSaveTech)="saveTech($event)"
+          *ngIf="showForm[i]"
+          (onSaveTech)="saveTech($event, i)"
           [tech]="tech"
-          [index]="i"
         ></app-techs-form>
       </div>
     </div>
-    <div *ngIf="!loggedIn" class="extraTechs">
+    <div
+      *ngFor="let tech of techs; let i = index"
+      class="extraTechs"
+      [class]="i === techs.length - 1 ? 'listEnd' : ''"
+    >
       <div
-        *ngFor="let tech of techs; let i = index"
-        class="techImageContainer"
-        [class]="i === techs.length - 1 ? 'listEnd' : ''"
+        [ngClass]="{
+          techImageContainer: !loggedIn,
+          techFormContainer: loggedIn,
+          listEnd: i === techs.length - 1
+        }"
       >
+        <app-close-and-edit
+          *ngIf="loggedIn"
+          class="closeAndEdit"
+          (onEdit)="showForm[i] = !showForm[i]"
+          (onDelete)="deleteTech(i)"
+        ></app-close-and-edit>
         <img
+          *ngIf="!showForm[i]"
           [src]="tech.techImg"
-          class="techImage"
-          [alt]="tech.name.toString() + 'logo'"
+          [class]="loggedIn ? 'techImageLogged' : 'techImage'"
+          [alt]="tech.name.toString() + ' logo'"
         />
+        <app-techs-form
+          *ngIf="showForm[i]"
+          (onSaveTech)="saveTech($event, i)"
+          [tech]="tech"
+        ></app-techs-form>
       </div>
     </div>
   </div>
@@ -74,9 +90,12 @@
       (onAddTech)="addTech($event)"
       [isNewTechItem]="true"
     ></app-techs-form>
-    <button (click)="showNewForm = !showNewForm" class="button">
+    <button
+      *ngIf="loggedIn"
+      (click)="showNewForm = !showNewForm"
+      class="button"
+    >
       Add tech
     </button>
   </div>
-  <button (click)="loggedIn = !loggedIn" class="button">Log in</button>
 </div>

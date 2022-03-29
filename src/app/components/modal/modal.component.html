@@ -1,13 +1,44 @@
 <div class="modal">
   <div class="title"><p>Login</p></div>
-  <form class="inputs">
+  <form [formGroup]="credentials" class="inputs">
     <div class="input">
       <label for="user">Account </label
-      ><input type="text" name="user" id=" user" />
+      ><input
+        formControlName="username"
+        type="text"
+        name="user"
+        id=" user"
+        [ngClass]="{
+          inputError: username?.errors && username?.touched && !usernameClicked
+        }"
+        (focus)="usernameClicked = true"
+        (blur)="usernameClicked = false"
+      />
+      <span
+        *ngIf="username?.errors && username?.touched && !usernameClicked"
+        class="errorSpan"
+        >Required</span
+      >
     </div>
     <div class="input">
       <label for="password">Password </label
-      ><input type="password" name="password" id=" password" />
+      ><input
+        formControlName="password"
+        type="password"
+        name="password"
+        id=" password"
+        [ngClass]="{
+          inputError: password?.errors && password?.touched && !passwordClicked
+        }"
+        (focus)="passwordClicked = true"
+        (blur)="passwordClicked = false"
+      />
+      <span
+        *ngIf="password?.errors && password?.touched && !passwordClicked"
+        class="errorSpan"
+        >Required</span
+      >
     </div>
+    <button class="button logInButton" (click)="logIn()">Log in</button>
   </form>
 </div>

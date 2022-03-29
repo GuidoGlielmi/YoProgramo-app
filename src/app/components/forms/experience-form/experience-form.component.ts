@@ -20,8 +20,6 @@ export class ExperienceFormComponent implements OnInit {
     certificate: '',
     experienceImg: '',
   };
-  @Input()
-  index!: number;
   @Input() isNewExperienceItem = false;
   @Output() onAddExperience = new EventEmitter<any>();
   @Output() onSaveExperience = new EventEmitter<any>();
@@ -58,10 +56,7 @@ export class ExperienceFormComponent implements OnInit {
     this.experienceService
       .putExperience(this.newExperience.value)
       .subscribe(() => {
-        this.onSaveExperience.emit({
-          newExperience: this.newExperience.value,
-          index: this.index,
-        });
+        this.onSaveExperience.emit(this.newExperience.value);
       });
   }
   ngOnInit(): void {

@@ -15,8 +15,6 @@ export class SkillsFormComponent implements OnInit {
     abilityPercentage: 0,
     type: '',
   };
-  @Input()
-  index!: number;
   @Input() isNewSkillItem = false;
   @Input() skillTypes: string[] = [];
   @Output() onAddSkill = new EventEmitter<any>();
@@ -37,10 +35,7 @@ export class SkillsFormComponent implements OnInit {
   }
   saveSkill() {
     this.skillService.putSkill(this.newSkill.value).subscribe(() => {
-      this.onSaveSkill.emit({
-        skillOrLanguage: this.newSkill.value,
-        i: this.index,
-      });
+      this.onSaveSkill.emit(this.newSkill.value);
     });
   }
   ngOnInit(): void {

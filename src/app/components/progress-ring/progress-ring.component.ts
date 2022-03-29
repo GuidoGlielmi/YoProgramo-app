@@ -5,7 +5,6 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
   styleUrls: ['./progress-ring.component.css'],
 })
 export class ProgressRingComponent implements OnInit {
-  loggedIn: boolean = true;
   @Input() color = 'rgb(90, 136, 126)';
   @Input() percentage = 100;
   @Input() radius = 7;

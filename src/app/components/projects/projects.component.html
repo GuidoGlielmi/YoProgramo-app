@@ -2,7 +2,6 @@
 <div class="columnContainer projects">
   <div *ngFor="let p of projects; let i = index">
     <app-close-and-edit
-      *ngIf="loggedIn"
       class="closeAndEdit"
       (onEdit)="showForm[i] = !showForm[i]"
       (onDelete)="deleteProject(i)"
@@ -17,8 +16,7 @@
     </app-project-item>
     <app-projects-form
       *ngIf="showForm[i]"
-      (onSaveProject)="addProject($event)"
-      [index]="i"
+      (onSaveProject)="saveProject($event, i)"
       [project]="p"
       class="projectItem rowContainer"
       [class]="i % 2 === 0 ? 'projectItemLeft' : 'projectItemRight'"
@@ -31,8 +29,8 @@
     (onAddProject)="addProject($event)"
   ></app-projects-form>
   <button
-    (click)="showNewForm = !showNewForm"
     *ngIf="loggedIn"
+    (click)="showNewForm = !showNewForm"
     class="addProject"
   >
     Add project

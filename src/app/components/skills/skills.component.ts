@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth/auth.service';
 import { skills, SkillsService } from 'src/app/service/skills/skills.service';
 
 @Component({
@@ -13,7 +14,16 @@ export class SkillsComponent implements OnInit {
   loggedIn = true;
   showNewForm = false;
   showForm: boolean[] = [];
-  constructor(private skillService: SkillsService) {}
+  constructor(
+    private skillService: SkillsService,
+    private authService: AuthService
+  ) {
+    authService.isLoggedListener().subscribe((isLogged) => {
+      this.loggedIn = isLogged;
+      this.showForm = [];
+      this.showNewForm = false;
+    });
+  }
 
   ngOnInit(): void {
     this.skillService.getSkills().subscribe((skills: skills[]) => {
@@ -29,9 +39,9 @@ export class SkillsComponent implements OnInit {
     this.skillsAndLanguages.push(skillOrLanguage);
     this.skillsAndLanguages.sort((a, b) => a.name.localeCompare(b.name));
   }
-  saveSkillOrLanguage(newItem: { skillOrLanguage: skills; i: number }) {
-    // it has to have the same property names as the emitted object
-    this.skillsAndLanguages[newItem.i] = newItem.skillOrLanguage;
+  saveSkillOrLanguage(skillOrLanguage: skills, i: number) {
+    // it has to have the same property names as the emitted object in the html
+    this.skillsAndLanguages[i] = skillOrLanguage;
   }
   deleteSkillOrLanguage(i: number) {
     this.skillService

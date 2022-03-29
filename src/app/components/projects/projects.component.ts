@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth/auth.service';
 import {
   project,
   ProjectsService,
@@ -14,7 +15,16 @@ export class ProjectsComponent implements OnInit {
   loggedIn = true;
   showNewForm = false;
   showForm: boolean[] = [];
-  constructor(private projectService: ProjectsService) {
+  constructor(
+    private projectService: ProjectsService,
+    private authService: AuthService
+  ) {
+    authService.isLoggedListener().subscribe((isLogged) => {
+      this.loggedIn = isLogged;
+      this.showForm = [];
+      this.showNewForm = false;
+      this.showNewForm = false;
+    });
     this.projectService.getProjects().subscribe((projects: any[]) => {
       this.projects = projects;
     });
@@ -24,8 +34,8 @@ export class ProjectsComponent implements OnInit {
     this.projects.push(newProject);
     this.projects.sort((a, b) => a.title.localeCompare(b.title));
   }
-  saveProject(newProject: { newProject: project; index: number }) {
-    this.projects[newProject.index] = newProject.newProject;
+  saveProject(newProject: project, i: number) {
+    this.projects[i] = newProject;
   }
   deleteProject(index: number) {
     this.projectService
