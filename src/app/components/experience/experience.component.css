@@ -2,7 +2,7 @@
   min-height: 80vh !important;
   padding: 15vh 10vw 0 !important;
   background-image: linear-gradient(
-    188deg,
+    185deg,
     rgba(228, 228, 228, 0.1) 75%,
     rgba(34, 0, 62, 0.8) 75.2%
   ) !important;
@@ -16,7 +16,7 @@
   width: 100%;
   padding: 0 10vw 0;
   background-image: linear-gradient(
-    188deg,
+    185deg,
     rgba(228, 228, 228, 0.1) 70%,
     rgba(34, 0, 62, 0.8) 70.2%
   );
@@ -33,7 +33,7 @@
   width: 100%;
   padding: 0 10vw 0;
   background-image: linear-gradient(
-    172deg,
+    175deg,
     rgba(34, 0, 62, 0.8) 70%,
     rgba(228, 228, 228, 0.1) 70.2%
   );
