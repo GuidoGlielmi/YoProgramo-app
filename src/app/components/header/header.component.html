@@ -7,7 +7,7 @@
         (onEdit)="editUser = !editUser"
       ></app-close-and-edit>
       <div *ngIf="!editUser" class="userInfo">
-        <ng-container *ngIf="!profileImgSrc"
+        <ng-container *ngIf="profileImgSrc"
           ><img
             id="myself"
             class="profileImg"
@@ -20,7 +20,7 @@
         >
         <app-loading-icon
           class="loadingIcon"
-          *ngIf="profileImgSrc"
+          *ngIf="!profileImgSrc"
         ></app-loading-icon>
       </div>
       <div *ngIf="editUser" class="imgInputContainer">
