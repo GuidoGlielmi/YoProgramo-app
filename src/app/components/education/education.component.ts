@@ -29,7 +29,7 @@ export class EducationComponent implements OnInit {
   ngOnInit(): void {
     // instanciating EducationService
     this.educationService.getEducation().subscribe((education: education[]) => {
-      //this.isLoading = false;
+      this.isLoading = false;
       this.education = education;
     });
   }
