@@ -9,23 +9,25 @@ import { responseObject } from '../responses/response.service';
 export class SkillsService {
   constructor(private http: HttpClient) {}
   getSkills(): Observable<skills[]> {
-    return this.http.get<skills[]>('http://localhost:8080/skills');
+    return this.http.get<skills[]>(
+      'https://yoprogramo-server.herokuapp.com/skills'
+    );
   }
   postSkill(newSkill: skills): Observable<responseObject> {
     return this.http.post<responseObject>(
-      'http://localhost:8080/skills',
+      'https://yoprogramo-server.herokuapp.com/skills',
       newSkill
     );
   }
   putSkill(newSkill: skills): Observable<responseObject> {
     return this.http.put<responseObject>(
-      'http://localhost:8080/skills',
+      'https://yoprogramo-server.herokuapp.com/skills',
       newSkill
     );
   }
   deleteSkill(skillId: string): Observable<responseObject> {
     return this.http.delete<responseObject>(
-      `http://localhost:8080/skills/${skillId}`
+      `https://yoprogramo-server.herokuapp.com/skills/${skillId}`
     );
   }
 }

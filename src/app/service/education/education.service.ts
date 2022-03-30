@@ -9,24 +9,26 @@ import { responseObject } from '../responses/response.service';
 export class EducationService {
   constructor(private http: HttpClient) {}
   getEducation(): Observable<education[]> {
-    return this.http.get<education[]>('http://localhost:8080/education');
+    return this.http.get<education[]>(
+      'https://yoprogramo-server.herokuapp.com/education'
+    );
   }
   addEducation(education: education): Observable<responseObject> {
     return this.http.post<responseObject>(
-      'http://localhost:8080/education',
+      'https://yoprogramo-server.herokuapp.com/education',
       education
     );
   }
   putEducation(education: education): Observable<responseObject> {
     return this.http.put<responseObject>(
-      'http://localhost:8080/education',
+      'https://yoprogramo-server.herokuapp.com/education',
       education
     );
   }
 
   deleteEducation(educationId: string): Observable<responseObject> {
     return this.http.delete<responseObject>(
-      `http://localhost:8080/education/${educationId}`
+      `https://yoprogramo-server.herokuapp.com/education/${educationId}`
     );
   }
 }

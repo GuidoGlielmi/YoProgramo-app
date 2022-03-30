@@ -10,34 +10,36 @@ import { tech } from '../techs/techs.service';
 export class ProjectsService {
   constructor(private http: HttpClient) {}
   getProjects(): Observable<project[]> {
-    return this.http.get<project[]>('http://localhost:8080/projects');
+    return this.http.get<project[]>(
+      'https://yoprogramo-server.herokuapp.com/projects'
+    );
   }
   addProject(project: project): Observable<responseObject> {
     return this.http.post<responseObject>(
-      'http://localhost:8080/projects',
+      'https://yoprogramo-server.herokuapp.com/projects',
       project
     );
   }
   putProject(project: project): Observable<responseObject> {
     return this.http.put<responseObject>(
-      'http://localhost:8080/projects',
+      'https://yoprogramo-server.herokuapp.com/projects',
       project
     );
   }
   deleteProject(projectId: string): Observable<responseObject> {
     return this.http.delete<responseObject>(
-      `http://localhost:8080/projects/${projectId}`
+      `https://yoprogramo-server.herokuapp.com/projects/${projectId}`
     );
   }
   addUrlToProject(projectUrl: projectUrls): Observable<responseObject> {
     return this.http.post<responseObject>(
-      'http://localhost:8080/projects/url',
+      'https://yoprogramo-server.herokuapp.com/projects/url',
       projectUrl
     );
   }
   deleteUrlFromProject(urlId: string): Observable<responseObject> {
     return this.http.delete<responseObject>(
-      `http://localhost:8080/projects/url/${urlId}`
+      `https://yoprogramo-server.herokuapp.com/projects/url/${urlId}`
     );
   }
   addTechToProject(
@@ -45,7 +47,7 @@ export class ProjectsService {
     projectId: string
   ): Observable<responseObject> {
     return this.http.post<responseObject>(
-      `http://localhost:8080/projects/${projectId}/tech/${techId}`,
+      `https://yoprogramo-server.herokuapp.com/projects/${projectId}/tech/${techId}`,
       ''
     );
   }
@@ -54,7 +56,7 @@ export class ProjectsService {
     projectId: string
   ): Observable<responseObject> {
     return this.http.delete<responseObject>(
-      `http://localhost:8080/projects/${projectId}/tech/${techId}`
+      `https://yoprogramo-server.herokuapp.com/projects/${projectId}/tech/${techId}`
     );
   }
 }

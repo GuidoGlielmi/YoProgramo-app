@@ -22,23 +22,25 @@ export class TechsService {
     return this.updatedTech.asObservable();
   }
   getTechs(): Observable<tech[]> {
-    return this.http.get<tech[]>('http://localhost:8080/techs');
+    return this.http.get<tech[]>(
+      'https://yoprogramo-server.herokuapp.com/techs'
+    );
   }
   postTech(newTech: tech): Observable<responseObject> {
     return this.http.post<responseObject>(
-      'http://localhost:8080/techs',
+      'https://yoprogramo-server.herokuapp.com/techs',
       newTech
     );
   }
   putTech(newTech: tech): Observable<responseObject> {
     return this.http.put<responseObject>(
-      'http://localhost:8080/techs',
+      'https://yoprogramo-server.herokuapp.com/techs',
       newTech
     );
   }
   deleteTech(techId: string): Observable<responseObject> {
     return this.http.delete<responseObject>(
-      `http://localhost:8080/techs/${techId}`
+      `https://yoprogramo-server.herokuapp.com/techs/${techId}`
     );
   }
 }

@@ -9,23 +9,25 @@ import { responseObject } from '../responses/response.service';
 export class ExperiencesService {
   constructor(private http: HttpClient) {}
   getExperiences(): Observable<experience[]> {
-    return this.http.get<experience[]>('http://localhost:8080/experiences');
+    return this.http.get<experience[]>(
+      'https://yoprogramo-server.herokuapp.com/experiences'
+    );
   }
   addExperience(experience: experience): Observable<responseObject> {
     return this.http.post<responseObject>(
-      'http://localhost:8080/experiences',
+      'https://yoprogramo-server.herokuapp.com/experiences',
       experience
     );
   }
   putExperience(experience: experience): Observable<responseObject> {
     return this.http.put<responseObject>(
-      'http://localhost:8080/experiences',
+      'https://yoprogramo-server.herokuapp.com/experiences',
       experience
     );
   }
   deleteExperience(experienceId: string): Observable<responseObject> {
     return this.http.delete<responseObject>(
-      `http://localhost:8080/experiences/${experienceId}`
+      `https://yoprogramo-server.herokuapp.com/experiences/${experienceId}`
     );
   }
 }
