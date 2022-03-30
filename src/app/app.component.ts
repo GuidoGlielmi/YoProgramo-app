@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
       }
     });
     this.userService.getUser().subscribe((user: user[]) => {
-      //this.isLoading = false;
+      this.isLoading = false;
       this.user = user[0];
     });
   }

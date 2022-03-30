@@ -28,7 +28,7 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.skillService.getSkills().subscribe((skills: skills[]) => {
-      //this.isLoading = false;
+      this.isLoading = false;
       this.skillsAndLanguages = skills;
       for (const skill of skills) {
         if (!this.skillTypes.includes(skill.type)) {

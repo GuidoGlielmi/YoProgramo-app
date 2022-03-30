@@ -43,7 +43,7 @@ export class PersonalInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.techService.getTechs().subscribe((techs: tech[]) => {
-      //this.isLoading = false;
+      this.isLoading = false;
       this.techs = techs;
       this.techService.updateTech(techs);
     });

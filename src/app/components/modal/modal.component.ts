@@ -29,7 +29,7 @@ export class ModalComponent implements OnInit {
     this.isLoading = true;
     this.authService.logIn(this.credentials.value).subscribe(() => {
       this.onSuccessfullLogIn.emit();
-      //this.isLoading = false;
+      this.isLoading = false;
     });
   }
   get username() {

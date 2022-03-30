@@ -43,7 +43,7 @@ export class ExperienceComponent implements OnInit {
     this.experienceService
       .getExperiences()
       .subscribe((experiences: experience[]) => {
-        //this.isLoading = false;
+        this.isLoading = false;
         this.experiences = experiences;
       });
   }

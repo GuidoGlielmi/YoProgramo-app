@@ -27,7 +27,7 @@ export class ProjectsComponent implements OnInit {
       this.showNewForm = false;
     });
     this.projectService.getProjects().subscribe((projects: any[]) => {
-      //this.isLoading = false;
+      this.isLoading = false;
       this.projects = projects;
     });
   }
