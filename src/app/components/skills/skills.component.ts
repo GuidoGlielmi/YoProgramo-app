@@ -14,6 +14,7 @@ export class SkillsComponent implements OnInit {
   loggedIn = true;
   showNewForm = false;
   showForm: boolean[] = [];
+  isLoading = true;
   constructor(
     private skillService: SkillsService,
     private authService: AuthService
@@ -27,6 +28,7 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.skillService.getSkills().subscribe((skills: skills[]) => {
+      //this.isLoading = false;
       this.skillsAndLanguages = skills;
       for (const skill of skills) {
         if (!this.skillTypes.includes(skill.type)) {

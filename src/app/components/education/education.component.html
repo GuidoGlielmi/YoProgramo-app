@@ -1,5 +1,5 @@
 <p class="title darkFont fontLarge">My education</p>
-<div class="columnContainer educations">
+<div *ngIf="!isLoading" class="columnContainer educations">
   <div
     *ngFor="let e of education; let i = index"
     class="educationContainer columnContainer"
@@ -41,3 +41,4 @@
     Add education
   </button>
 </div>
+<app-loading-icon *ngIf="isLoading"></app-loading-icon>

@@ -27,6 +27,7 @@ export class PersonalInfoComponent implements OnInit {
   showNewForm = false;
   screenHeight: number = 0;
   screenWidth: number = 0;
+  isLoading = true;
   constructor(
     private techService: TechsService,
     private authService: AuthService
@@ -42,6 +43,7 @@ export class PersonalInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.techService.getTechs().subscribe((techs: tech[]) => {
+      //this.isLoading = false;
       this.techs = techs;
       this.techService.updateTech(techs);
     });

@@ -30,6 +30,7 @@ import { FormComponent } from './components/form/form.component';
 import { ResponsesInterceptor } from './interceptors/responses.interceptor';
 import { TechsFormComponent } from './components/forms/techs-form/techs-form.component';
 import { SkillsFormComponent } from './components/forms/skills-form/skills-form.component';
+import { LoadingIconComponent } from './components/loading-icon/loading-icon.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { SkillsFormComponent } from './components/forms/skills-form/skills-form.
     ExperienceFormComponent,
     TechsFormComponent,
     SkillsFormComponent,
+    LoadingIconComponent,
   ],
   imports: [
     BrowserModule,

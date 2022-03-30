@@ -1,6 +1,6 @@
 <div class="personalInfo columnContainer">
   <p class="aboutMeTitle darkFont fontLarge">I'm a web developer</p>
-  <div class="aboutMeContainer">
+  <div *ngIf="!isLoading" class="aboutMeContainer">
     <app-close-and-edit
       class="closeAndEdit"
       (onEdit)="editAboutMe = !editAboutMe"
@@ -19,8 +19,9 @@
       >{{ aboutMe }}</textarea
     >
   </div>
+  <app-loading-icon class="loadingIcon" *ngIf="isLoading"></app-loading-icon>
 </div>
-<div id="tech" class="techContainer">
+<div *ngIf="!isLoading" id="tech" class="techContainer">
   <p class="techImagesTitle darkFont fontLarge">
     Some technologies I am familiar with
   </p>
@@ -99,3 +100,4 @@
     </button>
   </div>
 </div>
+<app-loading-icon class="loadingIcon" *ngIf="isLoading"></app-loading-icon>

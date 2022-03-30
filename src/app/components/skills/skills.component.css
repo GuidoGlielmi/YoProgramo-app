@@ -32,9 +32,10 @@
   content: "";
   position: absolute;
   right: 4vw;
+  top: -0;
   width: 91%;
+  padding-top: 2vh;
   border-top: 3px solid #363636;
-  top: -2vh;
 }
 .skillsContainer {
   flex-wrap: wrap;
@@ -55,6 +56,9 @@
   padding: 5px;
   margin: 5px;
   border-radius: 2px;
+}
+.loadingIcon {
+  margin: 2vw;
 }
 @media (max-width: 450px) {
   .title {

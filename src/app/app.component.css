@@ -151,6 +151,10 @@
 .dropDownBox {
   display: none;
 }
+.loadingIcon {
+  display: flex;
+  align-items: center;
+}
 
 @media (max-width: 850px) {
   .goDownLink {

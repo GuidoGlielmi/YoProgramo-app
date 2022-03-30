@@ -4,7 +4,6 @@ import {
   education,
   EducationService,
 } from 'src/app/service/education/education.service';
-import { ResponseService } from 'src/app/service/responses/response.service';
 
 @Component({
   selector: 'app-education',
@@ -16,6 +15,7 @@ export class EducationComponent implements OnInit {
   loggedIn = true;
   showForm: boolean[] = [];
   showNewForm = false;
+  isLoading = true;
   constructor(
     private educationService: EducationService,
     private authService: AuthService
@@ -29,6 +29,7 @@ export class EducationComponent implements OnInit {
   ngOnInit(): void {
     // instanciating EducationService
     this.educationService.getEducation().subscribe((education: education[]) => {
+      //this.isLoading = false;
       this.education = education;
     });
   }

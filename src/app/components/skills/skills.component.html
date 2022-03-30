@@ -1,5 +1,5 @@
 <p class="title fontLarge">Soft & Hard skills</p>
-<div class="skillsContainer rowContainer">
+<div *ngIf="!isLoading" class="skillsContainer rowContainer">
   <ng-container
     *ngFor="let skillOrLanguage of skillsAndLanguages; let i = index"
     class="marginMedium columnContainer"
@@ -27,8 +27,9 @@
     </div>
   </ng-container>
 </div>
+<app-loading-icon class="loadingIcon" *ngIf="isLoading"></app-loading-icon>
 <p id="languages" class="languages fontLarge">Languages</p>
-<div class="skillsContainer rowContainer">
+<div *ngIf="!isLoading" class="skillsContainer rowContainer">
   <ng-container
     *ngFor="let skillOrLanguage of skillsAndLanguages; let i = index"
     class="marginMedium columnContainer"
@@ -56,6 +57,7 @@
     </div>
   </ng-container>
 </div>
+<app-loading-icon class="loadingIcon" *ngIf="isLoading"></app-loading-icon>
 <app-skills-form
   *ngIf="showNewForm"
   [isNewSkillItem]="true"

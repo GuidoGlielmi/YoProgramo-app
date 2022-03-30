@@ -7,13 +7,21 @@
         (onEdit)="editUser = !editUser"
       ></app-close-and-edit>
       <div *ngIf="!editUser" class="userInfo">
-        <img
-          id="myself"
-          class="profileImg"
-          [src]="profileImgSrc"
-          alt="Profile image"
-        />
-        <span class="name darkFont">{{ firstName + " " + lastName }}</span>
+        <ng-container *ngIf="!profileImgSrc"
+          ><img
+            id="myself"
+            class="profileImg"
+            [src]="profileImgSrc"
+            alt="Profile image"
+          />
+          <span class="name darkFont">{{
+            firstName + " " + lastName
+          }}</span></ng-container
+        >
+        <app-loading-icon
+          class="loadingIcon"
+          *ngIf="profileImgSrc"
+        ></app-loading-icon>
       </div>
       <div *ngIf="editUser" class="imgInputContainer">
         <input

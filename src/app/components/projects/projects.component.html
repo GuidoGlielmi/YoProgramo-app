@@ -1,5 +1,5 @@
 <p class="title darkFont fontLarge">Projects i've worked on</p>
-<div class="columnContainer projects">
+<div *ngIf="!isLoading" class="columnContainer projects">
   <div *ngFor="let p of projects; let i = index">
     <app-close-and-edit
       class="closeAndEdit"
@@ -36,3 +36,4 @@
     Add project
   </button>
 </div>
+<app-loading-icon *ngIf="isLoading"></app-loading-icon>

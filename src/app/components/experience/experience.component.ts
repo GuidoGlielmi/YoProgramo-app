@@ -14,6 +14,7 @@ export class ExperienceComponent implements OnInit {
   showNewForm = false;
   loggedIn = true;
   showForm: boolean[] = [];
+  isLoading = true;
   constructor(
     private experienceService: ExperiencesService,
     private authService: AuthService
@@ -42,6 +43,7 @@ export class ExperienceComponent implements OnInit {
     this.experienceService
       .getExperiences()
       .subscribe((experiences: experience[]) => {
+        //this.isLoading = false;
         this.experiences = experiences;
       });
   }

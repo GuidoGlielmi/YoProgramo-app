@@ -59,7 +59,7 @@
         class="closeAndEdit"
         (onEdit)="editLinks = !editLinks"
       ></app-close-and-edit>
-      <div *ngIf="!editLinks" class="social rowContainer">
+      <div *ngIf="!editLinks && !isLoading" class="social rowContainer">
         <a [href]="user.githubUrl" target="_blank" class="socialLink"
           ><img
             class="socialIcon"
@@ -72,7 +72,15 @@
             src="/assets/logos/linkedin.png"
             alt="linkedin logo"
         /></a>
+        <app-loading-icon
+          class="loadingIcon"
+          *ngIf="isLoading"
+        ></app-loading-icon>
       </div>
+      <app-loading-icon
+        class="loadingIcon"
+        *ngIf="isLoading"
+      ></app-loading-icon>
       <div *ngIf="editLinks" class="social rowContainer">
         <input [(ngModel)]="user.githubUrl" class="urlInputs" />
         <input [(ngModel)]="user.linkedInUrl" class="urlInputs" />
@@ -90,7 +98,11 @@
     </div>
   </nav>
   <div class="dropDownBox">
-    <div [@hideSocialIcons]="socialState" class="socialOnCell">
+    <div
+      *ngIf="!isLoading"
+      [@hideSocialIcons]="socialState"
+      class="socialOnCell"
+    >
       <a
         href="https://github.com/GuidoGlielmi"
         target="_blank"
@@ -110,6 +122,7 @@
           alt="linkedin logo"
       /></a>
     </div>
+    <app-loading-icon class="loadingIcon" *ngIf="isLoading"></app-loading-icon>
     <div [@rotateSocialArrow]="socialState" (click)="showSocial()">
       <app-drop-down></app-drop-down>
     </div>

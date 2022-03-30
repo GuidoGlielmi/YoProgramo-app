@@ -108,6 +108,10 @@
   margin: 5px;
   border-radius: 2px;
 }
+.loadingIcon {
+  align-self: center;
+  margin: 50px;
+}
 @media (max-width: 850px) {
   .aboutMeTitle::before {
     left: -22%;

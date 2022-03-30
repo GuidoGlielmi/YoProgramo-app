@@ -11,6 +11,7 @@ export class ModalComponent implements OnInit {
   credentials: FormGroup;
   passwordClicked = false;
   usernameClicked = false;
+  isLoading = false;
   @Output() onSuccessfullLogIn = new EventEmitter<any>();
   constructor(
     private formBuilder: FormBuilder,
@@ -25,9 +26,11 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {}
 
   logIn() {
-    this.authService
-      .logIn(this.credentials.value)
-      .subscribe(() => this.onSuccessfullLogIn.emit());
+    this.isLoading = true;
+    this.authService.logIn(this.credentials.value).subscribe(() => {
+      this.onSuccessfullLogIn.emit();
+      //this.isLoading = false;
+    });
   }
   get username() {
     return this.credentials.get('username');

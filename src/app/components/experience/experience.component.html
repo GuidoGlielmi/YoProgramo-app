@@ -1,49 +1,54 @@
-<div
-  [ngClass]="{
-    firstRight: i === 0,
-    right: i % 2 === 0,
-    left: i % 2 !== 0,
-    increasedHeight: showForm[i]
-  }"
-  *ngFor="let e of experiences; let i = index"
->
-  <p *ngIf="i === 0" class="projectsImagesTitle darkFont fontLarge">
-    Experiences
-  </p>
-  <app-close-and-edit
-    class="closeAndEdit"
-    (onEdit)="showForm[i] = !showForm[i]"
-    (onDelete)="deleteExperience(i)"
-  ></app-close-and-edit>
-  <app-experience-item
-    *ngIf="!showForm[i]"
-    [index]="i"
-    [experience]="e"
-    class="experienceItem rowContainer"
+<ng-container *ngIf="!isLoading"
+  ><div
     [ngClass]="{
-      firstExperienceRight: i === 0,
-      experienceItemRight: i % 2 === 0,
-      experienceItemLeft: i % 2 !== 0
+      firstRight: i === 0,
+      right: i % 2 === 0,
+      left: i % 2 !== 0,
+      increasedHeight: showForm[i]
     }"
+    *ngFor="let e of experiences; let i = index"
   >
-  </app-experience-item>
-  <app-experience-form
-    *ngIf="showForm[i]"
-    (onSaveExperience)="saveExperience($event, i)"
-    [experience]="e"
-  ></app-experience-form>
-  <div *ngIf="i === experiences.length - 1" class="newExperienceContainer">
-    <app-experience-form
-      *ngIf="showNewForm"
-      [isNewExperienceItem]="true"
-      (onAddExperience)="addExperience($event)"
-    ></app-experience-form>
-    <button
-      *ngIf="loggedIn"
-      (click)="showNewForm = !showNewForm"
-      class="addExperience"
-    >
-      Add experience
-    </button>
+    <p *ngIf="i === 0" class="projectsImagesTitle darkFont fontLarge">
+      Experiences
+    </p>
+    <div *ngIf="!isLoading">
+      <app-close-and-edit
+        class="closeAndEdit"
+        (onEdit)="showForm[i] = !showForm[i]"
+        (onDelete)="deleteExperience(i)"
+      ></app-close-and-edit>
+      <app-experience-item
+        *ngIf="!showForm[i]"
+        [index]="i"
+        [experience]="e"
+        class="experienceItem rowContainer"
+        [ngClass]="{
+          firstExperienceRight: i === 0,
+          experienceItemRight: i % 2 === 0,
+          experienceItemLeft: i % 2 !== 0
+        }"
+      >
+      </app-experience-item>
+      <app-experience-form
+        *ngIf="showForm[i]"
+        (onSaveExperience)="saveExperience($event, i)"
+        [experience]="e"
+      ></app-experience-form>
+      <div *ngIf="i === experiences.length - 1" class="newExperienceContainer">
+        <app-experience-form
+          *ngIf="showNewForm"
+          [isNewExperienceItem]="true"
+          (onAddExperience)="addExperience($event)"
+        ></app-experience-form>
+        <button
+          *ngIf="loggedIn"
+          (click)="showNewForm = !showNewForm"
+          class="addExperience"
+        >
+          Add experience
+        </button>
+      </div>
+    </div>
+    <app-loading-icon *ngIf="isLoading"></app-loading-icon>
   </div>
-</div>
+</ng-container>

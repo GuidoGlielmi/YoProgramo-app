@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   @Output() onProfileImgChange = new EventEmitter();
   @Output() onNameChange = new EventEmitter();
   editUser = false;
+  isLoading = true;
   constructor(private authService: AuthService) {
     authService.isLoggedListener().subscribe(() => (this.editUser = false));
   }
